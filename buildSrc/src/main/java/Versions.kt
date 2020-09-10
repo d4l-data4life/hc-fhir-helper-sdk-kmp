@@ -95,12 +95,12 @@ object Versions {
     /**
      * [hc-fhir-sdk-java](https://github.com/d4l-data4life/hc-fhir-sdk-java)
      */
-    const val fhir = "0.6.1"
+    const val fhir = "0.7.0"
 
     /**
      * [hc-util-sdk-kmp](https://github.com/d4l-data4life/hc-util-sdk-kmp)
      */
-    const val sdkUtil = "1.5.0"
+    const val sdkUtil = "1.6.0"
 
     // Date
     /**

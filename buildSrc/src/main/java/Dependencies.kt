@@ -77,10 +77,10 @@ object Libraries {
 
     // Data
     val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
-    val fhir = "com.github.d4l-data4life:mpp-fhir-sdk:${Versions.fhir}"
-    val sdkUtilAndroid = "com.github.d4l-data4life.mpp-util-sdk:util-android:${Versions.sdkUtil}"
-    val sdkUtilJvm = "com.github.d4l-data4life.mpp-util-sdk:util-jvm:${Versions.sdkUtil}"
-    val sdkUtilCommon = "com.github.d4l-data4life.mpp-util-sdk:util-metadata:${Versions.sdkUtil}"
+    val fhir = "care.data4life:hc-fhir-sdk-java:${Versions.fhir}"
+    val sdkUtilAndroid = "care.data4life.hc-util-sdk-kmp:util-android:${Versions.sdkUtil}"
+    val sdkUtilJvm = "care.data4life.hc-util-sdk-kmp:util-jvm:${Versions.sdkUtil}"
+    val sdkUtilCommon = "care.data4life.hc-util-sdk-kmp:util-metadata:${Versions.sdkUtil}"
 
     // Date
     val threeTenBP = "org.threeten:threetenbp:${Versions.threeTenBP}"
