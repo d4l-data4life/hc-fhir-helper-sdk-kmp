@@ -77,7 +77,7 @@ object Libraries {
 
     // Data
     val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
-    val fhir = "care.data4life:hc-fhir-sdk-java:${Versions.fhir}"
+    val fhir = "care.data4life.hc-fhir-sdk-java:hc-fhir-sdk-java:${Versions.fhir}"
     val sdkUtilAndroid = "care.data4life.hc-util-sdk-kmp:util-android:${Versions.sdkUtil}"
     val sdkUtilJvm = "care.data4life.hc-util-sdk-kmp:util-jvm:${Versions.sdkUtil}"
     val sdkUtilCommon = "care.data4life.hc-util-sdk-kmp:util-metadata:${Versions.sdkUtil}"
