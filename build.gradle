@@ -1,0 +1,48 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+        maven { url 'https://dl.bintray.com/jetbrains/kotlin-native-dependencies' }
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath GradlePlugins.android
+        classpath GradlePlugins.kotlin
+    }
+}
+
+repositories {
+    google()
+    jcenter()
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
+        maven { url "https://kotlin.bintray.com/kotlinx" }
+        maven {
+            url "https://maven.pkg.github.com/d4l-data4life/hc-util-sdk-kmp"
+            credentials {
+                username = project.findProperty("gpr.user") as String ?: System.getenv("PACKAGE_REGISTRY_USERNAME")
+                password = project.findProperty("gpr.key") as String ?: System.getenv("PACKAGE_REGISTRY_TOKEN")
+            }
+        }
+        maven {
+            url "https://maven.pkg.github.com/d4l-data4life/hc-fhir-sdk-java"
+            credentials {
+                username = project.findProperty("gpr.user") as String ?: System.getenv("PACKAGE_REGISTRY_USERNAME")
+                password = project.findProperty("gpr.key") as String ?: System.getenv("PACKAGE_REGISTRY_TOKEN")
+            }
+        }
+        maven { url "https://jitpack.io" }
+    }
+}
+
+wrapper {
+    gradleVersion = "5.1.1"
+    //noinspection UnnecessaryQualifiedReference
+    distributionType = Wrapper.DistributionType.ALL
+}

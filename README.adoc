@@ -1,0 +1,113 @@
+:library_version: 0.0.1
+:toc: macro
+:toclevels: 2
+:toc-title:
+ifdef::env-github[]
+:imagesdir: https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/blob/main/assets/images/
+:link-license: https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/blob/main/LICENSE
+:link-contribution: https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/blob/main/CONTRIBUTION.adoc
+:warning-caption: :warning:
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+endif::[]
+ifndef::env-github[]
+:icons: font
+:imagesdir: ./assets/images
+:link-license: ./LICENCE
+:link-contribution: ./CONTRIBUTION.adoc
+endif::[]
+
+++++
+<div align="center">
+    <!-- PROJECT LOGO -->
+    <p>
+        <a><img src="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/blob/main/assets/images/d4l-logo.svg" width="150"/></a>
+    </p>
+    <!-- PROJECT HEADER -->
+    <h1>FHIR Helper SDK</h1>
+    <p><!-- PROJECT DESCRIPTION -->
+        Provides builder and extension to create and interact with FHIR objects
+    </p>
+    <p><!-- PROJECT DOCUMENTATION -->
+        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp"><strong>Explore the docs »</strong></a>
+    </p>
+    <p><!-- PROJECT ISSUES/FEATURES -->
+        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/issues">Report Bug</a>
+        ·
+        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/issues">Request Feature</a>
+    </p>
+    <p><!-- PROJECT BADGES -->
+        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/actions">
+            <img src="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/workflows/D4L%20CI%20KMP/badge.svg" alt="Build Status"/>
+        </a>
+        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/blob/main/LICENSE">
+            <img src="https://img.shields.io/badge/license-PRIVATE-blue.svg"/>
+        </a>
+    </p>
+</div>
+++++
+
+[discrete]
+=== Table Of Contents
+toc::[]
+
+== Project setup
+As of now there is no shared common implementation due to the missing FHIR multiplatform SDK.
+Therefore the sources are basically 1:1 in `androidMain` and `jvmMain`.
+
+Due to currently limitations of the Kotlin Multiplatform project setup
+the tests of the specific platforms are extracted into separate modules.
+
+* fhir-helper – contains the main Kotlin Multiplatform code
+* android – module for testing of the android implementation with
+instrumentation tests
+* jvm – module for testing of the jvm implementation
+
+== Tests
+
+The `androidTest`'s in the `android`-module will only be run on the
+`Android P` phones due to `mockk` only being able to mock static classes
+on Android P and upwards.
+
+== Install Gradle
+
+Add the following maven repository url to your root build.gradle:
+
+Please take a look over at Github https://docs.github.com/en/packages/publishing-and-managing-packages/about-github-packages#about-tokens[aboout-github-packages#tokens] on how to generate your private token for accessing the Github Package Registry.
+Add `gpr.user = {your Github username}` and `gpr.key = {private github access token}` to your `gradle.properties`
+
+----
+allprojects {
+    repositories {
+        ...
+        maven {
+            url = URI("https://maven.pkg.github.com/d4l-data4life/hc-fhir-helper-sdk-kmp")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("PACKAGE_REGISTRY_USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("PACKAGE_REGISTRY_TOKEN")
+            }
+        }
+    }
+}
+
+----
+
+=== JVM
+
+Add following dependencies to your app build.gradle.
+
+----
+dependencies {
+    implementation "care.data4life.hc-fhir-helper-sdk-kmp:fhir-helper-jvm:$version"
+}
+----
+
+=== Android
+
+----
+dependencies {
+    implementation "care.d4l-data4life.hc-fhir-helper-sdk-kmp:fhir-helper-android:$version"
+}
+----

@@ -1,0 +1,126 @@
+plugins {
+    id 'kotlin-multiplatform'
+    id 'maven-publish'
+}
+
+group = LibraryConfig.group
+version = LibraryConfig.version
+
+apply from: 'android.gradle'
+
+kotlin {
+    android("android") {
+        publishLibraryVariants("release")
+    }
+    jvm("jvm")
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation Libraries.kotlinStdLibCommon
+                implementation Libraries.sdkUtilCommon
+            }
+        }
+        androidMain {
+            dependencies {
+            }
+        }
+        androidTest {
+            dependencies {
+                implementation Libraries.testKotlinMockkJvm
+
+                implementation Libraries.testJunit
+                implementation Libraries.testKotlin
+                implementation Libraries.testKotlinJunit
+                implementation Libraries.testMockitoCore
+                implementation Libraries.testMockito
+                implementation Libraries.testTruth
+                implementation Libraries.testJsonAssert
+            }
+        }
+        jvmMain {
+            dependencies {
+                implementation Libraries.kotlinStdLib
+                api Libraries.fhir
+                api Libraries.sdkUtilJvm
+            }
+        }
+
+        jvmTest {
+            dependencies {
+                implementation Libraries.fhir
+                implementation Libraries.sdkUtilJvm
+
+                implementation Libraries.testKotlinMockkJvm
+
+                implementation Libraries.testJunit
+                implementation Libraries.testKotlin
+                implementation Libraries.testKotlinJunit
+                implementation Libraries.testMockitoCore
+                implementation Libraries.testMockito
+                implementation Libraries.testTruth
+                implementation Libraries.testJsonAssert
+            }
+        }
+    }
+}
+// workaround for https://youtrack.jetbrains.com/issue/KT-27170
+configurations {
+    compileClasspath
+}
+repositories {
+    mavenCentral()
+}
+
+
+publishing {
+    repositories {
+        maven {
+            name = "GithubPackages"
+            url = uri("https://maven.pkg.github.com/d4l-data4life/hc-fhir-helper-sdk-kmp")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("PACKAGE_REGISTRY_USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("PACKAGE_REGISTRY_TOKEN")
+            }
+        }
+
+        publications.all { publication ->
+            publication.groupId = "$LibraryConfig.group.$LibraryConfig.artifactId"
+            publication.artifactId = "${LibraryConfig.artifactId}"
+            publication.version = "${LibraryConfig.version}"
+
+            if (publication.name == "androidRelease") {
+                publication.artifactId = "$project.name-android"
+            } else if (publication.name == "metadata") {
+                publication.artifactId = "$project.name-metadata"
+            } else if (publication.name == "jvm") {
+                publication.artifactId = "$project.name-jvm"
+            }
+            pom {
+                name = "${LibraryConfig.name}"
+                url = "${LibraryConfig.url}"
+                inceptionYear = "${LibraryConfig.year}"
+                licenses {
+                    license {
+                        name = "${LibraryConfig.licenseName}"
+                        url = "${LibraryConfig.licenseUrl}"
+                        distribution = "${LibraryConfig.licenseDistribution}"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "${LibraryConfig.developerId}"
+                        name = "${LibraryConfig.developerName}"
+                        email = "${LibraryConfig.developerEmail}"
+                    }
+                }
+
+                scm {
+                    connection = "${LibraryConfig.scmConnection}"
+                    developerConnection = "${LibraryConfig.scmDeveloperConnection}"
+                    url = "${LibraryConfig.scmUrl}"
+                }
+
+            }
+        }
+    }
+}
