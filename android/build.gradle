@@ -25,8 +25,8 @@ android {
         applicationId "care.data4life.android"
         minSdkVersion AndroidConfig.minSdkVersion
         targetSdkVersion AndroidConfig.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode LibraryConfig.versionCode
+        versionName LibraryConfig.versionName
 
         multiDexEnabled true
 
