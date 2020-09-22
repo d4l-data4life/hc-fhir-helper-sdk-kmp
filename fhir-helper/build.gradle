@@ -17,7 +17,6 @@ kotlin {
         commonMain {
             dependencies {
                 implementation Libraries.kotlinStdLibCommon
-                implementation Libraries.sdkUtilCommon
             }
         }
         androidMain {
@@ -94,6 +93,8 @@ publishing {
                 publication.artifactId = "$project.name-metadata"
             } else if (publication.name == "jvm") {
                 publication.artifactId = "$project.name-jvm"
+            } else if (publication.name == 'kotlinMultiplatform') {
+                publication.artifactId = "$project.name"
             }
             pom {
                 name = "${LibraryConfig.name}"
