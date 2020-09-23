@@ -15,7 +15,7 @@
  */
 
 object LibraryConfig {
-    const val version = "1.3.0"
+    const val version = "1.3.1"
     const val githubGroup = "care.data4life"
     const val group = githubGroup
     const val artifactId = "hc-fhir-helper-sdk-kmp"
@@ -41,6 +41,6 @@ object LibraryConfig {
 
     const val referenceSdkVersion = "0.1"
 
-    const val versionCode = 9
+    const val versionCode = 10
     const val versionName = version
 }
