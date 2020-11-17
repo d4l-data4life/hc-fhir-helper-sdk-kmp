@@ -7,6 +7,7 @@ buildscript {
         maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
+        implementation()
         classpath GradlePlugins.android
         classpath GradlePlugins.kotlin
     }
@@ -19,6 +20,9 @@ repositories {
 
 allprojects {
     repositories {
+        flatDir {
+            dirs("lib")
+        }
         google()
         jcenter()
         maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
@@ -30,14 +34,15 @@ allprojects {
                 password = project.findProperty("gpr.key") as String ?: System.getenv("PACKAGE_REGISTRY_TOKEN")
             }
         }
-        maven {
+        maven { url "https://jitpack.io" }
+ /*       maven {
             url "https://maven.pkg.github.com/d4l-data4life/hc-fhir-sdk-java"
             credentials {
                 username = project.findProperty("gpr.user") as String ?: System.getenv("PACKAGE_REGISTRY_USERNAME")
                 password = project.findProperty("gpr.key") as String ?: System.getenv("PACKAGE_REGISTRY_TOKEN")
             }
-        }
-        maven { url "https://jitpack.io" }
+        }*/
+
     }
 }
 
