@@ -44,7 +44,7 @@ class CarePlanExtensionTest {
         dummyMedication.contained = arrayListOf<Resource>()
         dummyMedication.contained?.add(dummySubstance)
         dummyMedRequest = MedicationRequest(
-            CodeSystems.MedicationRequestIntent.PLAN,
+            CodeSystemMedicationRequestIntent.PLAN,
             mockk(),
             mockk()
         )
@@ -94,8 +94,8 @@ class CarePlanExtensionTest {
         // given
         FhirHelperConfig.init(PARTNER_ID)
         val c = CarePlan(
-            CodeSystems.CarePlanIntent.PLAN,
-            CodeSystems.CarePlanStatus.ACTIVE,
+            CodeSystemCarePlanStatus.ACTIVE,
+            CodeSystemCarePlanIntent.PLAN,
             mockk()
         )
 
@@ -113,8 +113,8 @@ class CarePlanExtensionTest {
         // given
         FhirHelperConfig.init(PARTNER_ID)
         val c = CarePlan(
-            CodeSystems.CarePlanIntent.PLAN,
-            CodeSystems.CarePlanStatus.ACTIVE,
+            CodeSystemCarePlanStatus.ACTIVE,
+            CodeSystemCarePlanIntent.PLAN,
             mockk()
         )
         val newIds = Arrays.asList<String>(
@@ -138,8 +138,8 @@ class CarePlanExtensionTest {
     fun getAdditionalIds_shouldReturnIds() {
         // given
         val c = CarePlan(
-            CodeSystems.CarePlanIntent.PLAN,
-            CodeSystems.CarePlanStatus.ACTIVE,
+            CodeSystemCarePlanStatus.ACTIVE,
+            CodeSystemCarePlanIntent.PLAN,
             mockk()
         )
         FhirHelperConfig.init(PARTNER_ID)
@@ -161,8 +161,8 @@ class CarePlanExtensionTest {
     fun addAdditionalId_shouldThrow_whenCarePlanNotProvided() {
         FhirHelperConfig.init(null)
         val c = CarePlan(
-            CodeSystems.CarePlanIntent.PLAN,
-            CodeSystems.CarePlanStatus.ACTIVE,
+            CodeSystemCarePlanStatus.ACTIVE,
+            CodeSystemCarePlanIntent.PLAN,
             mockk()
         )
 
@@ -182,8 +182,8 @@ class CarePlanExtensionTest {
     fun addAdditionalId_shouldThrow_whenIdNotProvided() {
         // given
         val c = CarePlan(
-            CodeSystems.CarePlanIntent.PLAN,
-            CodeSystems.CarePlanStatus.ACTIVE,
+            CodeSystemCarePlanStatus.ACTIVE,
+            CodeSystemCarePlanIntent.PLAN,
             mockk()
         )
 

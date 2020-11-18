@@ -24,7 +24,7 @@ object DiagnosticReportBuilder {
     @JvmStatic
     fun buildWith(
             type: CodeableConcept,
-            status: CodeSystems.DiagnosticReportStatus,
+            status: CodeSystemDiagnosticReportStatus,
             laboratoryName: String,
             issued: FhirInstant,
             observations: List<Observation>): DiagnosticReport {
@@ -33,7 +33,7 @@ object DiagnosticReportBuilder {
         actor.display = laboratoryName
         val performer = DiagnosticReport.DiagnosticReportPerformer(actor)
 
-        val report = DiagnosticReport(type, status)
+        val report = DiagnosticReport(status, type)
         report.code = type
         report.issued = issued
         report.performer = mutableListOf(performer)

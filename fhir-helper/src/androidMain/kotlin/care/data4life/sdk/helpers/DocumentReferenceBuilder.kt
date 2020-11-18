@@ -29,7 +29,7 @@ object DocumentReferenceBuilder {
     fun buildWith(
         title: String,
         indexed: FhirInstant,
-        status: CodeSystems.DocumentReferenceStatus,
+        status: CodeSystemDocumentReferenceStatus,
         attachments: List<Attachment>,
         type: CodeableConcept,
         author: Practitioner,
@@ -51,7 +51,7 @@ object DocumentReferenceBuilder {
     fun buildWith(
         title: String,
         indexed: FhirInstant,
-        status: CodeSystems.DocumentReferenceStatus,
+        status: CodeSystemDocumentReferenceStatus,
         attachments: List<Attachment>,
         type: CodeableConcept,
         author: Organization,
@@ -73,7 +73,7 @@ object DocumentReferenceBuilder {
     private fun <T : DomainResource> build(
         title: String,
         indexed: FhirInstant,
-        status: CodeSystems.DocumentReferenceStatus,
+        status: CodeSystemDocumentReferenceStatus,
         attachments: List<Attachment>,
         type: CodeableConcept,
         author: T,
@@ -98,7 +98,7 @@ object DocumentReferenceBuilder {
         }
 
         val content = attachments.map { DocumentReference.DocumentReferenceContent(it) }
-        val document = DocumentReference(content, indexed, status, type)
+        val document = DocumentReference(status, type, indexed, content)
         if (author.id.isNullOrEmpty()) author.id = StringUtils.randomUUID()
         document.author = mutableListOf(FhirHelpers.contain(document, author))
         document.description = title

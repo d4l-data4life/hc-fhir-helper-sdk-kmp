@@ -22,7 +22,7 @@ import care.data4life.fhir.stu3.model.*
 
 fun Observation.getObservationType(): CodeableConcept? = code
 
-fun Observation.getStatus(): CodeSystems.ObservationStatus? = status
+fun Observation.getStatus(): CodeSystemObservationStatus? = status
 
 fun Observation.getIssuedDate(): FhirInstant? = issued
 

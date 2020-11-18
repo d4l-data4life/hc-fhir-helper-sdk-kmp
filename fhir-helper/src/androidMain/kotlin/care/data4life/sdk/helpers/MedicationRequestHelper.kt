@@ -45,7 +45,7 @@ object MedicationRequestHelper {
         patientReference.reference = "#" + patient.id!!
 
         val medicationRequest = MedicationRequest(
-            CodeSystems.MedicationRequestIntent.PLAN,
+            CodeSystemMedicationRequestIntent.PLAN,
             medicationReference,
             patientReference
         )

@@ -18,9 +18,7 @@
 
 package care.data4life.sdk.helpers
 
-import care.data4life.fhir.stu3.model.CodeSystems
-import care.data4life.fhir.stu3.model.Identifier
-import care.data4life.fhir.stu3.model.Practitioner
+import care.data4life.fhir.stu3.model.*
 
 fun Practitioner.getFirstName(): String? {
     return name?.get(0)?.given?.get(0)
@@ -55,11 +53,11 @@ fun Practitioner.getCity(): String? {
 }
 
 fun Practitioner.getTelephone(): String? {
-    return telecom?.first { it?.system == CodeSystems.ContactPointSystem.PHONE }?.value
+    return telecom?.first { it?.system == CodeSystemContactPointSystem.PHONE }?.value
 }
 
 fun Practitioner.getWebsite(): String? {
-    return telecom?.first { it?.system == CodeSystems.ContactPointSystem.URL }?.value
+    return telecom?.first { it?.system == CodeSystemContactPointSystem.URL }?.value
 }
 
 fun Practitioner.addAdditionalId(id: String) {

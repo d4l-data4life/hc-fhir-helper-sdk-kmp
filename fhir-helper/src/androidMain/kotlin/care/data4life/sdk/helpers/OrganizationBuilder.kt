@@ -16,9 +16,7 @@
 
 package care.data4life.sdk.helpers
 
-import care.data4life.fhir.stu3.model.CodeSystems
-import care.data4life.fhir.stu3.model.CodeableConcept
-import care.data4life.fhir.stu3.model.Organization
+import care.data4life.fhir.stu3.model.*
 
 object OrganizationBuilder {
 
@@ -34,8 +32,8 @@ object OrganizationBuilder {
     ): Organization {
 
         val address = FhirHelpers.buildWith(street, postalCode, city)
-        val tel = FhirHelpers.buildWith(telephone, CodeSystems.ContactPointSystem.PHONE)
-        val web = FhirHelpers.buildWith(website, CodeSystems.ContactPointSystem.URL)
+        val tel = FhirHelpers.buildWith(telephone, CodeSystemContactPointSystem.PHONE)
+        val web = FhirHelpers.buildWith(website, CodeSystemContactPointSystem.URL)
 
         val organization = Organization()
         organization.name = name

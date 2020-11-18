@@ -18,10 +18,7 @@
 
 package care.data4life.sdk.helpers
 
-import care.data4life.fhir.stu3.model.CodeSystems
-import care.data4life.fhir.stu3.model.CodeableConcept
-import care.data4life.fhir.stu3.model.Identifier
-import care.data4life.fhir.stu3.model.Organization
+import care.data4life.fhir.stu3.model.*
 
 fun Organization.getType(): CodeableConcept? {
     return type?.first()
@@ -40,11 +37,11 @@ fun Organization.getCity(): String? {
 }
 
 fun Organization.getTelephone(): String? {
-    return telecom?.first { it?.system == CodeSystems.ContactPointSystem.PHONE }?.value
+    return telecom?.first { it?.system == CodeSystemContactPointSystem.PHONE }?.value
 }
 
 fun Organization.getWebsite(): String? {
-    return telecom?.first { it?.system == CodeSystems.ContactPointSystem.URL }?.value
+    return telecom?.first { it?.system == CodeSystemContactPointSystem.URL }?.value
 }
 
 fun Organization.addAdditionalId(id: String) {

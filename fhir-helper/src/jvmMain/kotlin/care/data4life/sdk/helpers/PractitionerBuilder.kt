@@ -72,14 +72,14 @@ object PractitionerBuilder {
         if (telephone != null || website != null) practitioner.telecom = mutableListOf()
         telephone?.let {
             val tel = ContactPoint().apply {
-                system = CodeSystems.ContactPointSystem.PHONE
+                system = CodeSystemContactPointSystem.PHONE
                 value = telephone
             }
             practitioner.telecom?.add(tel)
         }
         website?.let {
             val web = ContactPoint().apply {
-                system = CodeSystems.ContactPointSystem.URL
+                system = CodeSystemContactPointSystem.URL
                 value = website
             }
             practitioner.telecom?.add(web)

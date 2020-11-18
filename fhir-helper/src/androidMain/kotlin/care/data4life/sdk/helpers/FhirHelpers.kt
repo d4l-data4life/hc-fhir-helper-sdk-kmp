@@ -40,7 +40,7 @@ object FhirHelpers {
     }
 
     @JvmStatic
-    fun buildWith(value: String?, system: CodeSystems.ContactPointSystem?): ContactPoint {
+    fun buildWith(value: String?, system: CodeSystemContactPointSystem?): ContactPoint {
         Preconditions.checkArgument(!StringUtils.isNullOrEmpty(value), "value is required")
         Preconditions.checkArgument(system != null, "system is required")
         val contactPoint = ContactPoint()

@@ -26,7 +26,7 @@ class DiagnosticReportHelperTest {
     private val reportTypeCode = "GHP"
     private val reportTypeDisplay = "General Health Profile"
     private val reportTypeSystem = "http://acme.com/labs/reports"
-    private val reportStatus = CodeSystems.DiagnosticReportStatus.FINAL
+    private val reportStatus = CodeSystemDiagnosticReportStatus.FINAL
     private val laboratoryName = "Acme Laboratory, Inc"
     private val id = "id"
     private val startingCharacter = "#"
@@ -51,8 +51,8 @@ class DiagnosticReportHelperTest {
         reportCode.coding = mutableListOf(reportCoding)
 
         val issuedDate = FhirDateTimeParser.parseInstant("2013-04-03T15:30:10+01:00")
-        val observationA = Observation(CodeableConcept(), CodeSystems.ObservationStatus.FINAL)
-        val observationB = Observation(CodeableConcept(), CodeSystems.ObservationStatus.FINAL)
+        val observationA = Observation(CodeSystemObservationStatus.FINAL, CodeableConcept())
+        val observationB = Observation(CodeSystemObservationStatus.FINAL, CodeableConcept())
         observationB.id = id
 
         // When
@@ -84,7 +84,7 @@ class DiagnosticReportHelperTest {
     @Test
     fun addAdditionalIdShouldAddId() {
         // given
-        val d = DiagnosticReport(CodeableConcept(), CodeSystems.DiagnosticReportStatus.FINAL)
+        val d = DiagnosticReport(CodeSystemDiagnosticReportStatus.FINAL, CodeableConcept())
 
         // when
         d.addAdditionalId(ADDITIONAL_ID)
@@ -98,7 +98,7 @@ class DiagnosticReportHelperTest {
     @Test
     fun setAdditionalIdsShouldSetIds() {
         // given
-        val d = DiagnosticReport(CodeableConcept(), CodeSystems.DiagnosticReportStatus.FINAL)
+        val d = DiagnosticReport(CodeSystemDiagnosticReportStatus.FINAL, CodeableConcept())
         val newIds = listOf(ADDITIONAL_ID, ADDITIONAL_ID)
         d.addAdditionalId("oldId")
 
@@ -116,7 +116,7 @@ class DiagnosticReportHelperTest {
     @Test
     fun getAdditionalIdsShouldReturnIds() {
         // given
-        val d = DiagnosticReport(CodeableConcept(), CodeSystems.DiagnosticReportStatus.FINAL)
+        val d = DiagnosticReport(CodeSystemDiagnosticReportStatus.FINAL, CodeableConcept())
 
         d.addAdditionalId(ADDITIONAL_ID)
         FhirHelperConfig.init("newPartnerId")

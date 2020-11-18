@@ -65,7 +65,7 @@ class MedicationRequestHelperTest {
             )
 
         // Then
-        assertThat(medRequest.intent).isEqualTo(CodeSystems.MedicationRequestIntent.PLAN)
+        assertThat(medRequest.intent).isEqualTo(CodeSystemMedicationRequestIntent.PLAN)
         assertThat(medRequest.medicationReference!!.reference).isEqualTo("#$MEDICATION_ID")
         assertThat(medRequest.subject.reference).isEqualTo("#$PATIENT_ID")
         assertThat(medRequest.contained).contains(medication)
