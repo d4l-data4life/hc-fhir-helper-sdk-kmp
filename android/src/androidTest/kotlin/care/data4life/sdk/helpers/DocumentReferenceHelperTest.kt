@@ -29,7 +29,7 @@ import org.junit.Test
 class DocumentReferenceHelperTest {
     val title = "Physical"
     val indexed: FhirInstant = FhirDateTimeParser.parseInstant("2013-04-03T15:30:10+01:00")
-    val status = CodeSystems.DocumentReferenceStatus.CURRENT
+    val status = CodeSystemDocumentReferenceStatus.CURRENT
     val documentCode = "34108-1"
     val documentDisplay = "Outpatient Note"
     val documentSystem = "http://loinc.org"
