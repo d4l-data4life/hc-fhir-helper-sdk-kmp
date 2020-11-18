@@ -16,8 +16,8 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.model.*
-import care.data4life.fhir.stu3.model.Annotation
+import care.data4life.fhir.r4.model.*
+import care.data4life.fhir.r4.model.Annotation
 import care.data4life.fhir.util.Preconditions
 import care.data4life.sdk.util.StringUtils
 import java.util.*

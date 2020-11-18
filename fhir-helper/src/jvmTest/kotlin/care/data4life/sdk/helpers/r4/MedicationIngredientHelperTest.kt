@@ -16,7 +16,7 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.model.FhirDecimal
+import care.data4life.fhir.r4.model.FhirDecimal
 import care.data4life.sdk.util.StringUtils
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every

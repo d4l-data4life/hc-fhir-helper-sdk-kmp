@@ -17,8 +17,8 @@
 package care.data4life.sdk.helpers.r4
 
 import com.google.common.truth.Truth.assertThat
-import care.data4life.fhir.stu3.model.Medication
-import care.data4life.fhir.stu3.model.Substance
+import care.data4life.fhir.r4.model.Medication
+import care.data4life.fhir.r4.model.Substance
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic

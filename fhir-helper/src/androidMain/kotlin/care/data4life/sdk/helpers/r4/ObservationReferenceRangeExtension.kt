@@ -18,7 +18,7 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.model.Observation
+import care.data4life.fhir.r4.model.Observation
 
 fun Observation.ObservationReferenceRange.getLowValue(): Float? = low?.value?.decimal?.toFloat()
 

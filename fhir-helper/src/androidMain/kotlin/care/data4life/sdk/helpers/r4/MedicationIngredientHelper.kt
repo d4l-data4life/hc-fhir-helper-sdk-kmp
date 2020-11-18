@@ -16,10 +16,10 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.model.Medication
-import care.data4life.fhir.stu3.model.Ratio
-import care.data4life.fhir.stu3.model.Reference
-import care.data4life.fhir.stu3.model.Substance
+import care.data4life.fhir.r4.model.Medication
+import care.data4life.fhir.r4.model.Ratio
+import care.data4life.fhir.r4.model.Reference
+import care.data4life.fhir.r4.model.Substance
 import care.data4life.fhir.util.Preconditions
 import care.data4life.sdk.util.StringUtils
 

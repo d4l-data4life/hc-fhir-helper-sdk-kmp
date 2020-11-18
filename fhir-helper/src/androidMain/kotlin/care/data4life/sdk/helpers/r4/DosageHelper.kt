@@ -16,8 +16,8 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.model.Dosage
-import care.data4life.fhir.stu3.model.Timing
+import care.data4life.fhir.r4.model.Dosage
+import care.data4life.fhir.r4.model.Timing
 import care.data4life.fhir.util.Preconditions
 import care.data4life.sdk.util.StringUtils
 import java.util.*

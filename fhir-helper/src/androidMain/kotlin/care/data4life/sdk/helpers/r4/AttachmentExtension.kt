@@ -18,7 +18,7 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.model.Attachment
+import care.data4life.fhir.r4.model.Attachment
 import care.data4life.sdk.util.Base64
 
 fun Attachment.getData(): ByteArray? {

@@ -18,7 +18,7 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.model.*
+import care.data4life.fhir.r4.model.*
 
 fun Practitioner.getFirstName(): String? {
     return name?.get(0)?.given?.get(0)

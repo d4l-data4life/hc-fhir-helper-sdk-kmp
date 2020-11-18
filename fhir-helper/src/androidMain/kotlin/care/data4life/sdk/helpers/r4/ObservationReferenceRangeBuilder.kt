@@ -16,9 +16,9 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.model.CodeableConcept
-import care.data4life.fhir.stu3.model.Observation
-import care.data4life.fhir.stu3.model.Quantity
+import care.data4life.fhir.r4.model.CodeableConcept
+import care.data4life.fhir.r4.model.Observation
+import care.data4life.fhir.r4.model.Quantity
 
 object ObservationReferenceRangeBuilder {
 

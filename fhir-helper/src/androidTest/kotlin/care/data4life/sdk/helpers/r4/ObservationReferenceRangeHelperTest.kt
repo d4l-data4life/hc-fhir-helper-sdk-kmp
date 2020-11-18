@@ -17,10 +17,10 @@
 package care.data4life.sdk.helpers.r4
 
 import com.google.common.truth.Truth.assertThat
-import care.data4life.fhir.stu3.model.CodeableConcept
-import care.data4life.fhir.stu3.model.Coding
-import care.data4life.fhir.stu3.model.FhirDecimal
-import care.data4life.fhir.stu3.model.Quantity
+import care.data4life.fhir.r4.model.CodeableConcept
+import care.data4life.fhir.r4.model.Coding
+import care.data4life.fhir.r4.model.FhirDecimal
+import care.data4life.fhir.r4.model.Quantity
 import org.junit.Test
 import java.math.BigDecimal
 

@@ -18,9 +18,9 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.model.DiagnosticReport
-import care.data4life.fhir.stu3.model.Identifier
-import care.data4life.fhir.stu3.model.Observation
+import care.data4life.fhir.r4.model.DiagnosticReport
+import care.data4life.fhir.r4.model.Identifier
+import care.data4life.fhir.r4.model.Observation
 
 fun DiagnosticReport.getLaboratoryName(): String? {
     return performer?.first()?.actor?.display

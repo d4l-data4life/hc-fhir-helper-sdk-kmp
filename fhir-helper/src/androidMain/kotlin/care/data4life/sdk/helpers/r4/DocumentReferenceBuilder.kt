@@ -16,7 +16,7 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.model.*
+import care.data4life.fhir.r4.model.*
 import care.data4life.sdk.config.DataRestriction
 import care.data4life.sdk.config.DataRestrictionException
 import care.data4life.sdk.util.Base64

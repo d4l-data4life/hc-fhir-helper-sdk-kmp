@@ -18,7 +18,7 @@ package care.data4life.sdk.helpers.r4
 
 
 import com.google.common.truth.Truth.assertThat
-import care.data4life.fhir.stu3.model.Patient
+import care.data4life.fhir.r4.model.Patient
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test

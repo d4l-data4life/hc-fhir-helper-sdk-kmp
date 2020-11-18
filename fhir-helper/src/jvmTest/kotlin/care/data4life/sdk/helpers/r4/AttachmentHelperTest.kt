@@ -16,9 +16,9 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.util.FhirDateTimeParser
-import care.data4life.sdk.helpers.stu3.AttachmentBuilder
-import care.data4life.sdk.helpers.stu3.getData
+import care.data4life.fhir.r4.util.FhirDateTimeParser
+import care.data4life.sdk.helpers.r4.AttachmentBuilder
+import care.data4life.sdk.helpers.r4.getData
 import care.data4life.sdk.lang.D4LException
 import com.google.common.truth.Truth.assertThat
 import org.junit.Assert.fail

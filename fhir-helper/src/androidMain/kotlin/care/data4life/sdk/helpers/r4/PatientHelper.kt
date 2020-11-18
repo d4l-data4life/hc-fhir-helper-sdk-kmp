@@ -16,9 +16,9 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.model.HumanName
-import care.data4life.fhir.stu3.model.Identifier
-import care.data4life.fhir.stu3.model.Patient
+import care.data4life.fhir.r4.model.HumanName
+import care.data4life.fhir.r4.model.Identifier
+import care.data4life.fhir.r4.model.Patient
 import care.data4life.fhir.util.Preconditions
 import care.data4life.sdk.util.StringUtils
 import java.util.*
