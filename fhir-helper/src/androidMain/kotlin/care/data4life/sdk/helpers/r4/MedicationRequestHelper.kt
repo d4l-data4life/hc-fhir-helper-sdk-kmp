@@ -30,11 +30,13 @@ object MedicationRequestHelper {
         medication: Medication?,
         dosage: List<Dosage>?,
         note: String?,
-        reason: String?
+        reason: String?,
+        status: CodeSystemMedicationrequestStatus?
     ): MedicationRequest {
         Preconditions.checkArgument(patient != null, "patient is required")
         Preconditions.checkArgument(medication != null, "medication is required")
         Preconditions.checkArgument(dosage != null, "dosage is required")
+        Preconditions.checkArgument(status != null, "status is required")
 
         if (medication?.id == null) medication?.id = StringUtils.randomUUID()
         val medicationReference = Reference()
@@ -45,6 +47,7 @@ object MedicationRequestHelper {
         patientReference.reference = "#" + patient.id!!
 
         val medicationRequest = MedicationRequest(
+            status!!,
             CodeSystemMedicationRequestIntent.PLAN,
             medicationReference,
             patientReference
