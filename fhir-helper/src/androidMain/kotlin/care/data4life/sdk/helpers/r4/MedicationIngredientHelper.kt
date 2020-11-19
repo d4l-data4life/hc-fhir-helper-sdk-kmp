@@ -45,7 +45,7 @@ object MedicationIngredientHelper {
 
         val ratio = Ratio()
         ratio.numerator = FhirHelpers.buildWith(ingredientQuantity!!, ingredientUnit)
-        ingredient.amount = ratio
+        ingredient.strength = ratio
         return Pair(ingredient, substance)
     }
 
@@ -62,17 +62,17 @@ object MedicationIngredientHelper {
         val ingredientName = substance.code.coding!![0].display!!
         if (StringUtils.isNullOrEmpty(ingredientName)) return null
 
-        if (ingredient.amount == null)
+        if (ingredient.strength == null)
             return null
-        else if (ingredient.amount!!.numerator == null)
+        else if (ingredient.strength!!.numerator == null)
             return null
-        else if (ingredient.amount!!.numerator!!.value === null)
+        else if (ingredient.strength!!.numerator!!.value === null)
             return null
-        else if (ingredient.amount!!.numerator!!.unit == null)
+        else if (ingredient.strength!!.numerator!!.unit == null)
             return null
-        else if (ingredient.amount!!.numerator!!.value!!.decimal == null) return null
-        val quantity = ingredient.amount!!.numerator!!.value!!.decimal.toFloat()
-        val unit = ingredient.amount!!.numerator!!.unit!!
+        else if (ingredient.strength!!.numerator!!.value!!.decimal == null) return null
+        val quantity = ingredient.strength!!.numerator!!.value!!.decimal.toFloat()
+        val unit = ingredient.strength!!.numerator!!.unit!!
 
         return if (StringUtils.isNullOrEmpty(unit)) null else Triple(
             ingredientName,
