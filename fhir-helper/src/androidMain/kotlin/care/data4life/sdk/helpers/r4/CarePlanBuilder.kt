@@ -61,7 +61,7 @@ object CarePlanBuilder {
         val patientRef = FhirHelpers.contain(carePlan, patient)
         carePlan.subject = patientRef
         val practitionerRef = FhirHelpers.contain(carePlan, practitioner)
-        carePlan.author = mutableListOf(practitionerRef)
+        carePlan.author = practitionerRef
 
         return carePlan
     }
