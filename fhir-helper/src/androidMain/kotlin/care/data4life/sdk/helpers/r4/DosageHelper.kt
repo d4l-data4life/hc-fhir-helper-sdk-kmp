@@ -38,7 +38,10 @@ object DosageHelper {
 
         val dosage = Dosage()
         dosage.timing = timing
-        dosage.doseQuantity = FhirHelpers.buildWith(value, unit!!)
+
+        val doseAndRate = Dosage.DosageDoseAndRate()
+        doseAndRate.doseQuantity = FhirHelpers.buildWith(value, unit!!)
+        dosage.doseAndRate = mutableListOf(doseAndRate)
 
         return dosage
     }
@@ -59,18 +62,24 @@ object DosageHelper {
 
         val `when` = dosage.timing?.repeat?.`when`?.get(0) ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
 
-        if (dosage.doseQuantity == null)
+        val doseAndRate = dosage.doseAndRate
+        if (doseAndRate == null || doseAndRate.size != 1)
             return null
-        else if (dosage.doseQuantity?.value === null)
+
+        val doseQuantity = doseAndRate.get(0).doseQuantity
+
+        if (doseQuantity == null)
             return null
-        else if (dosage.doseQuantity?.value?.decimal == null)
+        else if (doseQuantity?.value === null)
             return null
-        else if (dosage.doseQuantity?.unit.isNullOrEmpty())
+        else if (doseQuantity?.value?.decimal == null)
             return null
-        else if (dosage.doseQuantity?.value?.decimal == null) return null
-        val value = dosage.doseQuantity?.value?.decimal?.toFloat()
+        else if (doseQuantity?.unit.isNullOrEmpty())
+            return null
+        else if (doseQuantity?.value?.decimal == null) return null
+        val value = doseQuantity?.value?.decimal?.toFloat()
             ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
-        val unit = dosage.doseQuantity?.unit ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
+        val unit = doseQuantity?.unit ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
 
         return Triple(value, unit, `when`)
     }
