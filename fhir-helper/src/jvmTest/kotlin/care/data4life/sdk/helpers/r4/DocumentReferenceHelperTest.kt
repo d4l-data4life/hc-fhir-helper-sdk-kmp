@@ -133,7 +133,7 @@ class DocumentReferenceHelperTest {
     @Test
     fun addAdditionalIdShouldAddId() {
         // given
-        val d = DocumentReference(mockk(), mockk(), mockk(), mockk())
+        val d = DocumentReference(mockk(), mockk())
 
         // when
         d.addAdditionalId(ADDITIONAL_ID)
@@ -147,7 +147,7 @@ class DocumentReferenceHelperTest {
     @Test
     fun setAdditionalIdsShouldSetIds() {
         // given
-        val d = DocumentReference(mockk(), mockk(), mockk(), mockk())
+        val d = DocumentReference(mockk(), mockk())
         val newIds = listOf(ADDITIONAL_ID, ADDITIONAL_ID)
         d.addAdditionalId("oldId")
 
@@ -165,7 +165,7 @@ class DocumentReferenceHelperTest {
     @Test
     fun setAdditionalIdsShouldReturnIds() {
         // given
-        val d = DocumentReference(mockk(), mockk(), mockk(), mockk())
+        val d = DocumentReference(mockk(), mockk())
         d.addAdditionalId(ADDITIONAL_ID)
         FhirHelperConfig.init("newPartnerId")
         d.addAdditionalId(ADDITIONAL_ID)

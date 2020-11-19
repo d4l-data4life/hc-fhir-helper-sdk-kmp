@@ -98,7 +98,8 @@ object DocumentReferenceBuilder {
         }
 
         val content = attachments.map { DocumentReference.DocumentReferenceContent(it) }
-        val document = DocumentReference(status, type, indexed, content)
+        val document = DocumentReference(status, content)
+        document.type = type
         if (author.id.isNullOrEmpty()) author.id = StringUtils.randomUUID()
         document.author = mutableListOf(FhirHelpers.contain(document, author))
         document.description = title
