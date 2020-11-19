@@ -23,7 +23,7 @@ import care.data4life.fhir.r4.model.Identifier
 import care.data4life.fhir.r4.model.Observation
 
 fun DiagnosticReport.getLaboratoryName(): String? {
-    return performer?.first()?.actor?.display
+    return performer?.first()?.display
 }
 
 fun DiagnosticReport.getObservations(): List<Observation>? {

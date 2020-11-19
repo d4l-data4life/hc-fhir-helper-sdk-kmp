@@ -31,12 +31,11 @@ object DiagnosticReportBuilder {
 
         val actor = Reference()
         actor.display = laboratoryName
-        val performer = DiagnosticReport.DiagnosticReportPerformer(actor)
 
         val report = DiagnosticReport(status, type)
         report.code = type
         report.issued = issued
-        report.performer = mutableListOf(performer)
+        report.performer = mutableListOf(actor)
         report.contained = mutableListOf()
 
         report.result = observations.map {
