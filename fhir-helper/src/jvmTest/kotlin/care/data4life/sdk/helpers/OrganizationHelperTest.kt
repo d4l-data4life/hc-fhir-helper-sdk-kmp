@@ -17,10 +17,7 @@
 package care.data4life.sdk.helpers
 
 import com.google.common.truth.Truth.assertThat
-import care.data4life.fhir.stu3.model.CodeSystems
-import care.data4life.fhir.stu3.model.CodeableConcept
-import care.data4life.fhir.stu3.model.Coding
-import care.data4life.fhir.stu3.model.Organization
+import care.data4life.fhir.stu3.model.*
 import io.mockk.unmockkAll
 import org.junit.After
 import org.junit.Test
@@ -72,9 +69,9 @@ class OrganizationHelperTest {
         assertThat(organization.address?.first()?.city).isEqualTo(city)
         assertThat(organization.telecom).hasSize(2)
         assertThat(organization.telecom?.first()?.value).isEqualTo(telephone)
-        assertThat(organization.telecom?.first()?.system).isEqualTo(CodeSystems.ContactPointSystem.PHONE)
+        assertThat(organization.telecom?.first()?.system).isEqualTo(CodeSystemContactPointSystem.PHONE)
         assertThat(organization.telecom?.get(1)?.value).isEqualTo(website)
-        assertThat(organization.telecom?.get(1)?.system).isEqualTo(CodeSystems.ContactPointSystem.URL)
+        assertThat(organization.telecom?.get(1)?.system).isEqualTo(CodeSystemContactPointSystem.URL)
         assertThat(organization.getType()).isEqualTo(type)
         assertThat(organization.getStreet()).isEqualTo(street)
         assertThat(organization.getPostalCode()).isEqualTo(postalCode)

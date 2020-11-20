@@ -17,8 +17,7 @@
 package care.data4life.sdk.helpers
 
 import com.google.common.truth.Truth.assertThat
-import care.data4life.fhir.stu3.model.CodeSystems
-import care.data4life.fhir.stu3.model.Practitioner
+import care.data4life.fhir.stu3.model.*
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test
@@ -87,9 +86,9 @@ class PractitionerHelperTest {
         assertThat(practitioner.address!![0].postalCode).isEqualTo(POSTAL_CODE)
         assertThat(practitioner.address!![0].city).isEqualTo(CITY)
         assertThat(practitioner.telecom).hasSize(2)
-        assertThat(practitioner.telecom!![0].system).isEqualTo(CodeSystems.ContactPointSystem.PHONE)
+        assertThat(practitioner.telecom!![0].system).isEqualTo(CodeSystemContactPointSystem.PHONE)
         assertThat(practitioner.telecom!![0].value).isEqualTo(TELEPHONE)
-        assertThat(practitioner.telecom!![1].system).isEqualTo(CodeSystems.ContactPointSystem.URL)
+        assertThat(practitioner.telecom!![1].system).isEqualTo(CodeSystemContactPointSystem.URL)
         assertThat(practitioner.telecom!![1].value).isEqualTo(WEBSITE)
     }
 

@@ -51,7 +51,7 @@ class CarePlanBuilderTest {
         dummyMedication.contained = arrayListOf<Resource>()
         dummyMedication.contained?.add(dummySubstance)
         dummyMedRequest = MedicationRequest(
-            CodeSystems.MedicationRequestIntent.PLAN,
+            CodeSystemMedicationRequestIntent.PLAN,
             mockk(),
             mockk()
         )
@@ -139,8 +139,8 @@ class CarePlanBuilderTest {
         assertThat(dummyPatient.id).isEqualTo(PATIENT_ID)
         assertThat(dummyPractitioner.id).isEqualTo(PRACTITIONER_ID)
         assertThat(dummyMedRequest.id).isEqualTo(MEDICATION_REQ_ID)
-        assertThat(carePlan.intent).isEqualTo(CodeSystems.CarePlanIntent.PLAN)
-        assertThat(carePlan.status).isEqualTo(CodeSystems.CarePlanStatus.ACTIVE)
+        assertThat(carePlan.intent).isEqualTo(CodeSystemCarePlanIntent.PLAN)
+        assertThat(carePlan.status).isEqualTo(CodeSystemCarePlanStatus.ACTIVE)
         assertThat(carePlan.activity).hasSize(1)
         assertThat(carePlan.activity!![0].reference).isEqualTo(dummyRef)
         assertThat(carePlan.subject).isEqualTo(dummyRef)
@@ -180,7 +180,7 @@ class CarePlanBuilderTest {
             Practitioner(),
             Arrays.asList(
                 MedicationRequest(
-                    CodeSystems.MedicationRequestIntent.PLAN,
+                    CodeSystemMedicationRequestIntent.PLAN,
                     mockk(),
                     mockk()
                 )
@@ -204,7 +204,7 @@ class CarePlanBuilderTest {
             dummyPractitioner,
             Arrays.asList(
                 MedicationRequest(
-                    CodeSystems.MedicationRequestIntent.PLAN,
+                    CodeSystemMedicationRequestIntent.PLAN,
                     mockk(),
                     mockk()
                 )
@@ -220,7 +220,7 @@ class CarePlanBuilderTest {
         // Given
         val MEDICATION_REQ_ID = "medicationReqId"
         val dummyMedRequest = MedicationRequest(
-            CodeSystems.MedicationRequestIntent.PLAN,
+            CodeSystemMedicationRequestIntent.PLAN,
             mockk(),
             mockk()
         )

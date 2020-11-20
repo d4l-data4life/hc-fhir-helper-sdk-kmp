@@ -16,10 +16,7 @@
 
 package care.data4life.sdk.helpers
 
-import care.data4life.fhir.stu3.model.CodeSystems
-import care.data4life.fhir.stu3.model.CodeableConcept
-import care.data4life.fhir.stu3.model.Coding
-import care.data4life.fhir.stu3.model.Observation
+import care.data4life.fhir.stu3.model.*
 import care.data4life.fhir.stu3.util.FhirDateTimeParser
 import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
@@ -37,7 +34,7 @@ class ObservationHelperTest {
     val observationTypeText = "Respiratory rate"
     val observationUnit = "breaths/minute"
     val observationValue = 26f
-    val observationStatus = CodeSystems.ObservationStatus.FINAL
+    val observationStatus = CodeSystemObservationStatus.FINAL
 
     val ADDITIONAL_ID = "id"
     val PARTNER_ID = "partner"

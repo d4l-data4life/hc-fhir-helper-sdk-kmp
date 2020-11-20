@@ -24,7 +24,7 @@ object ObservationBuilder {
     fun buildWith(
             type: CodeableConcept,
             value: Quantity,
-            status: CodeSystems.ObservationStatus,
+            status: CodeSystemObservationStatus,
             issuedDate: FhirInstant,
             effectiveDate: FhirDateTime?,
             category: CodeableConcept? = null,
@@ -46,7 +46,7 @@ object ObservationBuilder {
             type: CodeableConcept,
             observationValue: Float,
             observationUnit: String,
-            status: CodeSystems.ObservationStatus,
+            status: CodeSystemObservationStatus,
             issuedDate: FhirInstant,
             effectiveDate: FhirDateTime?,
             category: CodeableConcept? = null,
@@ -69,7 +69,7 @@ object ObservationBuilder {
             type: CodeableConcept,
             observationSampledData: SampledData,
             observationUnit: String,
-            status: CodeSystems.ObservationStatus,
+            status: CodeSystemObservationStatus,
             issuedDate: FhirInstant,
             effectiveDate: FhirDateTime?,
             category: CodeableConcept? = null,
@@ -91,7 +91,7 @@ object ObservationBuilder {
     fun buildWith(
             type: CodeableConcept,
             text: String,
-            status: CodeSystems.ObservationStatus,
+            status: CodeSystemObservationStatus,
             issuedDate: FhirInstant,
             effectiveDate: FhirDateTime?,
             category: CodeableConcept? = null,
@@ -110,7 +110,7 @@ object ObservationBuilder {
 
     private fun build(
             type: CodeableConcept,
-            status: CodeSystems.ObservationStatus,
+            status: CodeSystemObservationStatus,
             issuedDate: FhirInstant,
             effectiveDate: FhirDateTime?,
             observationValue: Float? = null,
@@ -121,7 +121,7 @@ object ObservationBuilder {
             category: CodeableConcept? = null,
             ranges: List<Observation.ObservationReferenceRange>? = null): Observation {
 
-        val observation = Observation(type, status)
+        val observation = Observation(status, type)
 
         if (value != null) observation.valueQuantity = value
         else if (observationValue != null && observationUnit != null) observation.valueQuantity =

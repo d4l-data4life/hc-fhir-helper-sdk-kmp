@@ -33,7 +33,7 @@ object CarePlanBuilder {
         if (practitioner.id == null) practitioner.id = StringUtils.randomUUID()
 
         val emptyReference = Reference()
-        val carePlan = CarePlan(CodeSystems.CarePlanIntent.PLAN, CodeSystems.CarePlanStatus.ACTIVE, emptyReference)
+        val carePlan = CarePlan(CodeSystemCarePlanStatus.ACTIVE, CodeSystemCarePlanIntent.PLAN, emptyReference)
 
         val containedResources = arrayListOf<Resource>()
         medications.forEach {
