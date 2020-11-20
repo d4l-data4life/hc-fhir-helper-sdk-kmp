@@ -16,18 +16,18 @@
 
 package care.data4life.sdk.helpers.r4
 
+import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.r4.model.*
 import care.data4life.sdk.util.StringUtils
-import com.google.common.truth.Truth.assertThat
 import io.mockk.every
-import io.mockk.mockkObject
-import io.mockk.unmockkAll
+import io.mockk.mockkStatic
 import io.mockk.unmockkStatic
-import org.junit.After
 import org.junit.Assert.fail
 import org.junit.Before
+import org.junit.After
 import org.junit.Test
 import java.util.*
+import io.mockk.unmockkAll
 
 class MedicationRequestHelperTest {
 
@@ -46,22 +46,24 @@ class MedicationRequestHelperTest {
     fun tearDown() {
         unmockkAll()
     }
-
     @Test
     fun buildWith_shouldReturnMedRequest_whenAllArgsProvided() {
         // Given
         val MEDICATION_ID = "medicationId"
         val PATIENT_ID = "patientId"
 
-        mockkObject(StringUtils)
+        mockkStatic(StringUtils::class)
         every { StringUtils.randomUUID() } returnsMany listOf(MEDICATION_ID, PATIENT_ID)
 
         // When
         val medRequest =
             MedicationRequestHelper.buildWith(
-                patient, medication!!, Arrays.asList<Dosage>(dosage),
+                patient,
+                medication!!,
+                Arrays.asList<Dosage>(dosage),
                 NOTE,
-                REASON
+                REASON,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
 
         // Then
@@ -82,9 +84,12 @@ class MedicationRequestHelperTest {
     fun builtWith_shouldThrow_whenPatientNotProvided() {
         try {
             MedicationRequestHelper.buildWith(
-                null, medication!!, Arrays.asList<Dosage>(dosage),
+                null,
+                medication!!,
+                Arrays.asList<Dosage>(dosage),
                 NOTE,
-                REASON
+                REASON,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
@@ -97,9 +102,12 @@ class MedicationRequestHelperTest {
     fun builtWith_shouldThrow_whenMedicationNotProvided() {
         try {
             MedicationRequestHelper.buildWith(
-                patient, null, Arrays.asList<Dosage>(dosage),
+                patient,
+                null,
+                Arrays.asList<Dosage>(dosage),
                 NOTE,
-                REASON
+                REASON,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
@@ -112,9 +120,12 @@ class MedicationRequestHelperTest {
     fun builtWith_shouldThrow_whenDosageNotProvided() {
         try {
             MedicationRequestHelper.buildWith(
-                patient, medication, null,
+                patient,
+                medication,
+                null,
                 NOTE,
-                REASON
+                REASON,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
@@ -182,8 +193,12 @@ class MedicationRequestHelperTest {
         // When
         val medRequest =
             MedicationRequestHelper.buildWith(
-                patient, medication!!, Arrays.asList<Dosage>(dosage), null,
-                REASON
+                patient,
+                medication!!,
+                Arrays.asList<Dosage>(dosage),
+                null,
+                REASON,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
 
         // Then
@@ -195,8 +210,12 @@ class MedicationRequestHelperTest {
         // When
         val medRequest =
             MedicationRequestHelper.buildWith(
-                patient, medication!!, Arrays.asList<Dosage>(dosage),
-                NOTE, null
+                patient,
+                medication!!,
+                Arrays.asList<Dosage>(dosage),
+                NOTE,
+                null,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
 
         // Then
@@ -205,9 +224,12 @@ class MedicationRequestHelperTest {
 
     private fun buildMedRequest(): MedicationRequest {
         return MedicationRequestHelper.buildWith(
-            patient, medication!!, Arrays.asList<Dosage>(dosage),
+            patient,
+            medication!!,
+            Arrays.asList<Dosage>(dosage),
             NOTE,
-            REASON
+            REASON,
+            CodeSystemMedicationrequestStatus.ACTIVE
         )
     }
 
@@ -216,9 +238,12 @@ class MedicationRequestHelperTest {
         // Given
         val medRequest =
             MedicationRequestHelper.buildWith(
-                patient, this.medication!!, Arrays.asList<Dosage>(dosage),
+                patient,
+                this.medication!!,
+                Arrays.asList<Dosage>(dosage),
                 NOTE,
-                REASON
+                REASON,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
 
         // When
@@ -236,7 +261,8 @@ class MedicationRequestHelperTest {
             this.medication!!,
             Arrays.asList<Dosage>(this.dosage),
             NOTE,
-            REASON
+            REASON,
+            CodeSystemMedicationrequestStatus.ACTIVE
         )
 
         // When
@@ -255,7 +281,8 @@ class MedicationRequestHelperTest {
             this.medication!!,
             Arrays.asList<Dosage>(this.dosage),
             NOTE,
-            REASON
+            REASON,
+            CodeSystemMedicationrequestStatus.ACTIVE
         )
 
         // When
@@ -273,7 +300,8 @@ class MedicationRequestHelperTest {
             this.medication!!,
             Arrays.asList<Dosage>(this.dosage),
             NOTE,
-            REASON
+            REASON,
+            CodeSystemMedicationrequestStatus.ACTIVE
         )
 
         // When

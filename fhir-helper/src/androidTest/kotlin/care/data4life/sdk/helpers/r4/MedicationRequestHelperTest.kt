@@ -24,8 +24,10 @@ import io.mockk.mockkStatic
 import io.mockk.unmockkStatic
 import org.junit.Assert.fail
 import org.junit.Before
+import org.junit.After
 import org.junit.Test
 import java.util.*
+import io.mockk.unmockkAll
 
 class MedicationRequestHelperTest {
 
@@ -40,6 +42,10 @@ class MedicationRequestHelperTest {
         dosage = Dosage()
     }
 
+    @After
+    fun tearDown() {
+        unmockkAll()
+    }
     @Test
     fun buildWith_shouldReturnMedRequest_whenAllArgsProvided() {
         // Given
@@ -56,7 +62,8 @@ class MedicationRequestHelperTest {
                 medication!!,
                 Arrays.asList<Dosage>(dosage),
                 NOTE,
-                REASON
+                REASON,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
 
         // Then
@@ -81,7 +88,8 @@ class MedicationRequestHelperTest {
                 medication!!,
                 Arrays.asList<Dosage>(dosage),
                 NOTE,
-                REASON
+                REASON,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
@@ -98,7 +106,8 @@ class MedicationRequestHelperTest {
                 null,
                 Arrays.asList<Dosage>(dosage),
                 NOTE,
-                REASON
+                REASON,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
@@ -115,7 +124,8 @@ class MedicationRequestHelperTest {
                 medication,
                 null,
                 NOTE,
-                REASON
+                REASON,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
@@ -187,7 +197,8 @@ class MedicationRequestHelperTest {
                 medication!!,
                 Arrays.asList<Dosage>(dosage),
                 null,
-                REASON
+                REASON,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
 
         // Then
@@ -203,7 +214,8 @@ class MedicationRequestHelperTest {
                 medication!!,
                 Arrays.asList<Dosage>(dosage),
                 NOTE,
-                null
+                null,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
 
         // Then
@@ -216,7 +228,8 @@ class MedicationRequestHelperTest {
             medication!!,
             Arrays.asList<Dosage>(dosage),
             NOTE,
-            REASON
+            REASON,
+            CodeSystemMedicationrequestStatus.ACTIVE
         )
     }
 
@@ -229,7 +242,8 @@ class MedicationRequestHelperTest {
                 this.medication!!,
                 Arrays.asList<Dosage>(dosage),
                 NOTE,
-                REASON
+                REASON,
+                CodeSystemMedicationrequestStatus.ACTIVE
             )
 
         // When
@@ -247,7 +261,8 @@ class MedicationRequestHelperTest {
             this.medication!!,
             Arrays.asList<Dosage>(this.dosage),
             NOTE,
-            REASON
+            REASON,
+            CodeSystemMedicationrequestStatus.ACTIVE
         )
 
         // When
@@ -266,7 +281,8 @@ class MedicationRequestHelperTest {
             this.medication!!,
             Arrays.asList<Dosage>(this.dosage),
             NOTE,
-            REASON
+            REASON,
+            CodeSystemMedicationrequestStatus.ACTIVE
         )
 
         // When
@@ -284,7 +300,8 @@ class MedicationRequestHelperTest {
             this.medication!!,
             Arrays.asList<Dosage>(this.dosage),
             NOTE,
-            REASON
+            REASON,
+            CodeSystemMedicationrequestStatus.ACTIVE
         )
 
         // When
