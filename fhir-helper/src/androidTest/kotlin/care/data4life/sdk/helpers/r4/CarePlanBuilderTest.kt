@@ -111,7 +111,6 @@ class CarePlanBuilderTest {
         // Given
         val PATIENT_ID = "patientId"
         val PRACTITIONER_ID = "practitionerId"
-        val MEDICATION_ID = "medicationId"
         val MEDICATION_REQ_ID = "medReqId"
 
         mockkStatic(StringUtils::class)
@@ -201,7 +200,7 @@ class CarePlanBuilderTest {
         dummyPractitioner.id = PRACTITIONER_ID
 
         // When
-        val carePlan = CarePlanBuilder.buildWith(
+        CarePlanBuilder.buildWith(
             Patient(),
             dummyPractitioner,
             Arrays.asList(
@@ -231,7 +230,7 @@ class CarePlanBuilderTest {
         dummyMedRequest.id = MEDICATION_REQ_ID
 
         // When
-        val carePlan = CarePlanBuilder.buildWith(
+        CarePlanBuilder.buildWith(
             Patient(),
             Practitioner(),
             Arrays.asList(dummyMedRequest)
