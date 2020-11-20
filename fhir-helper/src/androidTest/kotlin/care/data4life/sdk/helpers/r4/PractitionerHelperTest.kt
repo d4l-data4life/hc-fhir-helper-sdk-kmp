@@ -17,10 +17,6 @@
 package care.data4life.sdk.helpers.r4
 
 import care.data4life.fhir.r4.model.*
-import care.data4life.sdk.helpers.getPrefix
-import care.data4life.sdk.helpers.getStreet
-import care.data4life.sdk.helpers.getSuffix
-import care.data4life.sdk.helpers.getText
 import com.google.common.truth.Truth.assertThat
 import org.junit.Assert.fail
 import org.junit.Before
