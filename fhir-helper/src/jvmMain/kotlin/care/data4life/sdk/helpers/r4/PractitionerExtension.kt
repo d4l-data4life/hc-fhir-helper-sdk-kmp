@@ -18,7 +18,7 @@
 
 package care.data4life.sdk.helpers.r4
 
-import care.data4life.fhir.stu3.model.*
+import care.data4life.fhir.r4.model.*
 
 fun Practitioner.getFirstName(): String? {
     return name?.get(0)?.given?.get(0)
@@ -39,6 +39,7 @@ fun Practitioner.getPrefix(): String? {
 fun Practitioner.getSuffix(): String? {
     return name?.get(0)?.suffix?.get(0)
 }
+
 
 fun Practitioner.getStreet(): String? {
     return address?.first()?.line?.first()
