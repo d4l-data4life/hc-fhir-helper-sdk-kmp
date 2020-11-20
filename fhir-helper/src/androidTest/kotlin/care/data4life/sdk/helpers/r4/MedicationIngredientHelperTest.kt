@@ -53,8 +53,8 @@ class MedicationIngredientHelperTest {
 
         // Ingredient
         assertThat(ingredient.itemReference!!.reference).isEqualTo("#$substanceId")
-        assertThat(ingredient.amount!!.numerator!!.value).isEqualTo(FhirDecimal(BigDecimal.valueOf(INGREDIENT_QUANTITY.toDouble())))
-        assertThat(ingredient.amount!!.numerator!!.unit).isEqualTo(INGREDIENT_UNIT)
+        assertThat(ingredient.strength!!.numerator!!.value).isEqualTo(FhirDecimal(BigDecimal.valueOf(INGREDIENT_QUANTITY.toDouble())))
+        assertThat(ingredient.strength!!.numerator!!.unit).isEqualTo(INGREDIENT_UNIT)
         unmockkStatic(StringUtils::class)
     }
 
