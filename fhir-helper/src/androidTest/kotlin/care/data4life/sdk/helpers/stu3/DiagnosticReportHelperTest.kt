@@ -19,8 +19,6 @@ package care.data4life.sdk.helpers.stu3
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.stu3.model.*
 import care.data4life.fhir.stu3.util.FhirDateTimeParser
-import care.data4life.sdk.helpers.getAdditionalIds
-import care.data4life.sdk.helpers.setAdditionalIds
 import org.junit.Before
 import org.junit.Test
 

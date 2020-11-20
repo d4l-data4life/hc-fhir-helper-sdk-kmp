@@ -19,7 +19,6 @@ package care.data4life.sdk.helpers.stu3
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.stu3.FhirStu3Parser
 import care.data4life.fhir.stu3.model.*
-import care.data4life.sdk.helpers.getPatient
 import care.data4life.sdk.test.util.FileHelper
 import care.data4life.sdk.util.StringUtils
 import io.mockk.every

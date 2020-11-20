@@ -19,10 +19,6 @@ package care.data4life.sdk.helpers.stu3
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.stu3.model.*
 import care.data4life.fhir.stu3.util.FhirDateTimeParser
-import care.data4life.sdk.helpers.getObservationCategory
-import care.data4life.sdk.helpers.getObservationText
-import care.data4life.sdk.helpers.getUnit
-import care.data4life.sdk.helpers.getValue
 import io.mockk.mockk
 import org.junit.Before
 import org.junit.Test
