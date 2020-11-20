@@ -18,10 +18,6 @@ package care.data4life.sdk.helpers.r4
 
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.r4.model.*
-import care.data4life.sdk.helpers.addAdditionalId
-import care.data4life.sdk.helpers.getCity
-import care.data4life.sdk.helpers.getTelephone
-import care.data4life.sdk.helpers.getWebsite
 import io.mockk.unmockkAll
 import org.junit.After
 import org.junit.Test
