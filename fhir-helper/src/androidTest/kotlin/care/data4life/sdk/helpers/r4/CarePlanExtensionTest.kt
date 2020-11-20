@@ -18,10 +18,6 @@ package care.data4life.sdk.helpers.r4
 
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.r4.model.*
-import care.data4life.sdk.helpers.addAdditionalId
-import care.data4life.sdk.helpers.getAdditionalIds
-import care.data4life.sdk.helpers.getMedications
-import care.data4life.sdk.helpers.setAdditionalIds
 import io.mockk.mockk
 import org.junit.Before
 import org.junit.Test
@@ -48,6 +44,7 @@ class CarePlanExtensionTest {
         dummyMedication.contained = arrayListOf<Resource>()
         dummyMedication.contained?.add(dummySubstance)
         dummyMedRequest = MedicationRequest(
+            CodeSystemMedicationrequestStatus.ACTIVE,
             CodeSystemMedicationRequestIntent.PLAN,
             mockk(),
             mockk()

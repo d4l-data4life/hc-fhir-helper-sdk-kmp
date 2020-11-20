@@ -20,7 +20,7 @@ package care.data4life.sdk.helpers.r4
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.r4.FhirR4Parser
 import care.data4life.fhir.r4.model.*
-import care.data4life.sdk.helpers.stu3.*
+import care.data4life.sdk.helpers.r4.*
 import care.data4life.sdk.test.util.FileHelper
 import care.data4life.sdk.util.StringUtils
 import io.mockk.*
@@ -52,6 +52,7 @@ class CarePlanBuilderTest {
         dummyMedication.contained = arrayListOf<Resource>()
         dummyMedication.contained?.add(dummySubstance)
         dummyMedRequest = MedicationRequest(
+            CodeSystemMedicationrequestStatus.ACTIVE,
             CodeSystemMedicationRequestIntent.PLAN,
             mockk(),
             mockk()
@@ -83,7 +84,7 @@ class CarePlanBuilderTest {
 
 
         val carePlanJsonSpec = FileHelper.loadString("careplan-inline.json")
-        val parser = FhirStu3Parser()
+        val parser = FhirR4Parser()
         val patient = PatientHelper.buildWith("John", "Doe")
         val practitioner = PractitionerBuilder.buildWith("Dr. Bruce Banner, Praxis fuer Allgemeinmedizin")
         val medication = MedicationHelper.buildWith("Ibuprofen-ratiopharm", "tablets")
@@ -145,8 +146,7 @@ class CarePlanBuilderTest {
         assertThat(carePlan.activity).hasSize(1)
         assertThat(carePlan.activity!![0].reference).isEqualTo(dummyRef)
         assertThat(carePlan.subject).isEqualTo(dummyRef)
-        assertThat(carePlan.author).hasSize(1)
-        assertThat(carePlan.author!![0]).isEqualTo(dummyRef)
+        assertThat(carePlan.author!!).isEqualTo(dummyRef)
         assertThat(carePlan.contained).containsExactlyElementsIn(
             Arrays.asList<DomainResource>(
                 dummySubstance,
@@ -181,6 +181,7 @@ class CarePlanBuilderTest {
             Practitioner(),
             Arrays.asList(
                 MedicationRequest(
+                    CodeSystemMedicationrequestStatus.ACTIVE,
                     CodeSystemMedicationRequestIntent.PLAN,
                     mockk(),
                     mockk()
@@ -205,6 +206,7 @@ class CarePlanBuilderTest {
             dummyPractitioner,
             Arrays.asList(
                 MedicationRequest(
+                    CodeSystemMedicationrequestStatus.ACTIVE,
                     CodeSystemMedicationRequestIntent.PLAN,
                     mockk(),
                     mockk()
@@ -221,6 +223,7 @@ class CarePlanBuilderTest {
         // Given
         val MEDICATION_REQ_ID = "medicationReqId"
         val dummyMedRequest = MedicationRequest(
+            CodeSystemMedicationrequestStatus.ACTIVE,
             CodeSystemMedicationRequestIntent.PLAN,
             mockk(),
             mockk()

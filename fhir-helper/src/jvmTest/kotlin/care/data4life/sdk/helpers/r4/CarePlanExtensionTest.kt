@@ -44,6 +44,7 @@ class CarePlanExtensionTest {
         dummyMedication.contained = arrayListOf<Resource>()
         dummyMedication.contained?.add(dummySubstance)
         dummyMedRequest = MedicationRequest(
+            CodeSystemMedicationrequestStatus.ACTIVE,
             CodeSystemMedicationRequestIntent.PLAN,
             mockk(),
             mockk()

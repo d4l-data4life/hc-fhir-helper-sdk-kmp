@@ -1,31 +1,29 @@
 /*
  * Copyright (c) 2020 D4L data4life gGmbH / All rights reserved.
  *
- * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"), 
+ * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
  *
  * The SDK and its documentation may be accessed and used for viewing/review purposes only.
- * Any usage of the SDK for other purposes, including usage for the development of 
- * applications/third-party applications shall require the conclusion of a license agreement 
+ * Any usage of the SDK for other purposes, including usage for the development of
+ * applications/third-party applications shall require the conclusion of a license agreement
  * between you and D4L.
  *
- * If you are interested in licensing the SDK for your own applications/third-party 
- * applications and/or if you’d like to contribute to the development of the SDK, please 
+ * If you are interested in licensing the SDK for your own applications/third-party
+ * applications and/or if you’d like to contribute to the development of the SDK, please
  * contact D4L by email to help@data4life.care.
  */
 
 package care.data4life.sdk.helpers.r4
 
+
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.r4.FhirR4Parser
 import care.data4life.fhir.r4.model.*
-import care.data4life.sdk.helpers.getPatient
+import care.data4life.sdk.helpers.r4.*
 import care.data4life.sdk.test.util.FileHelper
 import care.data4life.sdk.util.StringUtils
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.mockkStatic
-import io.mockk.unmockkAll
+import io.mockk.*
 import org.junit.After
 import org.junit.Before
 import org.junit.Ignore
@@ -34,6 +32,7 @@ import org.skyscreamer.jsonassert.JSONAssert
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.test.fail
+
 
 class CarePlanBuilderTest {
 
@@ -53,6 +52,7 @@ class CarePlanBuilderTest {
         dummyMedication.contained = arrayListOf<Resource>()
         dummyMedication.contained?.add(dummySubstance)
         dummyMedRequest = MedicationRequest(
+            CodeSystemMedicationrequestStatus.ACTIVE,
             CodeSystemMedicationRequestIntent.PLAN,
             mockk(),
             mockk()
@@ -83,11 +83,10 @@ class CarePlanBuilderTest {
                 ) //medRequestId
 
 
-        val carePlanJsonSpec = FileHelper.loadString("/careplan-inline.json")
-        val parser = FhirStu3Parser()
+        val carePlanJsonSpec = FileHelper.loadString("careplan-inline.json")
+        val parser = FhirR4Parser()
         val patient = PatientHelper.buildWith("John", "Doe")
-        val practitioner =
-            PractitionerBuilder.buildWith("Dr. Bruce Banner, Praxis fuer Allgemeinmedizin")
+        val practitioner = PractitionerBuilder.buildWith("Dr. Bruce Banner, Praxis fuer Allgemeinmedizin")
         val medication = MedicationHelper.buildWith("Ibuprofen-ratiopharm", "tablets")
         MedicationHelper.addIngredient(medication, "Ibuprofen", 40f, "mg")
         val morningDosage = DosageHelper.buildWith(2f, "Stueck", "morning")
@@ -97,15 +96,12 @@ class CarePlanBuilderTest {
             medication,
             Arrays.asList(morningDosage, eveningDosage),
             "zur Oralen Einnahme",
-            "Erkaeltungsbeschwerden bekaempfen"
-        )
+            "Erkaeltungsbeschwerden bekaempfen",
+            CodeSystemMedicationrequestStatus.ACTIVE
+            )
 
         // When
-        val carePlan = CarePlanBuilder.buildWith(
-            patient,
-            practitioner,
-            Arrays.asList(medicationRequest)
-        )
+        val carePlan = CarePlanBuilder.buildWith(patient, practitioner, Arrays.asList(medicationRequest))
 
         // Then
         JSONAssert.assertEquals(parser.fromFhir(carePlan), carePlanJsonSpec, false)
@@ -119,7 +115,7 @@ class CarePlanBuilderTest {
         val MEDICATION_ID = "medicationId"
         val MEDICATION_REQ_ID = "medReqId"
 
-        mockkStatic(StringUtils::class)
+        mockkObject(StringUtils)
         mockkStatic(FhirHelpers::class)
 
         every { StringUtils.randomUUID() } returnsMany listOf(
@@ -140,11 +136,7 @@ class CarePlanBuilderTest {
         }
 
         // When
-        val carePlan = CarePlanBuilder.buildWith(
-            dummyPatient,
-            dummyPractitioner,
-            listOf(dummyMedRequest)
-        )
+        val carePlan = CarePlanBuilder.buildWith(dummyPatient, dummyPractitioner, listOf(dummyMedRequest))
 
         // Then
         assertThat(dummyPatient.id).isEqualTo(PATIENT_ID)
@@ -155,8 +147,7 @@ class CarePlanBuilderTest {
         assertThat(carePlan.activity).hasSize(1)
         assertThat(carePlan.activity!![0].reference).isEqualTo(dummyRef)
         assertThat(carePlan.subject).isEqualTo(dummyRef)
-        assertThat(carePlan.author).hasSize(1)
-        assertThat(carePlan.author!![0]).isEqualTo(dummyRef)
+        assertThat(carePlan.author!!).isEqualTo(dummyRef)
         assertThat(carePlan.contained).containsExactlyElementsIn(
             Arrays.asList<DomainResource>(
                 dummySubstance,
@@ -191,6 +182,7 @@ class CarePlanBuilderTest {
             Practitioner(),
             Arrays.asList(
                 MedicationRequest(
+                    CodeSystemMedicationrequestStatus.ACTIVE,
                     CodeSystemMedicationRequestIntent.PLAN,
                     mockk(),
                     mockk()
@@ -215,6 +207,7 @@ class CarePlanBuilderTest {
             dummyPractitioner,
             Arrays.asList(
                 MedicationRequest(
+                    CodeSystemMedicationrequestStatus.ACTIVE,
                     CodeSystemMedicationRequestIntent.PLAN,
                     mockk(),
                     mockk()
@@ -231,6 +224,7 @@ class CarePlanBuilderTest {
         // Given
         val MEDICATION_REQ_ID = "medicationReqId"
         val dummyMedRequest = MedicationRequest(
+            CodeSystemMedicationrequestStatus.ACTIVE,
             CodeSystemMedicationRequestIntent.PLAN,
             mockk(),
             mockk()
