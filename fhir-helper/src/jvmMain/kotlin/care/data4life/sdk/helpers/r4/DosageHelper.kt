@@ -66,18 +66,18 @@ object DosageHelper {
         if (doseAndRate.size != 1)
             return null
 
-        val doseQuantity = doseAndRate.first().doseQuantity ?: return null
+        val doseQuantity = doseAndRate.first().doseQuantity
 
         return when {
             doseQuantity == null -> null
-            doseQuantity?.value === null -> null
-            doseQuantity?.value?.decimal == null -> null
-            doseQuantity?.unit.isNullOrEmpty() -> null
-            doseQuantity?.value?.decimal == null -> null
+            doseQuantity.value === null -> null
+            doseQuantity.value?.decimal == null -> null
+            doseQuantity.unit.isNullOrEmpty() -> null
+            doseQuantity.value?.decimal == null -> null
             else -> {
-                val value = doseQuantity?.value?.decimal?.toFloat()
+                val value = doseQuantity.value?.decimal?.toFloat()
                     ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
-                val unit = doseQuantity?.unit ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
+                val unit = doseQuantity.unit ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
 
                 Triple(value, unit, `when`)
             }
