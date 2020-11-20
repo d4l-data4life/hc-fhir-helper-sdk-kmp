@@ -19,8 +19,6 @@ package care.data4life.sdk.helpers.r4
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.r4.model.*
 import care.data4life.fhir.r4.util.FhirDateTimeParser
-import care.data4life.sdk.helpers.getAdditionalIds
-import care.data4life.sdk.helpers.setAdditionalIds
 import org.junit.Before
 import org.junit.Test
 
@@ -73,7 +71,7 @@ class DiagnosticReportHelperTest {
         assertThat(report.code?.coding?.first()?.system).isEqualTo(reportTypeSystem)
         assertThat(report.status).isEqualTo(reportStatus)
         assertThat(report.performer).hasSize(1)
-        assertThat(report.performer?.first()?.actor?.display).isEqualTo(laboratoryName)
+        assertThat(report.performer?.first()?.display).isEqualTo(laboratoryName)
         assertThat(report.issued).isEqualTo(issuedDate)
         assertThat(report.result).hasSize(2)
         assertThat(report.result?.get(0)?.reference?.startsWith(startingCharacter)).isTrue()

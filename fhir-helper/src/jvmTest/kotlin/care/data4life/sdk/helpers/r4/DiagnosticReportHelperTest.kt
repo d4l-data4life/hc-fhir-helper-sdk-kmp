@@ -71,7 +71,7 @@ class DiagnosticReportHelperTest {
         assertThat(report.code?.coding?.first()?.system).isEqualTo(reportTypeSystem)
         assertThat(report.status).isEqualTo(reportStatus)
         assertThat(report.performer).hasSize(1)
-        assertThat(report.performer?.first()?.actor?.display).isEqualTo(laboratoryName)
+        assertThat(report.performer?.first()?.display).isEqualTo(laboratoryName)
         assertThat(report.issued).isEqualTo(issuedDate)
         assertThat(report.result).hasSize(2)
         assertThat(report.result?.get(0)?.reference?.startsWith(startingCharacter)).isTrue()
