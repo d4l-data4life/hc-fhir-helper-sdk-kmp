@@ -28,7 +28,6 @@ object DocumentReferenceBuilder {
     @JvmStatic
     fun buildWith(
         title: String,
-        indexed: FhirInstant,
         status: CodeSystemDocumentReferenceStatus,
         attachments: List<Attachment>,
         type: CodeableConcept,
@@ -38,7 +37,6 @@ object DocumentReferenceBuilder {
 
         return build(
             title,
-            indexed,
             status,
             attachments,
             type,
@@ -50,7 +48,6 @@ object DocumentReferenceBuilder {
     @JvmStatic
     fun buildWith(
         title: String,
-        indexed: FhirInstant,
         status: CodeSystemDocumentReferenceStatus,
         attachments: List<Attachment>,
         type: CodeableConcept,
@@ -60,7 +57,6 @@ object DocumentReferenceBuilder {
 
         return build(
             title,
-            indexed,
             status,
             attachments,
             type,
@@ -72,7 +68,6 @@ object DocumentReferenceBuilder {
     @Throws(DataRestrictionException.UnsupportedFileType::class, DataRestrictionException.MaxDataSizeViolation::class)
     private fun <T : DomainResource> build(
         title: String,
-        indexed: FhirInstant,
         status: CodeSystemDocumentReferenceStatus,
         attachments: List<Attachment>,
         type: CodeableConcept,
