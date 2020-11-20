@@ -38,7 +38,10 @@ object DosageHelper {
 
         val dosage = Dosage()
         dosage.timing = timing
-        dosage.doseQuantity = FhirHelpers.buildWith(value, unit!!)
+
+        val doseAndRate = Dosage.DosageDoseAndRate()
+        doseAndRate.doseQuantity = FhirHelpers.buildWith(value, unit!!)
+        dosage.doseAndRate = mutableListOf(doseAndRate)
 
         return dosage
     }
@@ -59,20 +62,26 @@ object DosageHelper {
 
         val `when` = dosage.timing?.repeat?.`when`?.get(0) ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
 
-        if (dosage.doseQuantity == null)
+        val doseAndRate = dosage.doseAndRate ?: return null
+        if (doseAndRate.size != 1)
             return null
-        else if (dosage.doseQuantity?.value === null)
-            return null
-        else if (dosage.doseQuantity?.value?.decimal == null)
-            return null
-        else if (dosage.doseQuantity?.unit.isNullOrEmpty())
-            return null
-        else if (dosage.doseQuantity?.value?.decimal == null) return null
-        val value = dosage.doseQuantity?.value?.decimal?.toFloat()
-            ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
-        val unit = dosage.doseQuantity?.unit ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
 
-        return Triple(value, unit, `when`)
+        val doseQuantity = doseAndRate.first().doseQuantity ?: return null
+
+        return when {
+            doseQuantity == null -> null
+            doseQuantity?.value === null -> null
+            doseQuantity?.value?.decimal == null -> null
+            doseQuantity?.unit.isNullOrEmpty() -> null
+            doseQuantity?.value?.decimal == null -> null
+            else -> {
+                val value = doseQuantity?.value?.decimal?.toFloat()
+                    ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
+                val unit = doseQuantity?.unit ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
+
+                Triple(value, unit, `when`)
+            }
+        }
     }
 
 }

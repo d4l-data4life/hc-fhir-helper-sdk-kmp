@@ -62,26 +62,26 @@ object DosageHelper {
 
         val `when` = dosage.timing?.repeat?.`when`?.get(0) ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
 
-        val doseAndRate = dosage.doseAndRate
-        if (doseAndRate == null || doseAndRate.size != 1)
+        val doseAndRate = dosage.doseAndRate ?: return null
+        if (doseAndRate.size != 1)
             return null
 
-        val doseQuantity = doseAndRate.get(0).doseQuantity
+        val doseQuantity = doseAndRate.first().doseQuantity ?: return null
 
-        if (doseQuantity == null)
-            return null
-        else if (doseQuantity?.value === null)
-            return null
-        else if (doseQuantity?.value?.decimal == null)
-            return null
-        else if (doseQuantity?.unit.isNullOrEmpty())
-            return null
-        else if (doseQuantity?.value?.decimal == null) return null
-        val value = doseQuantity?.value?.decimal?.toFloat()
-            ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
-        val unit = doseQuantity?.unit ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
+        return when {
+            doseQuantity == null -> null
+            doseQuantity?.value === null -> null
+            doseQuantity?.value?.decimal == null -> null
+            doseQuantity?.unit.isNullOrEmpty() -> null
+            doseQuantity?.value?.decimal == null -> null
+            else -> {
+                val value = doseQuantity?.value?.decimal?.toFloat()
+                    ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
+                val unit = doseQuantity?.unit ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
 
-        return Triple(value, unit, `when`)
+                Triple(value, unit, `when`)
+            }
+        }
     }
 
 }
