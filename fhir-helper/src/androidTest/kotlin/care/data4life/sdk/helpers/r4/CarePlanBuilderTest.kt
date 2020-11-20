@@ -20,7 +20,6 @@ package care.data4life.sdk.helpers.r4
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.r4.FhirR4Parser
 import care.data4life.fhir.r4.model.*
-import care.data4life.sdk.helpers.r4.*
 import care.data4life.sdk.test.util.FileHelper
 import care.data4life.sdk.util.StringUtils
 import io.mockk.*
@@ -115,7 +114,7 @@ class CarePlanBuilderTest {
         val MEDICATION_ID = "medicationId"
         val MEDICATION_REQ_ID = "medReqId"
 
-        mockkObject(StringUtils)
+        mockkStatic(StringUtils::class)
         mockkStatic(FhirHelpers::class)
 
         every { StringUtils.randomUUID() } returnsMany listOf(

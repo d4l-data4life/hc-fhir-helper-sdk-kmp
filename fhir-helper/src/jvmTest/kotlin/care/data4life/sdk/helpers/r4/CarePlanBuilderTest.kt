@@ -96,7 +96,8 @@ class CarePlanBuilderTest {
             medication,
             Arrays.asList(morningDosage, eveningDosage),
             "zur Oralen Einnahme",
-            "Erkaeltungsbeschwerden bekaempfen"
+            "Erkaeltungsbeschwerden bekaempfen",
+            CodeSystemMedicationrequestStatus.ACTIVE
         )
 
         // When

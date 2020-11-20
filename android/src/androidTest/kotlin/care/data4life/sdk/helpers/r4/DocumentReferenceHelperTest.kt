@@ -17,10 +17,9 @@
 package care.data4life.sdk.helpers.r4
 
 import com.google.common.truth.Truth.assertThat
-import care.data4life.fhir.stu3.model.*
-import care.data4life.fhir.stu3.util.FhirDateTimeParser
+import care.data4life.fhir.r4.model.*
+import care.data4life.fhir.r4.util.FhirDateTimeParser
 import care.data4life.sdk.config.DataRestrictionException
-import care.data4life.sdk.helpers.r4.helpers.stu3.DocumentReferenceBuilder
 import care.data4life.sdk.helpers.stu3.FhirHelperConfig
 import care.data4life.sdk.lang.D4LException
 import care.data4life.sdk.util.Base64
@@ -75,7 +74,6 @@ class DocumentReferenceHelperTest {
         // When
         val document = DocumentReferenceBuilder.buildWith(
             title,
-            indexed,
             status,
             listOf(attachment),
             docType,
@@ -93,7 +91,6 @@ class DocumentReferenceHelperTest {
         assertThat(document.type?.coding?.first()?.code).isEqualTo(documentCode)
         assertThat(document.type?.coding?.first()?.display).isEqualTo(documentDisplay)
         assertThat(document.type?.coding?.first()?.system).isEqualTo(documentSystem)
-        assertThat(document.indexed).isEqualTo(indexed)
         assertThat(document.content).hasSize(1)
         assertThat(document.content?.first()?.attachment).isEqualTo(attachment)
         assertThat(document.context?.practiceSetting).isEqualTo(practiceSpeciality)
@@ -119,7 +116,6 @@ class DocumentReferenceHelperTest {
         try {
             DocumentReferenceBuilder.buildWith(
                 title,
-                indexed,
                 status,
                 listOf(attachment),
                 CodeableConcept(),

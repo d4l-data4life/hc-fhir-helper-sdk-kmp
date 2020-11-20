@@ -72,7 +72,6 @@ class DocumentReferenceHelperTest {
         // When
         val document = DocumentReferenceBuilder.buildWith(
             title,
-            indexed,
             status,
             listOf(attachment),
             docType,
@@ -90,7 +89,6 @@ class DocumentReferenceHelperTest {
         assertThat(document.type?.coding?.first()?.code).isEqualTo(documentCode)
         assertThat(document.type?.coding?.first()?.display).isEqualTo(documentDisplay)
         assertThat(document.type?.coding?.first()?.system).isEqualTo(documentSystem)
-        assertThat(document.indexed).isEqualTo(indexed)
         assertThat(document.content).hasSize(1)
         assertThat(document.content?.first()?.attachment).isEqualTo(attachment)
         assertThat(document.context?.practiceSetting).isEqualTo(practiceSpeciality)
@@ -116,7 +114,6 @@ class DocumentReferenceHelperTest {
         try {
             DocumentReferenceBuilder.buildWith(
                 title,
-                indexed,
                 status,
                 listOf(attachment),
                 CodeableConcept(),
