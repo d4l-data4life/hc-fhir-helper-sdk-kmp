@@ -127,7 +127,7 @@ object ObservationBuilder {
         else if (observationValue != null && observationUnit != null) observation.valueQuantity =
             FhirHelpers.buildWith(observationValue, observationUnit)
         else if (text != null) observation.valueString = text
-        else if (observationSampledData != null) observation.valueSampledData
+        else if (observationSampledData != null) observation.valueSampledData = observationSampledData
         else throw IllegalArgumentException("Necessary arguments not provided")
 
         observation.issued = issuedDate

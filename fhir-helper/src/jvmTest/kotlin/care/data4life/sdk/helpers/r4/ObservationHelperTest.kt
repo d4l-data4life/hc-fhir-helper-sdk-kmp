@@ -115,6 +115,57 @@ class ObservationHelperTest {
     }
 
     @Test
+    fun buildWithProvidingSampleDataShouldReturnObservation() {
+        // Given
+        val observationCoding = Coding().apply {
+            code = observationTypeCode
+            display = observationTypeDisplay
+            system = observationTypeSystem
+        }
+        val observationCode = CodeableConcept().apply {
+            text = observationTypeText
+            coding = mutableListOf(observationCoding)
+        }
+
+        val sampledData = SampledData(mockk(), mockk(), mockk())
+
+        val categoryCoding = Coding().apply {
+            code = categoryCode
+            display = categoryDisplay
+            system = categorySystem
+        }
+        val categoryCodeable = CodeableConcept().apply {
+            text = categoryText
+            coding = mutableListOf(categoryCoding)
+        }
+
+        val issuedDate = FhirDateTimeParser.parseInstant("2013-04-03T15:30:10+01:00")
+        val effectiveDate = FhirDateTimeParser.parseDateTime("2013-04-03")
+
+        // When
+        val observation = ObservationBuilder.buildWith(
+            observationCode,
+            sampledData,
+            observationUnit,
+            observationStatus,
+            issuedDate,
+            effectiveDate,
+            categoryCodeable
+        )
+
+        // Then
+        assertThat(observation.code?.coding?.first()?.code).isEqualTo(observationTypeCode)
+        assertThat(observation.valueSampledData).isEqualTo(sampledData)
+
+        assertThat(observation.valueQuantity?.unit).isEqualTo(null)
+        assertThat(observation.status).isEqualTo(observationStatus)
+        assertThat(observation.issued).isEqualTo(issuedDate)
+        assertThat(observation.effectiveDateTime).isEqualTo(effectiveDate)
+
+        assertThat(observation.getObservationCategory()?.first()).isEqualTo(categoryCodeable)
+    }
+
+    @Test
     fun addAdditionalIdShouldAddId() {
         val o = Observation(mockk(), mockk())
 
