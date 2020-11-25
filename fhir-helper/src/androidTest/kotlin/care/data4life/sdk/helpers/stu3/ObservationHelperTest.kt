@@ -16,6 +16,7 @@
 
 package care.data4life.sdk.helpers.stu3
 
+import care.data4life.fhir.stu3.model.SampledData
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.stu3.model.*
 import care.data4life.fhir.stu3.util.FhirDateTimeParser
@@ -112,6 +113,38 @@ class ObservationHelperTest {
         assertThat(observation.getObservationCategory()?.first()).isEqualTo(categoryCodeable)
         assertThat(observation.getObservationText()).isEqualTo(null)
         assertThat(observation.getObservationRanges()).isEqualTo(null)
+    }
+
+    @Test
+    fun buildWithProvidingSampleDataShouldReturnObservation() {
+        // Given
+        val observationCoding = Coding().apply {
+            code = observationTypeCode
+            display = observationTypeDisplay
+            system = observationTypeSystem
+        }
+        val observationCode = CodeableConcept().apply {
+            text = observationTypeText
+            coding = mutableListOf(observationCoding)
+        }
+
+        val sampledData = mockk<SampledData>()
+
+        val issuedDate = FhirDateTimeParser.parseInstant("2013-04-03T15:30:10+01:00")
+        val effectiveDate = FhirDateTimeParser.parseDateTime("2013-04-03")
+
+        // When
+        val observation = ObservationBuilder.buildWith(
+            observationCode,
+            sampledData,
+            observationUnit,
+            observationStatus,
+            issuedDate,
+            effectiveDate
+        )
+
+        // Then
+        assertThat(observation.valueSampledData).isEqualTo(sampledData)
     }
 
     @Test
