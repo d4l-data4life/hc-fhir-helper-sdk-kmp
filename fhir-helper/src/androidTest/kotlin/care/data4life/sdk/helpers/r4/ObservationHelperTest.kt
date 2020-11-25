@@ -19,6 +19,7 @@ package care.data4life.sdk.helpers.r4
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.r4.model.*
 import care.data4life.fhir.r4.util.FhirDateTimeParser
+import care.data4life.fhir.r4.model.SampledData
 import io.mockk.mockk
 import org.junit.Before
 import org.junit.Test
@@ -128,7 +129,7 @@ class ObservationHelperTest {
             coding = mutableListOf(observationCoding)
         }
 
-        val sampledData = SampledData(mockk(), mockk(), mockk())
+        val sampledData = mockk<SampledData>()
 
         val categoryCoding = Coding().apply {
             code = categoryCode
@@ -155,15 +156,7 @@ class ObservationHelperTest {
         )
 
         // Then
-        assertThat(observation.code?.coding?.first()?.code).isEqualTo(observationTypeCode)
         assertThat(observation.valueSampledData).isEqualTo(sampledData)
-
-        assertThat(observation.valueQuantity?.unit).isEqualTo(null)
-        assertThat(observation.status).isEqualTo(observationStatus)
-        assertThat(observation.issued).isEqualTo(issuedDate)
-        assertThat(observation.effectiveDateTime).isEqualTo(effectiveDate)
-
-        assertThat(observation.getObservationCategory()?.first()).isEqualTo(categoryCodeable)
     }
 
     @Test

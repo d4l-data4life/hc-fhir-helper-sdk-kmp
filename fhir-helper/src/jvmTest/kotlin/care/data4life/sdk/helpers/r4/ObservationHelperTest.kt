@@ -127,7 +127,7 @@ class ObservationHelperTest {
             coding = mutableListOf(observationCoding)
         }
 
-        val sampledData = SampledData(mockk(), mockk(), mockk())
+        val sampledData = mockk<SampledData>()
 
         val categoryCoding = Coding().apply {
             code = categoryCode
@@ -154,15 +154,7 @@ class ObservationHelperTest {
         )
 
         // Then
-        assertThat(observation.code?.coding?.first()?.code).isEqualTo(observationTypeCode)
         assertThat(observation.valueSampledData).isEqualTo(sampledData)
-
-        assertThat(observation.valueQuantity?.unit).isEqualTo(null)
-        assertThat(observation.status).isEqualTo(observationStatus)
-        assertThat(observation.issued).isEqualTo(issuedDate)
-        assertThat(observation.effectiveDateTime).isEqualTo(effectiveDate)
-
-        assertThat(observation.getObservationCategory()?.first()).isEqualTo(categoryCodeable)
     }
 
     @Test
