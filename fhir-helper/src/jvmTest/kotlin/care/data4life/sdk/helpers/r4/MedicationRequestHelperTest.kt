@@ -19,15 +19,12 @@ package care.data4life.sdk.helpers.r4
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.r4.model.*
 import care.data4life.sdk.util.StringUtils
-import io.mockk.every
-import io.mockk.mockkStatic
-import io.mockk.unmockkStatic
+import io.mockk.*
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.After
 import org.junit.Test
 import java.util.*
-import io.mockk.unmockkAll
 
 class MedicationRequestHelperTest {
 
@@ -52,7 +49,7 @@ class MedicationRequestHelperTest {
         val MEDICATION_ID = "medicationId"
         val PATIENT_ID = "patientId"
 
-        mockkStatic(StringUtils::class)
+        mockkObject(StringUtils)
         every { StringUtils.randomUUID() } returnsMany listOf(MEDICATION_ID, PATIENT_ID)
 
         // When
