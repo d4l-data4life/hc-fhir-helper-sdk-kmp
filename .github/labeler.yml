@@ -1,0 +1,23 @@
+build:
+  - .github/**/*
+
+dependencies:
+  - buildSrc/**/*
+
+documentation:
+  - docs/**/*
+  - README.adoc
+  - LICENSE.adoc
+  - CHANGELOG.adoc
+  - CONTRIBUTION.adoc
+
+# Platform
+library:
+  - fhir-helper/**/*
+
+# Sample
+sample-android:
+  - sample-android/**/*
+
+sample-jvm:
+  - sample-jvm/**/*
