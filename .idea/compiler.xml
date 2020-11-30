@@ -4,6 +4,10 @@
     <bytecodeTargetLevel target="1.8">
       <module name="fhir-helper_jvmMain" target="1.6" />
       <module name="fhir-helper_jvmTest" target="1.6" />
+      <module name="hc-fhir-helper-sdk-kmp.fhir-helper.commonMain" target="1.6" />
+      <module name="hc-fhir-helper-sdk-kmp.fhir-helper.commonTest" target="1.6" />
+      <module name="hc-fhir-helper-sdk-kmp.fhir-helper.jvmMain" target="1.6" />
+      <module name="hc-fhir-helper-sdk-kmp.fhir-helper.jvmTest" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
