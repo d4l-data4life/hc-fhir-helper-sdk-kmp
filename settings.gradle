@@ -1,3 +1,0 @@
-rootProject.name = 'hc-fhir-helper-sdk-kmp'
-
-include ':fhir-helper', ':android'
