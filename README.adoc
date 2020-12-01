@@ -64,7 +64,7 @@ Therefore the sources are basically 1:1 in `androidMain` and `jvmMain`.
 
 === Installation
 
-Add the following maven repository url to your root build.gradle:
+Add the following maven repository url to your root build.gradle.kts:
 
 Please take a look over at Github link:https://docs.github.com/en/packages/publishing-and-managing-packages/about-github-packages#about-tokens[aboout-github-packages#tokens] on how to generate your private token for accessing the Github Package Registry.
 Add `gpr.user = {your Github username}` and `gpr.key = {private github access token}` to your `gradle.properties`
@@ -74,7 +74,7 @@ allprojects {
     repositories {
         ...
         maven {
-            url = URI("https://maven.pkg.github.com/d4l-data4life/hc-fhir-helper-sdk-kmp")
+            url = uri("https://maven.pkg.github.com/d4l-data4life/hc-fhir-helper-sdk-kmp")
             credentials {
                 username = project.findProperty("gpr.user") as String? ?: System.getenv("PACKAGE_REGISTRY_USERNAME")
                 password = project.findProperty("gpr.key") as String? ?: System.getenv("PACKAGE_REGISTRY_TOKEN")
