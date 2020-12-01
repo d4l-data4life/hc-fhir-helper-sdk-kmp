@@ -2,10 +2,9 @@
 :toc: macro
 :toclevels: 2
 :toc-title:
+:link-repository: https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp
 ifdef::env-github[]
 :imagesdir: https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/blob/main/assets/images/
-:link-license: https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/blob/main/LICENSE
-:link-contribution: https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/blob/main/CONTRIBUTION.adoc
 :warning-caption: :warning:
 :caution-caption: :fire:
 :important-caption: :exclamation:
@@ -13,69 +12,61 @@ ifdef::env-github[]
 :tip-caption: :bulb:
 endif::[]
 ifndef::env-github[]
-:icons: font
 :imagesdir: ./assets/images
-:link-license: ./LICENCE
-:link-contribution: ./CONTRIBUTION.adoc
 endif::[]
 
-++++
-<div align="center">
-    <!-- PROJECT LOGO -->
-    <p>
-        <a><img src="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/blob/main/assets/images/d4l-logo.svg" width="150"/></a>
-    </p>
-    <!-- PROJECT HEADER -->
-    <h1>FHIR Helper SDK</h1>
-    <p><!-- PROJECT DESCRIPTION -->
-        Provides builder and extension to create and interact with FHIR objects
-    </p>
-    <p><!-- PROJECT DOCUMENTATION -->
-        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp"><strong>Explore the docs »</strong></a>
-    </p>
-    <p><!-- PROJECT ISSUES/FEATURES -->
-        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/issues">Report Bug</a>
-        ·
-        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/issues">Request Feature</a>
-    </p>
-    <p><!-- PROJECT BADGES -->
-        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/actions">
-            <img src="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/workflows/D4L%20CI%20KMP/badge.svg" alt="Build Status"/>
-        </a>
-        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/blob/main/LICENSE">
-            <img src="https://img.shields.io/badge/license-PRIVATE-blue.svg"/>
-        </a>
-    </p>
-</div>
-++++
+image::d4l-logo.svg[d4l logo, 150]
+
+[discrete]
+= Data4Life FHIR Helper SDK
+
+Provides builder and extension to create and interact with FHIR objects
+
+link:{link-repository}[*Explore the docs »*]
+
+link:{link-repository}/issues[Report Bug] · link:{link-repository}/issues[Request Feature]
+
+
+image:https://img.shields.io/badge/Latest-{util-sdk-version}-blueviolet.svg[{util-sdk-version}, link={link-repository}/releases]
+image:{link-repository}/workflows/D4L%20CI%20KMP/badge.svg[Build Status, link={link-repository}/actions]
+image:https://img.shields.io/badge/Platform-Android%20•%20JVM%20-blue.svg[Platform]
+image:https://img.shields.io/badge/license-PRIVATE-lightgrey.svg[License, link=LICENSE]
 
 [discrete]
 === Table Of Contents
 toc::[]
 
-== Project setup
+
+== About The Project
+
+This project provides helpers that allow usage of FHIR objects within D4L without knowledge about every detail and variation that is possible working with FHIR objects.
+
 As of now there is no shared common implementation due to the missing FHIR multiplatform SDK.
 Therefore the sources are basically 1:1 in `androidMain` and `jvmMain`.
 
-Due to currently limitations of the Kotlin Multiplatform project setup
-the tests of the specific platforms are extracted into separate modules.
+=== Features
 
-* fhir-helper – contains the main Kotlin Multiplatform code
-* android – module for testing of the android implementation with
-instrumentation tests
-* jvm – module for testing of the jvm implementation
+* Builders to easily construct FHIR objects
+* Kotlin Extensions that simplify FHIR object manipulation
 
-== Tests
+=== Built With
 
-The `androidTest`'s in the `android`-module will only be run on the
-`Android P` phones due to `mockk` only being able to mock static classes
-on Android P and upwards.
+* link:https://kotlinlang.org/docs/reference/mpp-intro.html[Kotlin Multiplatform]
 
-== Install Gradle
+
+== Getting Started
+
+=== Requirements
+
+* link:https://adoptopenjdk.net/[Java 8] | link:https://developer.android.com/studio/write/java8-support[Limitations of Java language features and APIs] | https://jakewharton.com/d8-library-desugaring/[Desugaring]
+* link:https://kotlinlang.org/[Kotlin 1.4.10]
+* Android 6.0 (API 23) to Android 11.0 (API 30)
+
+=== Installation
 
 Add the following maven repository url to your root build.gradle:
 
-Please take a look over at Github https://docs.github.com/en/packages/publishing-and-managing-packages/about-github-packages#about-tokens[aboout-github-packages#tokens] on how to generate your private token for accessing the Github Package Registry.
+Please take a look over at Github link:https://docs.github.com/en/packages/publishing-and-managing-packages/about-github-packages#about-tokens[aboout-github-packages#tokens] on how to generate your private token for accessing the Github Package Registry.
 Add `gpr.user = {your Github username}` and `gpr.key = {private github access token}` to your `gradle.properties`
 
 ----
@@ -91,23 +82,56 @@ allprojects {
         }
     }
 }
-
 ----
 
-=== JVM
+Your GitHub *username* and *token* needs to be stored in your global Gradle properties: `~/.gradle/gradle.properties`
 
-Add following dependencies to your app build.gradle.
+NOTICE:: You need to have _read_ access to this repository and generate a https://github.com/settings/tokens/new/[personal access token] with `repo`, `write:packages` and `read:packages` scope.
+
+----
+gpr.user=github-username
+gpr.key=github-token
+----
+
+=== Java
+
+Add following dependencies to your app build.gradle.kts.
 
 ----
 dependencies {
-    implementation "care.data4life.hc-fhir-helper-sdk-kmp:fhir-helper-jvm:$version"
+    implementation("care.data4life.hc-fhir-helper-sdk-kmp:fhir-helper-jvm:$version")
 }
 ----
+
 
 === Android
 
+Add following dependencies to your app build.gradle.kts.
+
 ----
 dependencies {
-    implementation "care.d4l-data4life.hc-fhir-helper-sdk-kmp:fhir-helper-android:$version"
+    implementation("care.data4life.hc-fhir-helper-sdk-kmp:fhir-helper-android:$version")
 }
 ----
+
+== Roadmap
+
+This project is work in progress. We are working on adding more functionality, guidelines, documentation and other improvements.
+
+== Contributing
+
+You want to help or share a proposal? You have a specific problem?
+
+* Open an issue
+
+=== Contribution Guide
+
+TODO will be added soon.
+
+=== Development Guide
+
+TODO will be added soon.
+
+== Copyright and License
+
+Copyright (c) 2020 D4L data4life gGmbH / All rights reserved. Please refer to our link:LICENSE[License] for further details.
