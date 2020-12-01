@@ -16,16 +16,13 @@
 
 package care.data4life.sdk.helpers.stu3
 
-import android.support.test.runner.AndroidJUnit4
 import care.data4life.fhir.stu3.util.FhirDateTimeParser
 import care.data4life.sdk.config.DataRestrictionException
 import care.data4life.sdk.lang.D4LException
 import com.google.common.truth.Truth.assertThat
 import org.junit.Assert.fail
 import org.junit.Test
-import org.junit.runner.RunWith
 
-@RunWith(AndroidJUnit4::class)
 class AttachmentHelperTest {
     val title = "Brain MRI"
     val creationDate = FhirDateTimeParser.parseDateTime("2013-04-03")

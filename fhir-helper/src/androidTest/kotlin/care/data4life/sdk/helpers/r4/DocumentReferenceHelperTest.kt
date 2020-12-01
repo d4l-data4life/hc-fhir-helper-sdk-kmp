@@ -26,6 +26,8 @@ import care.data4life.sdk.util.Base64
 import io.mockk.mockk
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 
 class DocumentReferenceHelperTest {
     val title = "Physical"

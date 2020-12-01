@@ -76,7 +76,7 @@ kotlin {
                 implementation(Dependencies.android.robolectric)
 
                 implementation(Dependencies.d4l.fhirJvm)
-                implementation(Dependencies.d4l.utilAndroid)
+                implementation(Dependencies.d4l.utilJvm)
             }
         }
 
