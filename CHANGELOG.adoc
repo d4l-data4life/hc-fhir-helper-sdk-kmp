@@ -16,7 +16,13 @@ toc::[]
 
 === Added
 
+* deployment configuration for feature, snapshot and release
+
 === Changed
+
+* Project to support Kotlin 1.4.10 and new Kotlin Multiplatform setup
+* *_BREAKING_* Android support to min Android 6.0 (API 23) and target Android 11.0 (API 30)
+* *_BREAKING_* AndroidSupport Library use to AndroidX
 
 === Removed
 
@@ -25,6 +31,13 @@ toc::[]
 === Bumped
 
 === Migration
+
+==== Android minSDK
+
+The SDK has now a minSDK of API 23 and your project needs to be updated to be able to use this library.
+
+==== AndroidX
+Your project needs to be updated to AndroidX link:https://developer.android.com/jetpack/androidx/migrate[see migration guide]]
 
 
 == https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.3.1...v1.4.0[1.4.0]
