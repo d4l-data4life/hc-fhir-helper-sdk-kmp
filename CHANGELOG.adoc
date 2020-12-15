@@ -15,6 +15,7 @@ toc::[]
 == https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.4.0...master[Unreleased]
 
 === Added
+* Add code of conduct
 
 === Changed
 
