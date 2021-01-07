@@ -38,7 +38,7 @@ object Versions {
 
     // Kotlin
     // https://github.com/JetBrains/kotlin
-    const val kotlin = "1.4.10"
+    const val kotlin = "1.4.21"
 
 
     // Android
