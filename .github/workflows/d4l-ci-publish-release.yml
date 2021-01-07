@@ -26,7 +26,7 @@ jobs:
       - name: Cleanup
         run: ./gradlew clean
       - name: Version
-        run: ./gradlew version
+        run: ./gradlew versionInfo
       - name: Build project
         run: ./gradlew build
       - name: Publish to GitHub Packages

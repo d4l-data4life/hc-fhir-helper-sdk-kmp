@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - release/*
+      - feature/*
 
 jobs:
   pull-request-validation:
@@ -27,7 +28,7 @@ jobs:
       - name: Cleanup
         run: ./gradlew clean
       - name: Version
-        run: ./gradlew version
+        run: ./gradlew versionInfo
       - name: Build
         run: ./gradlew build
       - name: Publish Feature to Maven Repo

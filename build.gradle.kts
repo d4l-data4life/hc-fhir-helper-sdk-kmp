@@ -31,7 +31,9 @@ buildscript {
 plugins {
     kotlinMultiplatform(false)
     dependencyUpdates()
-    gitVersioning()
+
+    id("scripts.versioning")
+    id("scripts.publishing")
 }
 
 allprojects {
@@ -61,27 +63,6 @@ allprojects {
 
         maven("https://jitpack.io")
     }
-}
-
-jgitver {
-    strategy(fr.brouillard.oss.jgitver.Strategies.MAVEN)
-
-    policy(closureOf<fr.brouillard.oss.gradle.plugins.JGitverPluginExtensionBranchPolicy> {
-        pattern = "release/(.*)"
-        transformations = kotlin.collections.listOf("IGNORE")
-    })
-
-    policy(closureOf<fr.brouillard.oss.gradle.plugins.JGitverPluginExtensionBranchPolicy> {
-        pattern = "feature/(.*)"
-        transformations = kotlin.collections.listOf("LOWERCASE_EN")
-    })
-
-    policy(closureOf<fr.brouillard.oss.gradle.plugins.JGitverPluginExtensionBranchPolicy> {
-        pattern = "(main)"
-        transformations = kotlin.collections.listOf("IGNORE")
-    })
-
-    nonQualifierBranches = "main"
 }
 
 tasks.named<Wrapper>("wrapper") {

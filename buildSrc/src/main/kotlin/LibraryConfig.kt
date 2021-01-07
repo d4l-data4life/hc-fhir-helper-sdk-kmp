@@ -42,8 +42,9 @@ object LibraryConfig {
 
     object PublishConfig {
         const val name = LibraryConfig.name
-        const val groupId = LibraryConfig.group
+        const val groupId = "${LibraryConfig.group}.${LibraryConfig.name}"
 
+        const val description = "Provides builder and extension to create and interact with FHIR objects "
         const val year = "2020"
 
         // URL
