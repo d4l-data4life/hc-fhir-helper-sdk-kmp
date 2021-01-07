@@ -120,17 +120,15 @@ This project is work in progress. We are working on adding more functionality, g
 
 == Contributing
 
-You want to help or share a proposal? You have a specific problem?
-
-* Open an issue
+You want to help or share a proposal? You have a specific problem? Then open an issue.
 
 === Contribution Guide
 
-TODO will be added soon.
+Will be added soon.
 
 === Development Guide
 
-TODO will be added soon.
+Will be added soon.
 
 == Copyright and License
 
