@@ -12,7 +12,7 @@ and this project adheres to http://semver.org/spec/v2.0.0.html[Semantic Versioni
 ==== Versions
 toc::[]
 
-== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.4.0...master[Unreleased]
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.4.1...master[Unreleased]
 
 === Added
 
@@ -39,6 +39,12 @@ The SDK has now a minSDK of API 23 and your project needs to be updated to be ab
 ==== AndroidX
 Your project needs to be updated to AndroidX link:https://developer.android.com/jetpack/androidx/migrate[see migration guide]]
 
+
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.4.0...v1.4.1[1.4.1]
+
+=== Bumped
+
+* D4L FHIR SDK 1.0.0 -> 1.1.0
 
 == https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.3.1...v1.4.0[1.4.0]
 
