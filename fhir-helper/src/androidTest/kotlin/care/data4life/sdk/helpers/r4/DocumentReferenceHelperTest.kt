@@ -18,7 +18,6 @@ package care.data4life.sdk.helpers.r4
 
 import care.data4life.fhir.r4.model.*
 import care.data4life.sdk.config.DataRestrictionException
-import care.data4life.sdk.helpers.stu3.FhirHelperConfig
 import care.data4life.sdk.lang.D4LException
 import care.data4life.sdk.util.Base64
 import com.google.common.truth.Truth.assertThat
