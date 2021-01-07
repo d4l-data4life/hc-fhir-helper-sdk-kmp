@@ -49,7 +49,7 @@ class CarePlanExtensionTest {
             mockk(),
             mockk()
         )
-        dummyMedRequest.contained = ArrayList<Resource>()
+        dummyMedRequest.contained = ArrayList()
         dummyMedRequest.contained?.add(dummyMedication)
         dummyRef = Reference()
     }
@@ -99,7 +99,7 @@ class CarePlanExtensionTest {
         val medications = carePlan.getMedications()
 
         // Then
-        assertThat(medications).isEqualTo(Arrays.asList<MedicationRequest>(dummyMedRequest))
+        assertThat(medications).isEqualTo(Arrays.asList(dummyMedRequest))
     }
 
     @Test
@@ -130,7 +130,7 @@ class CarePlanExtensionTest {
             CodeSystemRequestIntent.PLAN,
             mockk()
         )
-        val newIds = Arrays.asList<String>(
+        val newIds = Arrays.asList(
             ADDITIONAL_ID,
             ADDITIONAL_ID
         )

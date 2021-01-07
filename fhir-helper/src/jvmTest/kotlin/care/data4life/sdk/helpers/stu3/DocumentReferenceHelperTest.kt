@@ -38,7 +38,7 @@ class DocumentReferenceHelperTest {
     val startingChar = "#"
 
     val ADDITIONAL_ID = "id"
-    val PARTNER_ID = "partner"
+    val PARTNER_ID = "partnerId"
 
     @Before
     fun setup() {

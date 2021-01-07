@@ -32,7 +32,7 @@ class DiagnosticReportHelperTest {
     private val startingCharacter = "#"
 
     private val ADDITIONAL_ID = "id"
-    private val PARTNER_ID = "partner"
+    private val PARTNER_ID = "partnerId"
 
     @Before
     fun setUp() {
