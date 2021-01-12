@@ -39,7 +39,7 @@ class ObservationHelperTest {
     val observationStatus = CodeSystemObservationStatus.FINAL
 
     val ADDITIONAL_ID = "id"
-    val PARTNER_ID = "partner"
+    val PARTNER_ID = "partnerId"
 
     @Before
     fun setUp() {

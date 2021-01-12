@@ -38,7 +38,7 @@ class DosageHelperTest {
         assertThat(dosage.timing!!.repeat!!.`when`!![0]).isEqualTo(DOSE_TIMING)
         val doseQuantity = dosage.doseAndRate!!.first().doseQuantity
         assertThat(doseQuantity!!.value).isEqualTo(FhirDecimal(BigDecimal.valueOf(DOSE.toDouble())))
-        assertThat(doseQuantity!!.unit).isEqualTo(DOSE_UNIT)
+        assertThat(doseQuantity.unit).isEqualTo(DOSE_UNIT)
     }
 
     @Test

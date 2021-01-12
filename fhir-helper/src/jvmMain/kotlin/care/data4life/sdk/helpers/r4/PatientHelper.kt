@@ -68,7 +68,7 @@ object PatientHelper {
         Preconditions.checkArgument(patient != null, "patient is required")
         Preconditions.checkArgument(!StringUtils.isNullOrEmpty(id), "id is required")
 
-        patient!!.identifier = FhirHelpers.appendIdentifier(id!!, patient!!.identifier)
+        patient!!.identifier = FhirHelpers.appendIdentifier(id!!, patient.identifier)
     }
 
     @JvmStatic

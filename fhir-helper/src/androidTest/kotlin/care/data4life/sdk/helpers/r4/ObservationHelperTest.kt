@@ -16,14 +16,12 @@
 
 package care.data4life.sdk.helpers.r4
 
-import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.r4.model.*
 import care.data4life.fhir.r4.util.FhirDateTimeParser
-import care.data4life.fhir.r4.model.SampledData
+import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
 import org.junit.Before
 import org.junit.Test
-import java.math.BigDecimal
 
 class ObservationHelperTest {
     val categoryCode = "vital-signs"
@@ -39,7 +37,7 @@ class ObservationHelperTest {
     val observationStatus = CodeSystemObservationStatus.FINAL
 
     val ADDITIONAL_ID = "id"
-    val PARTNER_ID = "partner"
+    val PARTNER_ID = "partnerId"
 
     @Before
     fun setUp() {

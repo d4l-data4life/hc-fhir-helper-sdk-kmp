@@ -42,7 +42,7 @@ class OrganizationHelperTest {
     val website = "www.website.com"
 
     val ADDITIONAL_ID = "id"
-    val PARTNER_ID = "partner"
+    val PARTNER_ID = "partnerId"
 
 
     @After
