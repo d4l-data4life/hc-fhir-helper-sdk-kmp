@@ -12,7 +12,22 @@ and this project adheres to http://semver.org/spec/v2.0.0.html[Semantic Versioni
 ==== Versions
 toc::[]
 
-== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.4.1...master[Unreleased]
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.5.0...master[Unreleased]
+
+=== Added
+
+=== Changed
+
+=== Removed
+
+=== Fixed
+
+=== Bumped
+
+=== Migration
+
+
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.4.1...v1.5.0[1.5.0]
 
 === Added
 * Add code of conduct
@@ -24,12 +39,6 @@ toc::[]
 * Project to support Kotlin 1.4.10 and new Kotlin Multiplatform setup
 * *_BREAKING_* Android support to min Android 6.0 (API 23) and target Android 11.0 (API 30)
 * *_BREAKING_* AndroidSupport Library use to AndroidX
-
-=== Removed
-
-=== Fixed
-
-=== Bumped
 
 === Migration
 
@@ -46,6 +55,7 @@ Your project needs to be updated to AndroidX link:https://developer.android.com/
 === Bumped
 
 * D4L FHIR SDK 1.0.0 -> 1.1.0
+
 
 == https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.3.1...v1.4.0[1.4.0]
 
