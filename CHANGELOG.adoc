@@ -18,6 +18,8 @@ toc::[]
 
 === Changed
 
+* Change label and labeler CI jobs to use latest color scheme
+
 === Removed
 
 === Fixed
