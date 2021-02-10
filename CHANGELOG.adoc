@@ -24,9 +24,11 @@ toc::[]
 
 === Bumped
 
-* D4L FHIR SDK 1.1.0 -> 1.2.1
+* **_BREAKING_** D4L FHIR SDK 1.1.0 -> 1.2.1
 
 === Migration
+
+D4L FHIR SDK 1.2.0 introduces breaking changes, see link:https://github.com/d4l-data4life/hc-fhir-sdk-java/releases/tag/v1.2.0[1.2.0]
 
 
 == https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.4.1...v1.5.0[1.5.0]
