@@ -147,7 +147,7 @@ class CarePlanBuilderTest {
         assertThat(carePlan.subject).isEqualTo(dummyRef)
         assertThat(carePlan.author!!).isEqualTo(dummyRef)
         assertThat(carePlan.contained).containsExactlyElementsIn(
-            Arrays.asList<DomainResource>(
+            Arrays.asList(
                 dummySubstance,
                 dummyMedication,
                 dummyMedRequest,

@@ -18,7 +18,6 @@ package care.data4life.sdk.helpers.r4
 
 import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.r4.model.*
-import care.data4life.fhir.r4.util.FhirDateTimeParser
 import care.data4life.sdk.lang.D4LException
 import care.data4life.sdk.util.Base64
 import io.mockk.mockk
@@ -27,7 +26,6 @@ import org.junit.Test
 
 class DocumentReferenceHelperTest {
     val title = "Physical"
-    val indexed: FhirInstant = FhirDateTimeParser.parseInstant("2013-04-03T15:30:10+01:00")
     val status = CodeSystemDocumentReferenceStatus.CURRENT
     val documentCode = "34108-1"
     val documentDisplay = "Outpatient Note"
@@ -38,7 +36,7 @@ class DocumentReferenceHelperTest {
     val startingChar = "#"
 
     val ADDITIONAL_ID = "id"
-    val PARTNER_ID = "partner"
+    val PARTNER_ID = "partnerId"
 
     @Before
     fun setup() {

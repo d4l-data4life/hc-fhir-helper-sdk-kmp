@@ -1,33 +1,32 @@
 /*
  * Copyright (c) 2020 D4L data4life gGmbH / All rights reserved.
  *
- * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"), 
+ * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
  *
  * The SDK and its documentation may be accessed and used for viewing/review purposes only.
- * Any usage of the SDK for other purposes, including usage for the development of 
- * applications/third-party applications shall require the conclusion of a license agreement 
+ * Any usage of the SDK for other purposes, including usage for the development of
+ * applications/third-party applications shall require the conclusion of a license agreement
  * between you and D4L.
  *
- * If you are interested in licensing the SDK for your own applications/third-party 
- * applications and/or if you’d like to contribute to the development of the SDK, please 
+ * If you are interested in licensing the SDK for your own applications/third-party
+ * applications and/or if you’d like to contribute to the development of the SDK, please
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.sdk.helpers.stu3
+package care.data4life.sdk.helpers.r4
 
-import com.google.common.truth.Truth.assertThat
-import care.data4life.fhir.stu3.model.*
-import care.data4life.fhir.stu3.util.FhirDateTimeParser
+import care.data4life.fhir.r4.model.*
+import care.data4life.sdk.config.DataRestrictionException
 import care.data4life.sdk.lang.D4LException
 import care.data4life.sdk.util.Base64
+import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
 import org.junit.Before
 import org.junit.Test
 
 class DocumentReferenceHelperTest {
     val title = "Physical"
-    val indexed: FhirInstant = FhirDateTimeParser.parseInstant("2013-04-03T15:30:10+01:00")
     val status = CodeSystemDocumentReferenceStatus.CURRENT
     val documentCode = "34108-1"
     val documentDisplay = "Outpatient Note"
@@ -39,6 +38,7 @@ class DocumentReferenceHelperTest {
 
     val ADDITIONAL_ID = "id"
     val PARTNER_ID = "partnerId"
+
 
     @Before
     fun setup() {
@@ -72,7 +72,6 @@ class DocumentReferenceHelperTest {
         // When
         val document = DocumentReferenceBuilder.buildWith(
             title,
-            indexed,
             status,
             listOf(attachment),
             docType,
@@ -90,7 +89,6 @@ class DocumentReferenceHelperTest {
         assertThat(document.type?.coding?.first()?.code).isEqualTo(documentCode)
         assertThat(document.type?.coding?.first()?.display).isEqualTo(documentDisplay)
         assertThat(document.type?.coding?.first()?.system).isEqualTo(documentSystem)
-        assertThat(document.indexed).isEqualTo(indexed)
         assertThat(document.content).hasSize(1)
         assertThat(document.content?.first()?.attachment).isEqualTo(attachment)
         assertThat(document.context?.practiceSetting).isEqualTo(practiceSpeciality)
@@ -116,7 +114,6 @@ class DocumentReferenceHelperTest {
         try {
             DocumentReferenceBuilder.buildWith(
                 title,
-                indexed,
                 status,
                 listOf(attachment),
                 CodeableConcept(),
@@ -126,6 +123,7 @@ class DocumentReferenceHelperTest {
         } catch (ex: D4LException) {
 
             //then
+            assertThat(ex).isInstanceOf(DataRestrictionException.UnsupportedFileType::class.java)
             assertThat(ex.message).isEqualTo("Only this file types are supported: JPEG, PNG, TIFF, PDF and DCM!")
         }
     }
@@ -133,8 +131,7 @@ class DocumentReferenceHelperTest {
     @Test
     fun addAdditionalIdShouldAddId() {
         // given
-        val d = DocumentReference(mockk(), mockk(), mockk(), mockk())
-
+        val d = DocumentReference(mockk(), mockk())
         // when
         d.addAdditionalId(ADDITIONAL_ID)
 
@@ -147,7 +144,7 @@ class DocumentReferenceHelperTest {
     @Test
     fun setAdditionalIdsShouldSetIds() {
         // given
-        val d = DocumentReference(mockk(), mockk(), mockk(), mockk())
+        val d = DocumentReference(mockk(), mockk())
         val newIds = listOf(ADDITIONAL_ID, ADDITIONAL_ID)
         d.addAdditionalId("oldId")
 
@@ -165,7 +162,7 @@ class DocumentReferenceHelperTest {
     @Test
     fun setAdditionalIdsShouldReturnIds() {
         // given
-        val d = DocumentReference(mockk(), mockk(), mockk(), mockk())
+        val d = DocumentReference(mockk(), mockk())
         d.addAdditionalId(ADDITIONAL_ID)
         FhirHelperConfig.init("newPartnerId")
         d.addAdditionalId(ADDITIONAL_ID)

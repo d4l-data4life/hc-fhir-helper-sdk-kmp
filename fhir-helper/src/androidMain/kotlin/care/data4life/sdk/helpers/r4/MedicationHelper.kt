@@ -54,9 +54,9 @@ object MedicationHelper {
             ingredientQuantity,
             ingredientUnit
         )
-        if (medication?.ingredient == null) medication?.ingredient = ArrayList<Medication.MedicationIngredient>()
+        if (medication?.ingredient == null) medication?.ingredient = ArrayList()
         medication?.ingredient!!.add(first)
-        if (medication?.contained == null) medication?.contained = ArrayList<Resource>()
+        if (medication?.contained == null) medication?.contained = ArrayList()
         medication?.contained!!.add(second)
     }
 

@@ -28,10 +28,10 @@ fun CarePlan.getPatient(): Patient? = when {
 }
 
 fun CarePlan.getPractitioner(): Practitioner? = when {
-    subject == null || author == null || author!!.size != 1 || author!!.get(0).reference == null || contained == null || contained!!.isEmpty() -> null
+    subject == null || author == null || author!!.size != 1 || author!![0].reference == null || contained == null || contained!!.isEmpty() -> null
     else -> FhirHelpers.getResourceById(
         contained!!,
-        author!!.get(0).reference!!,
+        author!![0].reference!!,
         Practitioner::class.java
     )
 }
