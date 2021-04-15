@@ -35,6 +35,7 @@ plugins {
     id("scripts.download-scripts")
     id("scripts.versioning")
     id("scripts.publishing")
+    id("scripts.quality-spotless")
 }
 
 allprojects {

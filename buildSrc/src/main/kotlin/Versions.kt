@@ -35,7 +35,6 @@ object Versions {
     // https://github.com/JetBrains/kotlin
     const val kotlin = "1.4.21"
 
-
     // Android
     // https://developer.android.com/studio/write/java8-support
     const val androidDesugar = "1.0.4"
