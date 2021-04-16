@@ -15,6 +15,38 @@
  */
 package scripts
 
+/**
+ * Usage:
+ *
+ * You need to add following dependencies to the buildSrc/build.gradle.kts
+ *
+ * dependencies {
+ *     implementation("com.palantir.gradle.gitversion:gradle-git-version:0.12.3")
+ * }
+ *
+ * and ensure that the gradlePluginPortal is available
+ *
+ * repositories {
+ *     gradlePluginPortal()
+ * }
+ *
+ * Now just add id("scripts.versioning") to your rootProject build.gradle.kts plugins
+ *
+ * plugins {
+ *     id("scripts.versioning")
+ * }
+ *
+ * Versions will be calculated based on the latest git tag v* and branch name. if no tag is present a git hash will be used instead
+ *
+ * Branch == main == tag (v0.1.0) -> uses latest tag -> v0.1.0
+ * Branch == main -> uses latest tag (v0.1.0) + SNAPSHOT -> v0.1.0-SNAPSHOT
+ * Branch == feature/branch_name -> uses latest tag (v0.1.0) + branch name + SNAPSHOT -> v0.1.0-branch_name
+ * Branch == feature/[SDK-123]/branch_name -> uses latest tag (v0.1.0) + branch name + SNAPSHOT -> v0.1.0-branch_name
+ *
+ * Review the generated version:
+ * - ./gradlew versionInfo
+ *
+ */
 plugins {
     id("com.palantir.git-version")
 }
@@ -22,7 +54,7 @@ plugins {
 val versionDetails: groovy.lang.Closure<com.palantir.gradle.gitversion.VersionDetails> by extra
 val patternNoQualifierBranch = "main|release/.*".toRegex()
 val patternFeatureBranch = "feature/(.*)".toRegex()
-val patternTicketNumber = "\\[A-Z]{2,8}-.*/(.*)".toRegex()
+val patternTicketNumber = "[A-Z]{2,8}-.*/(.*)".toRegex()
 
 fun versionName(): String {
     val details = versionDetails()

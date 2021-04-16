@@ -21,11 +21,6 @@ object Versions {
         const val android = "4.1.1"
 
         /**
-         * [DependencyUpdates](https://github.com/ben-manes/gradle-versions-plugin)
-         */
-        const val dependencyUpdates = "0.34.0"
-
-        /**
          * [jGitVer](https://github.com/jgitver/gradle-jgitver-plugin)
          */
         const val gitVersioning = "0.6.1"
@@ -39,7 +34,6 @@ object Versions {
     // Kotlin
     // https://github.com/JetBrains/kotlin
     const val kotlin = "1.4.21"
-
 
     // Android
     // https://developer.android.com/studio/write/java8-support

@@ -25,20 +25,12 @@ object GradlePlugins {
 
 fun PluginDependenciesSpec.kotlinMultiplatform(apply: Boolean = true): PluginDependencySpec =
     id("org.jetbrains.kotlin.multiplatform").version(Versions.GradlePlugins.kotlin).apply(apply)
-
 fun PluginDependenciesSpec.kotlinMultiplatform(): PluginDependencySpec =
     id("org.jetbrains.kotlin.multiplatform")
 
-
 fun PluginDependenciesSpec.androidApp(): PluginDependencySpec =
     id("com.android.application")
-
 fun PluginDependenciesSpec.androidLibrary(): PluginDependencySpec =
     id("com.android.library")
-
 fun PluginDependenciesSpec.androidKotlin(): PluginDependencySpec =
     id("kotlin-android")
-
-
-fun PluginDependenciesSpec.dependencyUpdates(): PluginDependencySpec =
-    id("com.github.ben-manes.versions").version(Versions.GradlePlugins.dependencyUpdates)
