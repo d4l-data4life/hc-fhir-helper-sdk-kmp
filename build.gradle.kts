@@ -19,12 +19,10 @@ buildscript {
         mavenCentral()
         google()
         jcenter()
-        maven("https://dl.bintray.com/data4life/maven")
     }
     dependencies {
         classpath(GradlePlugins.android)
         classpath(GradlePlugins.kotlin)
-        classpath(GradlePlugins.gitPublish)
     }
 }
 
@@ -68,6 +66,6 @@ allprojects {
 }
 
 tasks.named<Wrapper>("wrapper") {
-    gradleVersion = "6.7.1"
+    gradleVersion = "6.8.3"
     distributionType = Wrapper.DistributionType.ALL
 }
