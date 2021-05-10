@@ -18,7 +18,7 @@ object Versions {
 
     object GradlePlugins {
         const val kotlin = Versions.kotlin
-        const val android = "4.1.1"
+        const val android = "4.1.3"
 
         /**
          * [jGitVer](https://github.com/jgitver/gradle-jgitver-plugin)
