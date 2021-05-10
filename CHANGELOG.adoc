@@ -27,6 +27,7 @@ toc::[]
 === Bumped
 
 * **_BREAKING_** D4L FHIR SDK 1.1.0 -> 1.2.1
+* Bump Gradle 6.7.1 -> 6.8.3
 
 === Migration
 
