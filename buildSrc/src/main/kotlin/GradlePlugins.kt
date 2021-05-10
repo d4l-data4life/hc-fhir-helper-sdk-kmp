@@ -20,7 +20,6 @@ import org.gradle.plugin.use.PluginDependencySpec
 object GradlePlugins {
     const val android = "com.android.tools.build:gradle:${Versions.GradlePlugins.android}"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.GradlePlugins.kotlin}"
-    const val gitPublish = "care.data4life:gradle-git-publish:${Versions.GradlePlugins.gitPublish}"
 }
 
 fun PluginDependenciesSpec.kotlinMultiplatform(apply: Boolean = true): PluginDependencySpec =
