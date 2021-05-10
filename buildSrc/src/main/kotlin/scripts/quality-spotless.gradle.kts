@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -20,27 +20,34 @@ package scripts
  * You need to add following dependencies to the buildSrc/build.gradle.kts
  *
  * - implementation("com.diffplug.spotless:spotless-plugin-gradle:5.10.2")
- * - implementation("com.pinterest:ktlint:0.40.0")
+ * - implementation("com.pinterest:ktlint:0.41.0")
  *
  */
 plugins {
     id("com.diffplug.spotless")
 }
 
+val ktlintVersion = "0.41.0"
+
 spotless {
     ratchetFrom("origin/main")
 
     kotlin {
         target("**/*.kt")
-        targetExclude("buildSrc/build/")
-        ktlint("0.40.0")
+        targetExclude("buildSrc/build/", "**/buildSrc/build/")
+        ktlint(ktlintVersion).userData(
+            mapOf(
+                "disabled_rules" to "no-wildcard-imports",
+                "ij_kotlin_imports_layout" to "*"
+            )
+        )
         trimTrailingWhitespace()
         indentWithSpaces()
         endWithNewline()
     }
     kotlinGradle {
         target("*.gradle.kts")
-        ktlint("0.40.0")
+        ktlint(ktlintVersion)
         trimTrailingWhitespace()
         indentWithSpaces()
         endWithNewline()
