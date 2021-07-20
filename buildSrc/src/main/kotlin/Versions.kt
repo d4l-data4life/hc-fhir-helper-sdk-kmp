@@ -18,12 +18,12 @@ object Versions {
 
     object GradlePlugins {
         const val kotlin = Versions.kotlin
-        const val android = "4.1.3"
+        const val android = "4.2.1"
     }
 
     // Kotlin
     // https://github.com/JetBrains/kotlin
-    const val kotlin = "1.4.21"
+    const val kotlin = "1.4.32"
 
     // Android
     // https://developer.android.com/studio/write/java8-support
@@ -65,7 +65,7 @@ object Versions {
     /**
      * [hc-util-sdk-kmp](https://github.com/d4l-data4life/hc-util-sdk-kmp)
      */
-    const val sdkUtil = "1.6.1"
+    const val sdkUtil = "1.8.1"
 
     /**
      * [mockk](http://mockk.io)

@@ -103,8 +103,6 @@ object Dependencies {
     object D4L {
         val fhirJvm = "care.data4life.hc-fhir-sdk-java:fhir-java:${Versions.fhir}"
 
-        val utilCommon = "care.data4life.hc-util-sdk-kmp:util:${Versions.sdkUtil}"
-        val utilAndroid = "care.data4life.hc-util-sdk-kmp:util-android:${Versions.sdkUtil}"
-        val utilJvm = "care.data4life.hc-util-sdk-kmp:util-jvm:${Versions.sdkUtil}"
+        val util = "care.data4life.hc-util-sdk-kmp:util:${Versions.sdkUtil}"
     }
 }
