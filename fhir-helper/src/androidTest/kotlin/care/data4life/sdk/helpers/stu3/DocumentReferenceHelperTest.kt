@@ -16,36 +16,38 @@
 
 package care.data4life.sdk.helpers.stu3
 
-import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.stu3.model.*
 import care.data4life.fhir.stu3.util.FhirDateTimeParser
 import care.data4life.sdk.config.DataRestrictionException
 import care.data4life.sdk.lang.D4LException
 import care.data4life.sdk.util.Base64
+import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 
+@RunWith(RobolectricTestRunner::class)
 class DocumentReferenceHelperTest {
-    val title = "Physical"
-    val indexed: FhirInstant = FhirDateTimeParser.parseInstant("2013-04-03T15:30:10+01:00")
-    val status = CodeSystemDocumentReferenceStatus.CURRENT
-    val documentCode = "34108-1"
-    val documentDisplay = "Outpatient Note"
-    val documentSystem = "http://loinc.org"
-    val practiceSpecialityCode = "General Medicine"
-    val practiceSpecialityDisplay = "General Medicine"
-    val practiceSpecialitySystem = "http://www.ihe.net/xds/connectathon/practiceSettingCodes"
-    val startingChar = "#"
+    private val title = "Physical"
+    private val indexed: FhirInstant = FhirDateTimeParser.parseInstant("2013-04-03T15:30:10+01:00")
+    private val status = CodeSystemDocumentReferenceStatus.CURRENT
+    private val documentCode = "34108-1"
+    private val documentDisplay = "Outpatient Note"
+    private val documentSystem = "http://loinc.org"
+    private val practiceSpecialityCode = "General Medicine"
+    private val practiceSpecialityDisplay = "General Medicine"
+    private val practiceSpecialitySystem = "http://www.ihe.net/xds/connectathon/practiceSettingCodes"
+    private val startingChar = "#"
 
-    val ADDITIONAL_ID = "id"
-    val PARTNER_ID = "partner"
+    private val ADDITIONAL_ID = "id"
+    private val PARTNER_ID = "partner"
 
     @Before
     fun setup() {
         FhirHelperConfig.init(PARTNER_ID)
     }
-
 
     @Test
     fun buildWithShouldReturnDocumentReference() {
@@ -108,12 +110,12 @@ class DocumentReferenceHelperTest {
 
     @Test
     fun buildWithShouldThrowForUnsupportedFileType() {
-        //given
+        // given
         val attachment = Attachment()
         val unsupportedData = byteArrayOf(0x00, 0x00)
         attachment.data = Base64.encodeToString(unsupportedData)
 
-        //when
+        // when
         try {
             DocumentReferenceBuilder.buildWith(
                 title,
@@ -126,7 +128,7 @@ class DocumentReferenceHelperTest {
             )
         } catch (ex: D4LException) {
 
-            //then
+            // then
             assertThat(ex).isInstanceOf(DataRestrictionException.UnsupportedFileType::class.java)
             assertThat(ex.message).isEqualTo("Only this file types are supported: JPEG, PNG, TIFF, PDF and DCM!")
         }

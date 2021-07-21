@@ -22,13 +22,16 @@ import care.data4life.sdk.lang.D4LException
 import com.google.common.truth.Truth.assertThat
 import org.junit.Assert.fail
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 
+@RunWith(RobolectricTestRunner::class)
 class AttachmentHelperTest {
-    val title = "Brain MRI"
-    val creationDate = FhirDateTimeParser.parseDateTime("2013-04-03")
-    val contentType = "image/jpeg"
-    var data = byteArrayOf(0x25, 0x50, 0x44, 0x46, 0x2d)
-    val dataBase64 = "JVBERi0="
+    private val title = "Brain MRI"
+    private val creationDate = FhirDateTimeParser.parseDateTime("2013-04-03")
+    private val contentType = "image/jpeg"
+    private var data = byteArrayOf(0x25, 0x50, 0x44, 0x46, 0x2d)
+    private val dataBase64 = "JVBERi0="
 
     @Test
     fun buildWithShouldReturnAttachment() {
@@ -46,7 +49,7 @@ class AttachmentHelperTest {
     @Test
     fun buildWithShouldThrowForInvalidAttachmentData() {
         // Given
-        val invalidData = byteArrayOf(0x00, 0x00)
+        val invalidData = "Invalid Data".toByteArray()
 
         // When
         try {

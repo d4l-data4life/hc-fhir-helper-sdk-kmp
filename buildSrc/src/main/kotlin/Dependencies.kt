@@ -57,7 +57,6 @@ object Dependencies {
         const val jsonAssert = "org.skyscreamer:jsonassert:${Versions.testJsonAssert}"
     }
 
-
     val android = Android
     object Android {
         // Kotlin
@@ -97,7 +96,6 @@ object Dependencies {
         const val uiAutomator =
             "androidx.test.uiautomator:uiautomator:${Versions.androidXUiAutomator}"
     }
-
 
     val d4l = D4L
     object D4L {

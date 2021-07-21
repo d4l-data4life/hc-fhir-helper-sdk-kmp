@@ -49,7 +49,7 @@ object Versions {
     const val material = "1.2.0"
 
     // Junit Test
-    const val testJUnit = "4.13.1"
+    const val testJUnit = "4.13.2"
 
     /**
      * [Robolectric](https://github.com/robolectric/robolectric)
@@ -60,7 +60,7 @@ object Versions {
     /**
      * [hc-fhir-sdk-java](https://github.com/d4l-data4life/hc-fhir-sdk-java)
      */
-    const val fhir = "1.2.1"
+    const val fhir = "1.5.0"
 
     /**
      * [hc-util-sdk-kmp](https://github.com/d4l-data4life/hc-util-sdk-kmp)
@@ -70,14 +70,14 @@ object Versions {
     /**
      * [mockk](http://mockk.io)
      */
-    const val testMockk = "1.9"
+    const val testMockk = "1.10.6"
 
     const val testTruth = "0.42"
 
     /**
      * [mockito](https://github.com/mockito/mockito)
      */
-    const val testMockito = "2.23.0"
+    const val testMockito = "2.27.0"
 
     const val testJsonAssert = "1.5.0"
 
