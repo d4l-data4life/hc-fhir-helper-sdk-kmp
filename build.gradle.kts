@@ -16,9 +16,9 @@
 
 buildscript {
     repositories {
+        gradlePluginPortal()
         mavenCentral()
         google()
-        jcenter()
     }
     dependencies {
         classpath(GradlePlugins.android)
@@ -41,27 +41,10 @@ allprojects {
         gradlePluginPortal()
         mavenCentral()
         google()
-        jcenter()
 
-        maven("https://kotlin.bintray.com/kotlin")
-        maven("https://kotlin.bintray.com/kotlinx")
+        gitHub(project)
 
-        maven {
-            url = uri("https://maven.pkg.github.com/d4l-data4life/hc-util-sdk-kmp")
-            credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("PACKAGE_REGISTRY_USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("PACKAGE_REGISTRY_TOKEN")
-            }
-        }
-        maven {
-            url = uri("https://maven.pkg.github.com/d4l-data4life/hc-fhir-sdk-java")
-            credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("PACKAGE_REGISTRY_USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("PACKAGE_REGISTRY_TOKEN")
-            }
-        }
-
-        maven("https://jitpack.io")
+        d4l()
     }
 }
 
