@@ -18,7 +18,7 @@ object Versions {
 
     object GradlePlugins {
         const val kotlin = Versions.kotlin
-        const val android = "4.2.1"
+        const val android = "4.2.2"
     }
 
     // Kotlin
@@ -65,7 +65,7 @@ object Versions {
     /**
      * [hc-util-sdk-kmp](https://github.com/d4l-data4life/hc-util-sdk-kmp)
      */
-    const val sdkUtil = "1.8.1"
+    const val sdkUtil = "1.8.1-bump-android-SNAPSHOT"
 
     /**
      * [mockk](http://mockk.io)

@@ -30,8 +30,8 @@ toc::[]
 
 * **_BREAKING_** D4L FHIR SDK 1.1.0 -> 1.5.0
 * Bump Gradle 6.7.1 -> 6.8.3
-* Android Gradle Plugin 4.1.1 -> 4.2.1
-* sdk-util 1.6.1 -> 1.8.1
+* Android Gradle Plugin 4.1.1 -> 4.2.2
+* sdk-util 1.6.1 -> 1.9.0
 * Kotlin 1.4.20 -> 1.4.32
 * Mockk 1.9 -> 1.10.6
 * Mockito 2.23.0 -> 2.27.0
