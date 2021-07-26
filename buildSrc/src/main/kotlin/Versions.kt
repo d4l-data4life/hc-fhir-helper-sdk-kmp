@@ -65,7 +65,7 @@ object Versions {
     /**
      * [hc-util-sdk-kmp](https://github.com/d4l-data4life/hc-util-sdk-kmp)
      */
-    const val sdkUtil = "1.8.1-bump-android-SNAPSHOT"
+    const val sdkUtil = "1.9.0"
 
     /**
      * [mockk](http://mockk.io)

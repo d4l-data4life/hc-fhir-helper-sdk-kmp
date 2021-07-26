@@ -28,7 +28,7 @@ toc::[]
 
 === Bumped
 
-* **_BREAKING_** D4L FHIR SDK 1.1.0 -> 1.5.0
+* **_BREAKING_** D4L FHIR SDK (Java) 1.1.0 -> 1.5.0
 * Bump Gradle 6.7.1 -> 6.8.3
 * Android Gradle Plugin 4.1.1 -> 4.2.2
 * sdk-util 1.6.1 -> 1.9.0
