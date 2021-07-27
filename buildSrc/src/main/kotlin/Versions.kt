@@ -18,12 +18,12 @@ object Versions {
 
     object GradlePlugins {
         const val kotlin = Versions.kotlin
-        const val android = "4.1.3"
+        const val android = "4.2.2"
     }
 
     // Kotlin
     // https://github.com/JetBrains/kotlin
-    const val kotlin = "1.4.21"
+    const val kotlin = "1.4.32"
 
     // Android
     // https://developer.android.com/studio/write/java8-support
@@ -49,7 +49,7 @@ object Versions {
     const val material = "1.2.0"
 
     // Junit Test
-    const val testJUnit = "4.13.1"
+    const val testJUnit = "4.13.2"
 
     /**
      * [Robolectric](https://github.com/robolectric/robolectric)
@@ -60,24 +60,24 @@ object Versions {
     /**
      * [hc-fhir-sdk-java](https://github.com/d4l-data4life/hc-fhir-sdk-java)
      */
-    const val fhir = "1.2.1"
+    const val fhir = "1.5.0"
 
     /**
      * [hc-util-sdk-kmp](https://github.com/d4l-data4life/hc-util-sdk-kmp)
      */
-    const val sdkUtil = "1.6.1"
+    const val sdkUtil = "1.9.0"
 
     /**
      * [mockk](http://mockk.io)
      */
-    const val testMockk = "1.9"
+    const val testMockk = "1.10.6"
 
     const val testTruth = "0.42"
 
     /**
      * [mockito](https://github.com/mockito/mockito)
      */
-    const val testMockito = "2.23.0"
+    const val testMockito = "2.27.0"
 
     const val testJsonAssert = "1.5.0"
 

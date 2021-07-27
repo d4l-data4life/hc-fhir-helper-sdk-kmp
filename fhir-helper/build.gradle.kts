@@ -28,7 +28,7 @@ group = LibraryConfig.group
 
 kotlin {
     android {
-        publishLibraryVariants("release")
+        publishLibraryVariants("release", "debug")
     }
 
     jvm()
@@ -38,7 +38,7 @@ kotlin {
             dependencies {
                 implementation(Dependencies.multiplatform.kotlin.stdlibCommon)
 
-                implementation(Dependencies.d4l.utilCommon)
+                implementation(Dependencies.d4l.util)
             }
         }
         val commonTest by getting {
@@ -53,7 +53,7 @@ kotlin {
                 implementation(Dependencies.multiplatform.kotlin.stdlibAndroid)
 
                 api(Dependencies.d4l.fhirJvm)
-                api(Dependencies.d4l.utilAndroid)
+                api(Dependencies.d4l.util)
             }
         }
         val androidTest by getting {
@@ -72,7 +72,7 @@ kotlin {
                 implementation(Dependencies.android.robolectric)
 
                 implementation(Dependencies.d4l.fhirJvm)
-                implementation(Dependencies.d4l.utilJvm)
+                implementation(Dependencies.d4l.util)
             }
         }
 
@@ -81,7 +81,7 @@ kotlin {
                 implementation(Dependencies.multiplatform.kotlin.stdlibJdk8)
 
                 api(Dependencies.d4l.fhirJvm)
-                api(Dependencies.d4l.utilJvm)
+                api(Dependencies.d4l.util)
             }
         }
         val jvmTest by getting {
@@ -98,7 +98,7 @@ kotlin {
                 implementation(Dependencies.test.mockitoCore)
 
                 implementation(Dependencies.d4l.fhirJvm)
-                implementation(Dependencies.d4l.utilJvm)
+                implementation(Dependencies.d4l.util)
             }
         }
     }
