@@ -12,7 +12,22 @@ and this project adheres to http://semver.org/spec/v2.0.0.html[Semantic Versioni
 ==== Versions
 toc::[]
 
-== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.5.0...master[Unreleased]
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.6.0...master[Unreleased]
+
+=== Added
+
+=== Changed
+
+=== Removed
+
+=== Fixed
+
+=== Bumped
+
+=== Migration
+
+
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.5.0...v1.6.0[1.6.0]
 
 === Added
 
