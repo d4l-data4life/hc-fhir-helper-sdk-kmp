@@ -15,22 +15,42 @@ ifndef::env-github[]
 :imagesdir: ./assets/images
 endif::[]
 
-image::d4l-logo.svg[d4l logo, 150]
 
-[discrete]
-= Data4Life FHIR Helper SDK
-
-Provides builder and extension to create and interact with FHIR objects
-
-link:{link-repository}[*Explore the docs »*]
-
-link:{link-repository}/issues[Report Bug] · link:{link-repository}/issues[Request Feature]
-
-
-image:https://img.shields.io/badge/Latest-{library_version}-blueviolet.svg[{library_version}, link={link-repository}/releases]
-image:{link-repository}/workflows/D4L%20CI%20KMP/badge.svg[Build Status, link={link-repository}/actions]
-image:https://img.shields.io/badge/Platform-Android%20•%20JVM%20-blue.svg[Platform]
-image:https://img.shields.io/badge/license-PRIVATE-lightgrey.svg[License, link=LICENSE]
+++++
+<div align="center">
+    <p><!-- PROJECT LOGO -->
+        <a><img src="assets/images/d4l-logo.svg" width="150"/></a>
+    </p>
+    <p><!-- PROJECT TITLE -->
+        <h3>Data4Life FHIR Helper SDK</h3>
+    </p>
+    <p><!-- PROJECT DESCRIPTION -->
+        Provides builder and extension to create and interact with FHIR objects
+    </p>
+    <p><!-- PROJECT DOCUMENTATION -->
+        <a href="README.adoc"><strong>Explore the docs »</strong></a>
+    </p>
+    <p><!-- PROJECT ISSUES/FEATURES -->
+        <a href="https://github.com/d4l-data4life/hc-helpers-sdk-kmp/issues">Report Bug</a>
+        ·
+        <a href="https://github.com/d4l-data4life/hc-helpers-sdk-kmp/issues">Request Feature</a>
+    </p>
+    <p><!-- PROJECT BADGES see badges.adoc how to change them -->
+        <a href="https://github.com/d4l-data4life/hc-helpers-sdk-kmp/releases">
+            <img src="assets/images/badge-release-latest.svg" alt="Latest version"/>
+        </a>
+        <a href="https://github.com/d4l-data4life/hc-helpers-sdk-kmp/actions">
+            <img src="https://github.com/d4l-data4life/hc-helpers-sdk-kmp/actions/workflows/d4l-ci-latest-version.yml/badge.svg" alt="Build Status"/>
+        </a>
+        <a>
+            <img src="assets/images/badge-platform-support.svg" alt="Platform"/>
+        </a>
+        <a href="LICENSE">
+            <img src="assets/images/badge-license.svg" alt="License"/>
+        </a>
+    </p>
+</div>
+++++
 
 [discrete]
 === Table Of Contents
