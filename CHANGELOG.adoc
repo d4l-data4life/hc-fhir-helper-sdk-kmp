@@ -15,6 +15,7 @@ toc::[]
 == https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.6.0...master[Unreleased]
 
 === Added
+* link:https://github.com/d4l-data4life/hc-result-sdk-kmp/[Data4Life Result-SDK] (Dependency).
 
 === Changed
 
@@ -23,6 +24,8 @@ toc::[]
 === Fixed
 
 === Bumped
+* Bump Gradle 6.8.3 -> 6.9.1
+* _**BREAKING**_ sdk-util 1.9.0 -> 1.10.0
 
 === Migration
 

@@ -13,6 +13,7 @@
  * applications and/or if you’d like to contribute to the development of the SDK, please
  * contact D4L by email to help@data4life.care.
  */
+package care.data4life.sdk.helpers.dependency
 
 import org.gradle.api.Project
 import org.gradle.api.artifacts.dsl.RepositoryHandler
@@ -23,14 +24,16 @@ object Repository {
 
     val github = listOf(
         // GitHub organization, GitHub repository name, Maven dependency group
-        listOf(gitHubOrgD4l, "hc-fhir-sdk-java", "care.data4life.hc-fhir-sdk-java"),
-        listOf(gitHubOrgD4l, "hc-util-sdk-kmp", "care.data4life.hc-util-sdk-kmp")
+        listOf(gitHubOrgD4l, "hc-util-sdk-kmp", "care.data4life.hc-util-sdk-kmp"),
+        listOf(gitHubOrgD4l, "hc-result-sdk-kmp", "care.data4life.hc-result-sdk-kmp"),
+        listOf(gitHubOrgD4l, "hc-fhir-sdk-java", "care.data4life.hc-fhir-sdk-java")
     )
 
     val d4l = listOf(
         // Maven dependency group
-        "care.data4life.hc-fhir-sdk-java",
-        "care.data4life.hc-util-sdk-kmp"
+        "care.data4life.hc-util-sdk-kmp",
+        "care.data4life.hc-result-sdk-kmp",
+        "hc-fhir-sdk-java", "care.data4life.hc-fhir-sdk-java"
     )
 }
 

@@ -17,8 +17,8 @@
 package care.data4life.sdk.helpers.stu3
 
 import care.data4life.fhir.stu3.util.FhirDateTimeParser
-import care.data4life.sdk.config.DataRestrictionException
 import care.data4life.sdk.lang.D4LException
+import care.data4life.sdk.lang.DataRestrictionException
 import com.google.common.truth.Truth.assertThat
 import org.junit.Assert.fail
 import org.junit.Test
