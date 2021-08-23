@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -13,31 +13,23 @@
  * applications and/or if you’d like to contribute to the development of the SDK, please
  * contact D4L by email to help@data4life.care.
  */
-import care.data4life.sdk.helpers.dependency.d4l
-import care.data4life.sdk.helpers.dependency.gitHub
 
 plugins {
-    id("care.data4life.sdk.helpers.dependency")
-
-    id("care.data4life.sdk.helpers.dependency-updates")
-    id("care.data4life.sdk.helpers.download-scripts")
-    id("care.data4life.sdk.helpers.publishing")
-    id("care.data4life.sdk.helpers.quality-spotless")
-    id("care.data4life.sdk.helpers.versioning")
+    `kotlin-dsl`
+    `java-gradle-plugin`
 }
 
-allprojects {
-    repositories {
-        mavenCentral()
-        google()
+// To make it available as direct dependency
+group = "care.data4life.sdk.helpers.dependency"
+version = "1.0.0-SNAPSHOT"
 
-        gitHub(project)
+repositories {
+    mavenCentral()
+}
 
-        d4l()
+gradlePlugin {
+    plugins.register("care.data4life.sdk.helpers.dependency") {
+        id = "care.data4life.sdk.helpers.dependency"
+        implementationClass = "care.data4life.sdk.helpers.dependency.DependencyPlugin"
     }
-}
-
-tasks.named<Wrapper>("wrapper") {
-    gradleVersion = "6.9.1"
-    distributionType = Wrapper.DistributionType.ALL
 }

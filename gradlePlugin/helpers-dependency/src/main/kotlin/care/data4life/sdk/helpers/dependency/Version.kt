@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 D4L data4life gGmbH / All rights reserved.
+ * Copyright (c) 2021 D4L data4life gGmbH / All rights reserved.
  *
  * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
@@ -13,11 +13,11 @@
  * applications and/or if you’d like to contribute to the development of the SDK, please
  * contact D4L by email to help@data4life.care.
  */
+package care.data4life.sdk.helpers.dependency
 
-object Versions {
-
-    object GradlePlugins {
-        const val kotlin = Versions.kotlin
+object Version {
+    object GradlePlugin {
+        const val kotlin = Version.kotlin
         const val android = "4.2.2"
     }
 
@@ -63,9 +63,14 @@ object Versions {
     const val fhir = "1.5.0"
 
     /**
-     * [hc-util-sdk-kmp](https://github.com/d4l-data4life/hc-util-sdk-kmp)
+     *  https://github.com/d4l-data4life/hc-util-sdk-kmp
      */
-    const val sdkUtil = "1.9.0"
+    const val sdkUtil = "1.10.0"
+
+    /**
+     * https://github.com/d4l-data4life/hc-result-sdk-kmp
+     */
+    const val sdkResult = "0.1.1"
 
     /**
      * [mockk](http://mockk.io)

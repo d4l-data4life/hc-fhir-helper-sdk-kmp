@@ -13,15 +13,17 @@
  * applications and/or if you’d like to contribute to the development of the SDK, please
  * contact D4L by email to help@data4life.care.
  */
+import care.data4life.sdk.helpers.LibraryConfig
+import care.data4life.sdk.helpers.dependency.Dependency
 
 plugins {
-    kotlinMultiplatform()
+    id("org.jetbrains.kotlin.multiplatform")
 
     // Android
-    androidLibrary()
+    id("com.android.library")
 
     // Publish
-    id("scripts.publishing-config")
+    id("care.data4life.sdk.helpers.publishing-config")
 }
 
 group = LibraryConfig.group
@@ -36,69 +38,66 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(Dependencies.multiplatform.kotlin.stdlibCommon)
+                implementation(Dependency.multiplatform.kotlin.stdlibCommon)
 
-                implementation(Dependencies.d4l.util)
+                implementation(Dependency.d4l.utilCommon)
+                implementation(Dependency.d4l.resultErrorCommon)
             }
         }
         val commonTest by getting {
             dependencies {
-                implementation(Dependencies.multiplatform.kotlin.testCommon)
-                implementation(Dependencies.multiplatform.kotlin.testCommonAnnotations)
+                implementation(Dependency.multiplatform.kotlin.testCommon)
+                implementation(Dependency.multiplatform.kotlin.testCommonAnnotations)
             }
         }
 
         val androidMain by getting {
             dependencies {
-                implementation(Dependencies.multiplatform.kotlin.stdlibAndroid)
+                implementation(Dependency.multiplatform.kotlin.stdlibAndroid)
 
-                api(Dependencies.d4l.fhirJvm)
-                api(Dependencies.d4l.util)
+                api(Dependency.d4l.fhirJvm)
+                api(Dependency.d4l.utilAndroid)
+                api(Dependency.d4l.resultErrorAndroid)
             }
         }
         val androidTest by getting {
             dependencies {
-                implementation(Dependencies.multiplatform.kotlin.testJvm)
-                implementation(Dependencies.multiplatform.kotlin.testJvmJunit)
+                implementation(Dependency.multiplatform.kotlin.testJvm)
+                implementation(Dependency.multiplatform.kotlin.testJvmJunit)
 
-                implementation(Dependencies.test.junit)
-                implementation(Dependencies.test.truth)
-                implementation(Dependencies.test.jsonAssert)
+                implementation(Dependency.test.junit)
+                implementation(Dependency.test.truth)
+                implementation(Dependency.test.jsonAssert)
 
-                implementation(Dependencies.test.mockkJvm)
-                implementation(Dependencies.test.mockitoInline)
-                implementation(Dependencies.test.mockitoCore)
+                implementation(Dependency.test.mockkJvm)
+                implementation(Dependency.test.mockitoInline)
+                implementation(Dependency.test.mockitoCore)
 
-                implementation(Dependencies.android.robolectric)
-
-                implementation(Dependencies.d4l.fhirJvm)
-                implementation(Dependencies.d4l.util)
+                implementation(Dependency.android.robolectric)
             }
         }
 
         val jvmMain by getting {
             dependencies {
-                implementation(Dependencies.multiplatform.kotlin.stdlibJdk8)
+                implementation(Dependency.multiplatform.kotlin.stdlibJdk8)
 
-                api(Dependencies.d4l.fhirJvm)
-                api(Dependencies.d4l.util)
+                api(Dependency.d4l.fhirJvm)
+                api(Dependency.d4l.utilJvm)
+                api(Dependency.d4l.resultErrorJvm)
             }
         }
         val jvmTest by getting {
             dependencies {
-                implementation(Dependencies.multiplatform.kotlin.testJvm)
-                implementation(Dependencies.multiplatform.kotlin.testJvmJunit)
+                implementation(Dependency.multiplatform.kotlin.testJvm)
+                implementation(Dependency.multiplatform.kotlin.testJvmJunit)
 
-                implementation(Dependencies.test.junit)
-                implementation(Dependencies.test.truth)
-                implementation(Dependencies.test.jsonAssert)
+                implementation(Dependency.test.junit)
+                implementation(Dependency.test.truth)
+                implementation(Dependency.test.jsonAssert)
 
-                implementation(Dependencies.test.mockkJvm)
-                implementation(Dependencies.test.mockitoInline)
-                implementation(Dependencies.test.mockitoCore)
-
-                implementation(Dependencies.d4l.fhirJvm)
-                implementation(Dependencies.d4l.util)
+                implementation(Dependency.test.mockkJvm)
+                implementation(Dependency.test.mockitoInline)
+                implementation(Dependency.test.mockitoCore)
             }
         }
     }
@@ -122,7 +121,7 @@ android {
         )
     }
 
-    resourcePrefix(LibraryConfig.android.resourcePrefix)
+    resourcePrefix(care.data4life.sdk.helpers.LibraryConfig.android.resourcePrefix)
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

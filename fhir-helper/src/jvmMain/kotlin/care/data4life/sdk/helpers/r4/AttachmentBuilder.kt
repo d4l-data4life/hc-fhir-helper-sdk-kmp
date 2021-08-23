@@ -19,7 +19,7 @@ package care.data4life.sdk.helpers.r4
 import care.data4life.fhir.r4.model.Attachment
 import care.data4life.fhir.r4.model.FhirDateTime
 import care.data4life.sdk.config.DataRestriction
-import care.data4life.sdk.config.DataRestrictionException
+import care.data4life.sdk.lang.DataRestrictionException
 import care.data4life.sdk.util.Base64
 import care.data4life.sdk.util.HashUtil
 import care.data4life.sdk.util.MimeType
