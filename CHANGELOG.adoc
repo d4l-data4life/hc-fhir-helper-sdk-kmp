@@ -18,6 +18,7 @@ toc::[]
 * link:https://github.com/d4l-data4life/hc-result-sdk-kmp/[Data4Life Result-SDK] (Dependency).
 
 === Changed
+* DataRestrictionException is now a domain error of this SDK (`care.data4life.sdk.helpers.lang.DataRestrictionException`)
 
 === Removed
 
