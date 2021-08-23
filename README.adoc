@@ -31,16 +31,16 @@ endif::[]
         <a href="README.adoc"><strong>Explore the docs »</strong></a>
     </p>
     <p><!-- PROJECT ISSUES/FEATURES -->
-        <a href="https://github.com/d4l-data4life/hc-helpers-sdk-kmp/issues">Report Bug</a>
+        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/issues">Report Bug</a>
         ·
-        <a href="https://github.com/d4l-data4life/hc-helpers-sdk-kmp/issues">Request Feature</a>
+        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/issues">Request Feature</a>
     </p>
     <p><!-- PROJECT BADGES see badges.adoc how to change them -->
-        <a href="https://github.com/d4l-data4life/hc-helpers-sdk-kmp/releases">
+        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/releases">
             <img src="assets/images/badge-release-latest.svg" alt="Latest version"/>
         </a>
-        <a href="https://github.com/d4l-data4life/hc-helpers-sdk-kmp/actions">
-            <img src="https://github.com/d4l-data4life/hc-helpers-sdk-kmp/actions/workflows/d4l-ci-latest-version.yml/badge.svg" alt="Build Status"/>
+        <a href="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/actions">
+            <img src="https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/actions/workflows/d4l-ci-latest-version.yml/badge.svg" alt="Build Status"/>
         </a>
         <a>
             <img src="assets/images/badge-platform-support.svg" alt="Platform"/>
