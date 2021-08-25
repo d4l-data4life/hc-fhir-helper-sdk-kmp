@@ -16,11 +16,7 @@ toc::[]
 
 === Added
 
-* link:https://github.com/d4l-data4life/hc-result-sdk-kmp/[Data4Life Result-SDK] (Dependency).
-
 === Changed
-
-* _**BREAKING**_ DataRestrictionException is now a domain error of this SDK (`care.data4life.sdk.helpers.lang.DataRestrictionException`)
 
 === Removed
 
@@ -28,10 +24,23 @@ toc::[]
 
 === Bumped
 
+=== Migration
+
+
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.6.0...v1.7.0[1.7.0]
+
+=== Added
+
+* link:https://github.com/d4l-data4life/hc-result-sdk-kmp/[Data4Life Result-SDK] (Dependency).
+
+=== Changed
+
+* _**BREAKING**_ DataRestrictionException is now a domain error of this SDK (`care.data4life.sdk.helpers.lang.DataRestrictionException`)
+
+=== Bumped
+
 * Bump Gradle 6.8.3 -> 6.9.1
 * _**BREAKING**_ sdk-util 1.9.0 -> 1.10.0
-
-=== Migration
 
 
 == https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.5.0...v1.6.0[1.6.0]
