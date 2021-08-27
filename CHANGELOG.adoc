@@ -41,6 +41,7 @@ toc::[]
 
 * Bump Gradle 6.8.3 -> 6.9.1
 * _**BREAKING**_ sdk-util 1.9.0 -> 1.10.0
+* FHIR-SDK 1.5.0 -> 1.6.2
 
 
 == https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.5.0...v1.6.0[1.6.0]
