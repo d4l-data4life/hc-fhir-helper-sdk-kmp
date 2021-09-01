@@ -1,4 +1,4 @@
-:library_version: 1.7.1
+:library_version: 1.7.2
 :toc: macro
 :toclevels: 2
 :toc-title:
