@@ -79,6 +79,5 @@ object MedicationIngredientHelper {
             quantity,
             unit
         )
-
     }
 }

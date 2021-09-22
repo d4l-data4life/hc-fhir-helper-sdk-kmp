@@ -22,13 +22,14 @@ object ObservationBuilder {
 
     @JvmStatic
     fun buildWith(
-            type: CodeableConcept,
-            value: Quantity,
-            status: CodeSystemObservationStatus,
-            issuedDate: FhirInstant,
-            effectiveDate: FhirDateTime?,
-            category: CodeableConcept? = null,
-            ranges: List<Observation.ObservationReferenceRange>? = null): Observation {
+        type: CodeableConcept,
+        value: Quantity,
+        status: CodeSystemObservationStatus,
+        issuedDate: FhirInstant,
+        effectiveDate: FhirDateTime?,
+        category: CodeableConcept? = null,
+        ranges: List<Observation.ObservationReferenceRange>? = null
+    ): Observation {
 
         return build(
             type,
@@ -43,14 +44,15 @@ object ObservationBuilder {
 
     @JvmStatic
     fun buildWith(
-            type: CodeableConcept,
-            observationValue: Float,
-            observationUnit: String,
-            status: CodeSystemObservationStatus,
-            issuedDate: FhirInstant,
-            effectiveDate: FhirDateTime?,
-            category: CodeableConcept? = null,
-            ranges: List<Observation.ObservationReferenceRange>? = null): Observation {
+        type: CodeableConcept,
+        observationValue: Float,
+        observationUnit: String,
+        status: CodeSystemObservationStatus,
+        issuedDate: FhirInstant,
+        effectiveDate: FhirDateTime?,
+        category: CodeableConcept? = null,
+        ranges: List<Observation.ObservationReferenceRange>? = null
+    ): Observation {
 
         return build(
             type,
@@ -66,14 +68,15 @@ object ObservationBuilder {
 
     @JvmStatic
     fun buildWith(
-            type: CodeableConcept,
-            observationSampledData: SampledData,
-            observationUnit: String,
-            status: CodeSystemObservationStatus,
-            issuedDate: FhirInstant,
-            effectiveDate: FhirDateTime?,
-            category: CodeableConcept? = null,
-            ranges: List<Observation.ObservationReferenceRange>? = null): Observation {
+        type: CodeableConcept,
+        observationSampledData: SampledData,
+        observationUnit: String,
+        status: CodeSystemObservationStatus,
+        issuedDate: FhirInstant,
+        effectiveDate: FhirDateTime?,
+        category: CodeableConcept? = null,
+        ranges: List<Observation.ObservationReferenceRange>? = null
+    ): Observation {
 
         return build(
             type,
@@ -89,13 +92,14 @@ object ObservationBuilder {
 
     @JvmStatic
     fun buildWith(
-            type: CodeableConcept,
-            text: String,
-            status: CodeSystemObservationStatus,
-            issuedDate: FhirInstant,
-            effectiveDate: FhirDateTime?,
-            category: CodeableConcept? = null,
-            ranges: List<Observation.ObservationReferenceRange>? = null): Observation {
+        type: CodeableConcept,
+        text: String,
+        status: CodeSystemObservationStatus,
+        issuedDate: FhirInstant,
+        effectiveDate: FhirDateTime?,
+        category: CodeableConcept? = null,
+        ranges: List<Observation.ObservationReferenceRange>? = null
+    ): Observation {
 
         return build(
             type,
@@ -109,17 +113,18 @@ object ObservationBuilder {
     }
 
     private fun build(
-            type: CodeableConcept,
-            status: CodeSystemObservationStatus,
-            issuedDate: FhirInstant,
-            effectiveDate: FhirDateTime?,
-            observationValue: Float? = null,
-            observationUnit: String? = null,
-            observationSampledData: SampledData? = null,
-            value: Quantity? = null,
-            text: String? = null,
-            category: CodeableConcept? = null,
-            ranges: List<Observation.ObservationReferenceRange>? = null): Observation {
+        type: CodeableConcept,
+        status: CodeSystemObservationStatus,
+        issuedDate: FhirInstant,
+        effectiveDate: FhirDateTime?,
+        observationValue: Float? = null,
+        observationUnit: String? = null,
+        observationSampledData: SampledData? = null,
+        value: Quantity? = null,
+        text: String? = null,
+        category: CodeableConcept? = null,
+        ranges: List<Observation.ObservationReferenceRange>? = null
+    ): Observation {
 
         val observation = Observation(status, type)
 

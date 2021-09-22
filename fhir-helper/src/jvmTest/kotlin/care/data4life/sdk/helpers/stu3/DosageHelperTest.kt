@@ -16,8 +16,8 @@
 
 package care.data4life.sdk.helpers.stu3
 
-import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.stu3.model.FhirDecimal
+import com.google.common.truth.Truth.assertThat
 import org.junit.Assert.fail
 import org.junit.Test
 import java.math.BigDecimal
@@ -61,7 +61,6 @@ class DosageHelperTest {
         } catch (e: IllegalArgumentException) {
             assertThat(e.message).isEqualTo("unit is required")
         }
-
     }
 
     @Test
@@ -69,7 +68,8 @@ class DosageHelperTest {
         try {
             DosageHelper.buildWith(
                 DOSE,
-                DOSE_UNIT, null)
+                DOSE_UNIT, null
+            )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
             assertThat(e.message).isEqualTo("when is required")
@@ -78,12 +78,12 @@ class DosageHelperTest {
         try {
             DosageHelper.buildWith(
                 DOSE,
-                DOSE_UNIT, "")
+                DOSE_UNIT, ""
+            )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
             assertThat(e.message).isEqualTo("when is required")
         }
-
     }
 
     @Test

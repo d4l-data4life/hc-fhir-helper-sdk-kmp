@@ -16,7 +16,6 @@
 
 package care.data4life.sdk.test.util
 
-
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.IOException
@@ -44,7 +43,6 @@ object FileHelper {
 
         return result.toString(FILE_ENCODING)
     }
-
 
     @Throws(URISyntaxException::class)
     fun loadFileList(path: String): List<String> {

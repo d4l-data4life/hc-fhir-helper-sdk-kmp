@@ -16,13 +16,11 @@
 
 package care.data4life.sdk.helpers.stu3
 
-
-import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.stu3.FhirStu3Parser
 import care.data4life.fhir.stu3.model.*
-import care.data4life.sdk.helpers.stu3.*
 import care.data4life.sdk.test.util.FileHelper
 import care.data4life.sdk.util.StringUtils
+import com.google.common.truth.Truth.assertThat
 import io.mockk.*
 import org.junit.After
 import org.junit.Before
@@ -32,7 +30,6 @@ import org.skyscreamer.jsonassert.JSONAssert
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.test.fail
-
 
 class CarePlanBuilderTest {
 
@@ -73,14 +70,13 @@ class CarePlanBuilderTest {
         // Given
         mockkStatic(StringUtils::class)
         every { StringUtils.randomUUID() } returnsMany
-                listOf(
-                    "9EAC9107-9242-4179-B7C7-226E1B1C109D", //substanceId
-                    "8360DBFA-2537-4F9F-B6A0-DCFFE5FF1E39", //medicationId
-                    "2A96CAD7-DA31-418D-B4BD-18C52AAEB577", //patientId
-                    "1090A188-DDBD-49FE-88DE-5455E51C3612", //practitionerId
-                    "0D24DF43-C228-4FE3-871C-5E55A31EE174"
-                ) //medRequestId
-
+            listOf(
+                "9EAC9107-9242-4179-B7C7-226E1B1C109D", // substanceId
+                "8360DBFA-2537-4F9F-B6A0-DCFFE5FF1E39", // medicationId
+                "2A96CAD7-DA31-418D-B4BD-18C52AAEB577", // patientId
+                "1090A188-DDBD-49FE-88DE-5455E51C3612", // practitionerId
+                "0D24DF43-C228-4FE3-871C-5E55A31EE174"
+            ) // medRequestId
 
         val carePlanJsonSpec = FileHelper.loadString("careplan-inline.json")
         val parser = FhirStu3Parser()
@@ -237,6 +233,4 @@ class CarePlanBuilderTest {
         // Then
         assertThat(dummyMedRequest.id).isEqualTo(MEDICATION_REQ_ID)
     }
-
-
 }

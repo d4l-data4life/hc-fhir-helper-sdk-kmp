@@ -16,9 +16,9 @@
 
 package care.data4life.sdk.helpers.stu3
 
-import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.stu3.model.*
 import care.data4life.sdk.util.ArrayUtils
+import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
 import org.junit.Assert.fail
 import org.junit.Before
@@ -32,7 +32,6 @@ class FHIRHelpersTest {
     fun setUp() {
         FhirHelperConfig.init(PARTNER_ID)
     }
-
 
     //region buildWith() : CodeableConcept
     @Test
@@ -61,7 +60,7 @@ class FHIRHelpersTest {
             assertThat(e.message).isEqualTo("display is required")
         }
 
-        //Given
+        // Given
         display = ""
         try {
             // When
@@ -71,7 +70,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("display is required")
         }
-
     }
     //endregion
 
@@ -113,7 +111,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("value should be > 0")
         }
-
     }
 
     @Test
@@ -139,7 +136,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("unit is required")
         }
-
     }
     //endregion
 
@@ -174,7 +170,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("parent is required")
         }
-
     }
 
     @Test
@@ -190,7 +185,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("child is required")
         }
-
     }
 
     @Test
@@ -208,7 +202,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("child.id is required")
         }
-
     }
 
     @Test
@@ -227,7 +220,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("child already contained")
         }
-
     }
     //endregion
 
@@ -296,7 +288,6 @@ class FHIRHelpersTest {
         // Then
         assertThat(resources).isEmpty()
 
-
         // Given
         medication = Medication()
         medication.contained = ArrayList()
@@ -329,7 +320,6 @@ class FHIRHelpersTest {
         // Then
         assertThat(medication.contained).isNotNull()
         assertThat(substance.contained).isNotNull()
-
     }
     //endregion
 
@@ -361,7 +351,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("resources are required")
         }
-
     }
 
     @Test
@@ -376,7 +365,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("id is required")
         }
-
     }
 
     @Test
@@ -391,7 +379,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("id should start with #")
         }
-
     }
 
     @Test
@@ -406,7 +393,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("expectedType is required")
         }
-
     }
     //endregion
 
@@ -536,7 +522,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("appendingId is required")
         }
-
     }
 
     @Test
@@ -558,7 +543,6 @@ class FHIRHelpersTest {
             // Then
             assertThat(e.message).isEqualTo("id is required")
         }
-
     }
 
     companion object {
@@ -566,5 +550,4 @@ class FHIRHelpersTest {
         private val PARTNER_ID = "partnerId"
     }
     //endregion
-
 }

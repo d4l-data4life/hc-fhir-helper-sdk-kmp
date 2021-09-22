@@ -17,7 +17,6 @@
 package care.data4life.sdk.helpers.r4
 
 import care.data4life.fhir.r4.model.Medication
-import care.data4life.fhir.r4.model.Resource
 import care.data4life.fhir.r4.model.Substance
 import care.data4life.fhir.util.Preconditions
 import care.data4life.sdk.util.StringUtils
@@ -66,7 +65,6 @@ object MedicationHelper {
             return null
         else if (FhirHelpers.isCodingNullOrEmpty(medication.code)) return null
         return if (medication.code!!.coding!![0] == null) null else medication.code!!.coding!![0].display
-
     }
 
     @JvmStatic

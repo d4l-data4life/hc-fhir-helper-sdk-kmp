@@ -40,7 +40,6 @@ fun Practitioner.getSuffix(): String? {
     return name?.get(0)?.suffix?.get(0)
 }
 
-
 fun Practitioner.getStreet(): String? {
     return address?.first()?.line?.first()
 }

@@ -32,5 +32,4 @@ object FhirHelperConfig {
     fun init(partnerId: String?) {
         _partnerId = partnerId
     }
-
 }

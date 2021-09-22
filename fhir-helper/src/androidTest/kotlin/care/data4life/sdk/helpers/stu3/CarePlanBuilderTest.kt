@@ -1,26 +1,26 @@
 /*
  * Copyright (c) 2020 D4L data4life gGmbH / All rights reserved.
  *
- * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"), 
+ * D4L owns all legal rights, title and interest in and to the Software Development Kit ("SDK"),
  * including any intellectual property rights that subsist in the SDK.
  *
  * The SDK and its documentation may be accessed and used for viewing/review purposes only.
- * Any usage of the SDK for other purposes, including usage for the development of 
- * applications/third-party applications shall require the conclusion of a license agreement 
+ * Any usage of the SDK for other purposes, including usage for the development of
+ * applications/third-party applications shall require the conclusion of a license agreement
  * between you and D4L.
  *
- * If you are interested in licensing the SDK for your own applications/third-party 
- * applications and/or if you’d like to contribute to the development of the SDK, please 
+ * If you are interested in licensing the SDK for your own applications/third-party
+ * applications and/or if you’d like to contribute to the development of the SDK, please
  * contact D4L by email to help@data4life.care.
  */
 
 package care.data4life.sdk.helpers.stu3
 
-import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.stu3.FhirStu3Parser
 import care.data4life.fhir.stu3.model.*
 import care.data4life.sdk.test.util.FileHelper
 import care.data4life.sdk.util.StringUtils
+import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
@@ -73,14 +73,13 @@ class CarePlanBuilderTest {
         // Given
         mockkStatic(StringUtils::class)
         every { StringUtils.randomUUID() } returnsMany
-                listOf(
-                    "9EAC9107-9242-4179-B7C7-226E1B1C109D", //substanceId
-                    "8360DBFA-2537-4F9F-B6A0-DCFFE5FF1E39", //medicationId
-                    "2A96CAD7-DA31-418D-B4BD-18C52AAEB577", //patientId
-                    "1090A188-DDBD-49FE-88DE-5455E51C3612", //practitionerId
-                    "0D24DF43-C228-4FE3-871C-5E55A31EE174"
-                ) //medRequestId
-
+            listOf(
+                "9EAC9107-9242-4179-B7C7-226E1B1C109D", // substanceId
+                "8360DBFA-2537-4F9F-B6A0-DCFFE5FF1E39", // medicationId
+                "2A96CAD7-DA31-418D-B4BD-18C52AAEB577", // patientId
+                "1090A188-DDBD-49FE-88DE-5455E51C3612", // practitionerId
+                "0D24DF43-C228-4FE3-871C-5E55A31EE174"
+            ) // medRequestId
 
         val carePlanJsonSpec = FileHelper.loadString("/careplan-inline.json")
         val parser = FhirStu3Parser()
@@ -246,6 +245,4 @@ class CarePlanBuilderTest {
         // Then
         assertThat(dummyMedRequest.id).isEqualTo(MEDICATION_REQ_ID)
     }
-
-
 }
