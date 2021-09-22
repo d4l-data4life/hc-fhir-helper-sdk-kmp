@@ -13,8 +13,9 @@
  * applications and/or if you’d like to contribute to the development of the SDK, please
  * contact D4L by email to help@data4life.care.
  */
-import care.data4life.sdk.helpers.LibraryConfig
-import care.data4life.sdk.helpers.dependency.Dependency
+
+import care.data4life.gradle.fhir.helper.dependency.Dependency
+import care.data4life.gradle.fhir.helper.config.LibraryConfig
 
 plugins {
     id("org.jetbrains.kotlin.multiplatform")
@@ -23,7 +24,7 @@ plugins {
     id("com.android.library")
 
     // Publish
-    id("care.data4life.sdk.helpers.publishing-config")
+    id("care.data4life.gradle.fhir.helper.script.publishing-config")
 }
 
 group = LibraryConfig.group
@@ -104,11 +105,11 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(LibraryConfig.android.compileSdkVersion)
+    compileSdkVersion(care.data4life.gradle.fhir.helper.config.LibraryConfig.android.compileSdkVersion)
 
     defaultConfig {
-        minSdkVersion(LibraryConfig.android.minSdkVersion)
-        targetSdkVersion(LibraryConfig.android.targetSdkVersion)
+        minSdkVersion(care.data4life.gradle.fhir.helper.config.LibraryConfig.android.minSdkVersion)
+        targetSdkVersion(care.data4life.gradle.fhir.helper.config.LibraryConfig.android.targetSdkVersion)
 
         versionCode = 1
         versionName = "${project.version}"
@@ -121,7 +122,7 @@ android {
         )
     }
 
-    resourcePrefix(care.data4life.sdk.helpers.LibraryConfig.android.resourcePrefix)
+    resourcePrefix(care.data4life.gradle.fhir.helper.config.LibraryConfig.android.resourcePrefix)
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

@@ -33,7 +33,8 @@ object Repository {
         // Maven dependency group
         "care.data4life.hc-util-sdk-kmp",
         "care.data4life.hc-result-sdk-kmp",
-        "hc-fhir-sdk-java", "care.data4life.hc-fhir-sdk-java"
+        "care.data4life.hc-fhir-sdk-java",
+        "care.data4life.gradle.gitversion"
     )
 }
 

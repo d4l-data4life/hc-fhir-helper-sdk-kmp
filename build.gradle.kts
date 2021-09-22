@@ -13,17 +13,17 @@
  * applications and/or if you’d like to contribute to the development of the SDK, please
  * contact D4L by email to help@data4life.care.
  */
-import care.data4life.sdk.helpers.dependency.d4l
-import care.data4life.sdk.helpers.dependency.gitHub
+import care.data4life.gradle.fhir.helper.dependency.d4l
+import care.data4life.gradle.fhir.helper.dependency.gitHub
 
 plugins {
-    id("care.data4life.sdk.helpers.dependency")
+    id("care.data4life.gradle.fhir.helper.dependency")
 
-    id("care.data4life.sdk.helpers.dependency-updates")
-    id("care.data4life.sdk.helpers.download-scripts")
-    id("care.data4life.sdk.helpers.publishing")
-    id("care.data4life.sdk.helpers.quality-spotless")
-    id("care.data4life.sdk.helpers.versioning")
+    id("care.data4life.gradle.fhir.helper.script.dependency-updates")
+    id("care.data4life.gradle.fhir.helper.script.download-scripts")
+    id("care.data4life.gradle.fhir.helper.script.publishing")
+    id("care.data4life.gradle.fhir.helper.script.quality-spotless")
+    id("care.data4life.gradle.fhir.helper.script.versioning")
 }
 
 allprojects {
