@@ -26,11 +26,15 @@ danger(args) {
     onGitHub {
         val branchName = pullRequest.head.label.substringAfter(":")
         val isFeatureBranch =
-            "(?:feature\\/(?:[A-Z]{2,8}-\\d{1,6}\\/)?(?:add|change|remove|fix|bump|security)-[a-z,0-9,-]*)"
+            "(?:feature\\/(?:[A-Z]{2,8}-\\d{1,6}\\/)?(?:add|change|remove|fix|bump|security)-[a-z0-9-.]*)"
                 .toRegex()
                 .matches(branchName)
         val isReleaseBranch =
             "(?:release\\/(?:\\d{1,3}\\.\\d{1,3}(?:\\.\\d{1,3})?)(?:\\/prepare-\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})?)"
+                .toRegex()
+                .matches(branchName)
+        val isDependabotBranch =
+            "dependabot/(.*)"
                 .toRegex()
                 .matches(branchName)
         val isFeatureTitle =
@@ -42,7 +46,7 @@ danger(args) {
             .matches(pullRequest.title)
 
 
-        if (!isFeatureBranch && !isReleaseBranch) {
+        if (!isFeatureBranch && !isReleaseBranch && !isDependabotBranch) {
             fail(
                 "Branch name is not following our pattern:\n" +
                     "\nrelease/1.2(.3)(/prepare-1.2.3)\n" +

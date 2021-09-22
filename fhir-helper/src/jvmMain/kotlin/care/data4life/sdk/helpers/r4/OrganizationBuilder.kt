@@ -44,4 +44,3 @@ object OrganizationBuilder {
         return organization
     }
 }
-

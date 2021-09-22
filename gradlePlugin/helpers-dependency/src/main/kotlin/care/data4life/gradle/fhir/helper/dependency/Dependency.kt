@@ -13,12 +13,12 @@
  * applications and/or if you’d like to contribute to the development of the SDK, please
  * contact D4L by email to help@data4life.care.
  */
-package care.data4life.sdk.helpers.dependency
+package care.data4life.gradle.fhir.helper.dependency
 
 object Dependency {
     val kotlin = Kotlin
     object Kotlin {
-        const val stdLib = multiplatform.kotlin.stdlibJdk
+        const val stdLib = Multiplatform.Kotlin.stdlibJdk
         const val reflect = "org.jetbrains.kotlin:kotlin-reflect:${Version.kotlin}"
     }
 

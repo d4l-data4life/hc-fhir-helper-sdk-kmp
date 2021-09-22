@@ -55,7 +55,6 @@ fun CarePlan.getMedications() = when {
     }
 }
 
-
 fun CarePlan.addAdditionalId(id: String) {
     identifier = FhirHelpers.appendIdentifier(id, identifier)
 }

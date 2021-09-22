@@ -16,9 +16,8 @@
 
 package care.data4life.sdk.helpers.stu3
 
-
-import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.stu3.model.Patient
+import com.google.common.truth.Truth.assertThat
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test
@@ -30,7 +29,6 @@ class PatientHelperTest {
     fun setUp() {
         FhirHelperConfig.init(PARTNER_ID)
     }
-
 
     @Test
     fun buildWith_shouldReturnPatient_whenAllArgsProvided() {
@@ -62,7 +60,6 @@ class PatientHelperTest {
         } catch (e: IllegalArgumentException) {
             assertThat(e.message).isEqualTo("firstName is required")
         }
-
     }
 
     @Test
@@ -80,7 +77,6 @@ class PatientHelperTest {
         } catch (e: IllegalArgumentException) {
             assertThat(e.message).isEqualTo("lastName is required")
         }
-
     }
 
     @Test
@@ -174,10 +170,9 @@ class PatientHelperTest {
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
 
-            //then
+            // then
             assertThat(e.message).isEqualTo("patient is required")
         }
-
     }
 
     @Test
@@ -204,7 +199,6 @@ class PatientHelperTest {
             // then
             assertThat(e.message).isEqualTo("id is required")
         }
-
     }
 
     @Test
@@ -215,10 +209,9 @@ class PatientHelperTest {
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
 
-            //then
+            // then
             assertThat(e.message).isEqualTo("patient is required")
         }
-
     }
 
     companion object {

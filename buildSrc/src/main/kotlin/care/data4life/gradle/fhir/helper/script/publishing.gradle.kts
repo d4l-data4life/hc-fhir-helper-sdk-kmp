@@ -14,8 +14,9 @@
  * contact D4L by email to help@data4life.care.
  */
 
-package care.data4life.sdk.helpers
+package care.data4life.gradle.fhir.helper.script
 
+import care.data4life.gradle.fhir.helper.config.LibraryConfig
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.api.ResetCommand
 import org.eclipse.jgit.transport.PushResult
@@ -39,10 +40,10 @@ import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider
  *     mavenCentral()
  * }
  *
- * Now just add id("care.data4life.sdk.helpers.publishing") to your rootProject build.gradle.kts plugins
+ * Now just add id("care.data4life.gradle.fhir.helper.script.publishing") to your rootProject build.gradle.kts plugins
  *
  * plugins {
- *     id("care.data4life.sdk.helpers.publishing")
+ *     id("care.data4life.gradle.fhir.helper.script.publishing")
  * }
  *
  * Usage:

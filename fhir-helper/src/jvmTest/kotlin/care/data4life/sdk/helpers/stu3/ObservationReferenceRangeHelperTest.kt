@@ -16,11 +16,11 @@
 
 package care.data4life.sdk.helpers.stu3
 
-import com.google.common.truth.Truth.assertThat
 import care.data4life.fhir.stu3.model.CodeableConcept
 import care.data4life.fhir.stu3.model.Coding
 import care.data4life.fhir.stu3.model.FhirDecimal
 import care.data4life.fhir.stu3.model.Quantity
+import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 import java.math.BigDecimal
 
@@ -55,7 +55,6 @@ class ObservationReferenceRangeHelperTest {
             system = bmiValueSystem
             code = bmiValueCode
         }
-
 
         val highBmi = Quantity().apply {
             value = highValue

@@ -60,7 +60,6 @@ object FhirHelpers {
         return concept
     }
 
-
     @JvmStatic
     fun isCodingNullOrEmpty(codeable: CodeableConcept?): Boolean {
         return codeable?.coding == null || codeable.coding?.isEmpty() ?: false

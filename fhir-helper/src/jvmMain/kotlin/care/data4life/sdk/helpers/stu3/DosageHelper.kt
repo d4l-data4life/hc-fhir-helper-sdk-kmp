@@ -74,5 +74,4 @@ object DosageHelper {
 
         return Triple(value, unit, `when`)
     }
-
 }

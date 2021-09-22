@@ -23,11 +23,12 @@ object DiagnosticReportBuilder {
 
     @JvmStatic
     fun buildWith(
-            type: CodeableConcept,
-            status: CodeSystemDiagnosticReportStatus,
-            laboratoryName: String,
-            issued: FhirInstant,
-            observations: List<Observation>): DiagnosticReport {
+        type: CodeableConcept,
+        status: CodeSystemDiagnosticReportStatus,
+        laboratoryName: String,
+        issued: FhirInstant,
+        observations: List<Observation>
+    ): DiagnosticReport {
 
         val actor = Reference()
         actor.display = laboratoryName

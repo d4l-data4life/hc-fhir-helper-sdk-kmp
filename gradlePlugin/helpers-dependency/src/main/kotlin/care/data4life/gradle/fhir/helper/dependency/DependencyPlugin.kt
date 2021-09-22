@@ -13,9 +13,15 @@
  * applications and/or if you’d like to contribute to the development of the SDK, please
  * contact D4L by email to help@data4life.care.
  */
-package care.data4life.sdk.helpers.dependency
 
-object GradlePlugin {
-    const val android = "com.android.tools.build:gradle:${Version.GradlePlugin.android}"
-    const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.GradlePlugin.kotlin}"
+package care.data4life.gradle.fhir.helper.dependency
+
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+
+class DependencyPlugin : Plugin<Project> {
+
+    override fun apply(target: Project) {
+        // nothing to do
+    }
 }

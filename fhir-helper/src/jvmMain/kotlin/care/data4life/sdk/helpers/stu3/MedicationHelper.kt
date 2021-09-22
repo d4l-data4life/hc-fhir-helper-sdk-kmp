@@ -65,7 +65,6 @@ object MedicationHelper {
             return null
         else if (FhirHelpers.isCodingNullOrEmpty(medication.code)) return null
         return if (medication.code!!.coding!![0] == null) null else medication.code!!.coding!![0].display
-
     }
 
     @JvmStatic
