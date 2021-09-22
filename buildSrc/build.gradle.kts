@@ -27,8 +27,8 @@ repositories {
 }
 
 dependencies {
-    implementation(care.data4life.sdk.helpers.dependency.GradlePlugin.kotlin)
-    implementation(care.data4life.sdk.helpers.dependency.GradlePlugin.android)
+    implementation(care.data4life.gradle.fhir.helpers.dependency.GradlePlugin.kotlin)
+    implementation(care.data4life.gradle.fhir.helpers.dependency.GradlePlugin.android)
 
     // dependency check
     implementation("com.github.ben-manes:gradle-versions-plugin:0.38.0")
