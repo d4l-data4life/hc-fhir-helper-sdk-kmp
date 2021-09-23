@@ -22,22 +22,30 @@ object Version {
     }
 
     // Kotlin
-    // https://github.com/JetBrains/kotlin
+    /**
+     * [Kotlin](https://github.com/JetBrains/kotlin)
+     */
     const val kotlin = "1.5.21"
 
     // Android
-    // https://developer.android.com/studio/write/java8-support
-    const val androidDesugar = "1.0.4"
+    /**
+     * https://developer.android.com/studio/write/java8-support
+     */
+    const val androidDesugar = "1.0.9"
 
     // AndroidX
-    // https://developer.android.com/jetpack/androidx
+    /**
+     * https://developer.android.com/jetpack/androidx
+     */
     const val androidX = "1.1.0"
-    const val androidXKtx = "1.3.1"
-    const val androidXAppCompat = "1.2.0"
+    const val androidXKtx = "1.6.0"
+    const val androidXAppCompat = "1.3.1"
 
     const val androidXConstraintLayout = "2.0.1"
 
-    // https://developer.android.com/testing
+    /**
+     * https://developer.android.com/testing
+     */
     const val androidXTest = "1.1.2"
     const val androidXEspresso = "3.3.0"
     const val androidXUiAutomator = "2.2.0"
@@ -46,7 +54,7 @@ object Version {
     /**
      * [Material Android](https://github.com/material-components/material-components-android)
      */
-    const val material = "1.2.0"
+    const val material = "1.4.0"
 
     // Junit Test
     const val testJUnit = "4.13.2"
@@ -54,23 +62,23 @@ object Version {
     /**
      * [Robolectric](https://github.com/robolectric/robolectric)
      */
-    const val robolectric = "4.4"
+    const val robolectric = "4.6.1"
 
     // D4L
     /**
      * [hc-fhir-sdk-java](https://github.com/d4l-data4life/hc-fhir-sdk-java)
      */
-    const val fhir = "1.6.3"
+    const val fhir = "1.7.0"
 
     /**
      *  https://github.com/d4l-data4life/hc-util-sdk-kmp
      */
-    const val sdkUtil = "1.10.0"
+    const val sdkUtil = "1.11.0"
 
     /**
      * https://github.com/d4l-data4life/hc-result-sdk-kmp
      */
-    const val sdkResult = "0.2.0"
+    const val sdkResult = "0.3.0"
 
     /**
      * [mockk](http://mockk.io)
