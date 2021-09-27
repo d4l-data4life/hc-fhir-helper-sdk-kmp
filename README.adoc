@@ -1,6 +1,6 @@
 = Data4Life FHIR Helper SDK
 :link-repository: https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp
-:project-version: 1.7.1
+:project-version: 1.8.0
 :doctype: article
 :!showtitle:
 :toc: macro
