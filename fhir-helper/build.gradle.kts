@@ -105,24 +105,19 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(care.data4life.gradle.fhir.helper.config.LibraryConfig.android.compileSdkVersion)
+    compileSdk = LibraryConfig.android.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion(care.data4life.gradle.fhir.helper.config.LibraryConfig.android.minSdkVersion)
-        targetSdkVersion(care.data4life.gradle.fhir.helper.config.LibraryConfig.android.targetSdkVersion)
-
-        versionCode = 1
-        versionName = "${project.version}"
+        minSdk = LibraryConfig.android.minSdkVersion
+        targetSdk = LibraryConfig.android.targetSdkVersion
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunnerArguments(
-            mapOf(
-                "clearPackageData" to "true"
-            )
+        testInstrumentationRunnerArguments.putAll(
+            mapOf("clearPackageData" to "true")
         )
     }
 
-    resourcePrefix(care.data4life.gradle.fhir.helper.config.LibraryConfig.android.resourcePrefix)
+    resourcePrefix(LibraryConfig.android.resourcePrefix)
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -144,15 +139,19 @@ android {
 
     buildTypes {
         getByName("debug") {
-            isDebuggable = true
+            isJniDebuggable = true
             isMinifyEnabled = false
-            setMatchingFallbacks("release", "debug")
+            matchingFallbacks.addAll(
+                listOf("release", "debug")
+            )
         }
         getByName("release") {
-            isDebuggable = false
+            isJniDebuggable = true
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-            setMatchingFallbacks("release", "debug")
+            matchingFallbacks.addAll(
+                listOf("release", "debug")
+            )
         }
     }
 }

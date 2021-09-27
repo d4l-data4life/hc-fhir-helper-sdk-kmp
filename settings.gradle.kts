@@ -3,15 +3,13 @@ pluginManagement {
         gradlePluginPortal()
         google()
     }
-
-    includeBuild("gradlePlugin/helpers-dependency")
 }
+
+includeBuild("gradlePlugin/helpers-dependency")
 
 plugins {
-    id("com.gradle.enterprise") version("3.4.1")
+    id("com.gradle.enterprise") version("3.7")
 }
-
-rootProject.name = "hc-fhir-helper-sdk-kmp"
 
 include(
     ":fhir-helper"
@@ -24,3 +22,5 @@ buildCache {
         removeUnusedEntriesAfterDays = 30
     }
 }
+
+rootProject.name = "hc-fhir-helper-sdk-kmp"
