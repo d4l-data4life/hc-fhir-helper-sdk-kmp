@@ -34,7 +34,7 @@ dependencies {
     implementation(care.data4life.gradle.fhir.helper.dependency.GradlePlugin.android)
 
     // dependency check
-    implementation("com.github.ben-manes:gradle-versions-plugin:0.39.0")
+    implementation("com.github.ben-manes:gradle-versions-plugin:0.42.0")
     // download scripts
     implementation("de.undercouch:gradle-download-task:4.1.2")
     // publishing.gradle.kts
