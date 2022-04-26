@@ -41,6 +41,8 @@ toc::[]
 
 === Bumped
 
+* Gradle 7.2 -> 7.4.2
+
 === Migration
 
 == https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.7.1...v1.8.0[1.8.0]
