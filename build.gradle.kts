@@ -14,6 +14,7 @@
  * contact D4L by email to help@data4life.care.
  */
 import care.data4life.gradle.fhir.helper.dependency.d4l
+import care.data4life.gradle.fhir.helper.dependency.ensureKotlinVersion
 import care.data4life.gradle.fhir.helper.dependency.gitHub
 
 plugins {
@@ -35,6 +36,8 @@ allprojects {
 
         d4l()
     }
+
+    ensureKotlinVersion()
 }
 
 tasks.named<Wrapper>("wrapper") {
