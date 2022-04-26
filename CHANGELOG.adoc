@@ -43,6 +43,7 @@ toc::[]
 
 * Gradle 7.2 -> 7.4.2
 * Android Gradle Plugin 7.0.2 -> 7.1.3
+* *_BREAKING_* Kotlin 1.5.21 -> 1.6.10
 
 === Migration
 
