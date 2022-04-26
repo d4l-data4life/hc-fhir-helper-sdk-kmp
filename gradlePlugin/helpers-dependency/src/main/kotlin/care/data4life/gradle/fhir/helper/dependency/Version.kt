@@ -69,7 +69,7 @@ object Version {
     /**
      * [hc-fhir-sdk-java](https://github.com/d4l-data4life/hc-fhir-sdk-java)
      */
-    const val fhir = "1.7.0"
+    const val fhir = "1.8.0"
 
     /**
      *  https://github.com/d4l-data4life/hc-util-sdk-kmp
