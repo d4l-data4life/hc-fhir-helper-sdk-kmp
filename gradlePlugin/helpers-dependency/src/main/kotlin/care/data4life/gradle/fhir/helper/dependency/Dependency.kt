@@ -42,6 +42,7 @@ object Dependency {
     }
 
     val test = Test
+
     object Test {
         const val junit = "junit:junit:${Version.testJUnit}"
 
@@ -58,6 +59,7 @@ object Dependency {
     }
 
     val android = Android
+
     object Android {
         // Kotlin
         const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:${Version.kotlin}"
@@ -66,6 +68,7 @@ object Dependency {
         const val desugar = "com.android.tools:desugar_jdk_libs:${Version.androidDesugar}"
 
         val androidX = AndroidX
+
         object AndroidX {
             // AndroidX
             const val ktx = "androidx.core:core-ktx:${Version.androidXKtx}"
@@ -81,6 +84,7 @@ object Dependency {
     }
 
     val androidTest = AndroidTest
+
     object AndroidTest {
         const val core = "androidx.test:core:${Version.androidXTest}"
         const val runner = "androidx.test:runner:${Version.androidXTest}"
@@ -98,15 +102,12 @@ object Dependency {
     }
 
     val d4l = D4L
+
     object D4L {
         val fhirJvm = "care.data4life.hc-fhir-sdk-java:fhir-java:${Version.fhir}"
 
         const val utilCommon = "care.data4life.hc-util-sdk-kmp:util:${Version.sdkUtil}"
         const val utilJvm = "care.data4life.hc-util-sdk-kmp:util-jvm:${Version.sdkUtil}"
         const val utilAndroid = "care.data4life.hc-util-sdk-kmp:util-android:${Version.sdkUtil}"
-
-        const val resultErrorCommon = "care.data4life.hc-result-sdk-kmp:error:${Version.sdkResult}"
-        const val resultErrorAndroid = "care.data4life.hc-result-sdk-kmp:error-android:${Version.sdkResult}"
-        const val resultErrorJvm = "care.data4life.hc-result-sdk-kmp:error-jvm:${Version.sdkResult}"
     }
 }

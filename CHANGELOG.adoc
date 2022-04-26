@@ -35,6 +35,8 @@ toc::[]
 
 === Removed
 
+* HC Result SDK (Dependency)
+
 === Fixed
 
 === Security
