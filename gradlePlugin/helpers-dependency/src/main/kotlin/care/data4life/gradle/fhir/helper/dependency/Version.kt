@@ -91,11 +91,7 @@ object Version {
     /**
      * [mockito](https://github.com/mockito/mockito)
      */
-    const val testMockito = "2.27.0"
+    const val testMockito = "4.5.1"
 
     const val testJsonAssert = "1.5.0"
-
-    // Android Test
-    const val androidTest = "1.0.2"
-    const val androidTestEspresso = "3.0.2"
 }
