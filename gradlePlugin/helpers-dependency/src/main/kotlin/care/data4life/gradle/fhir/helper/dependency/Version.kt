@@ -18,43 +18,44 @@ package care.data4life.gradle.fhir.helper.dependency
 object Version {
     object GradlePlugin {
         const val kotlin = Version.kotlin
-        const val android = "7.0.2"
+        const val android = "7.1.3"
     }
 
     // Kotlin
     /**
      * [Kotlin](https://github.com/JetBrains/kotlin)
      */
-    const val kotlin = "1.5.21"
+    const val kotlin = "1.6.10"
 
     // Android
     /**
-     * https://developer.android.com/studio/write/java8-support
+     *  https://developer.android.com/studio/write/java8-support
      */
-    const val androidDesugar = "1.0.9"
+    const val androidDesugar = "1.1.5"
 
     // AndroidX
     /**
      * https://developer.android.com/jetpack/androidx
      */
     const val androidX = "1.1.0"
-    const val androidXKtx = "1.6.0"
-    const val androidXAppCompat = "1.3.1"
+    const val androidXAnnotation = "1.2.0"
+    const val androidXKtx = "1.7.0"
+    const val androidXAppCompat = "1.4.1"
 
-    const val androidXConstraintLayout = "2.0.1"
+    const val androidXConstraintLayout = "2.1.3"
 
     /**
      * https://developer.android.com/testing
      */
-    const val androidXTest = "1.1.2"
-    const val androidXEspresso = "3.3.0"
+    const val androidXTest = "1.4.0"
+    const val androidXEspresso = "3.4.0"
     const val androidXUiAutomator = "2.2.0"
 
     // Material
     /**
      * [Material Android](https://github.com/material-components/material-components-android)
      */
-    const val material = "1.4.0"
+    const val material = "1.5.0"
 
     // Junit Test
     const val testJUnit = "4.13.2"
@@ -68,33 +69,24 @@ object Version {
     /**
      * [hc-fhir-sdk-java](https://github.com/d4l-data4life/hc-fhir-sdk-java)
      */
-    const val fhir = "1.7.0"
+    const val fhir = "1.8.0"
 
     /**
      *  https://github.com/d4l-data4life/hc-util-sdk-kmp
      */
-    const val sdkUtil = "1.11.0"
-
-    /**
-     * https://github.com/d4l-data4life/hc-result-sdk-kmp
-     */
-    const val sdkResult = "0.3.0"
+    const val sdkUtil = "1.12.0"
 
     /**
      * [mockk](http://mockk.io)
      */
-    const val testMockk = "1.10.6"
+    const val testMockk = "1.12.3"
 
     const val testTruth = "0.42"
 
     /**
      * [mockito](https://github.com/mockito/mockito)
      */
-    const val testMockito = "2.27.0"
+    const val testMockito = "4.5.1"
 
     const val testJsonAssert = "1.5.0"
-
-    // Android Test
-    const val androidTest = "1.0.2"
-    const val androidTestEspresso = "3.0.2"
 }

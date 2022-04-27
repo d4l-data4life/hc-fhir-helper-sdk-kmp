@@ -42,7 +42,7 @@ kotlin {
                 implementation(Dependency.multiplatform.kotlin.stdlibCommon)
 
                 implementation(Dependency.d4l.utilCommon)
-                implementation(Dependency.d4l.resultErrorCommon)
+                implementation(Dependency.d4l.errorCommon)
             }
         }
         val commonTest by getting {
@@ -57,11 +57,17 @@ kotlin {
                 implementation(Dependency.multiplatform.kotlin.stdlibAndroid)
 
                 api(Dependency.d4l.fhirJvm)
-                api(Dependency.d4l.utilAndroid)
-                api(Dependency.d4l.resultErrorAndroid)
             }
         }
+        val androidAndroidTestRelease by getting
+        val androidTestFixtures by getting
+        val androidTestFixturesDebug by getting
+        val androidTestFixturesRelease by getting
         val androidTest by getting {
+            dependsOn(androidAndroidTestRelease)
+            dependsOn(androidTestFixtures)
+            dependsOn(androidTestFixturesDebug)
+            dependsOn(androidTestFixturesRelease)
             dependencies {
                 implementation(Dependency.multiplatform.kotlin.testJvm)
                 implementation(Dependency.multiplatform.kotlin.testJvmJunit)
@@ -83,8 +89,6 @@ kotlin {
                 implementation(Dependency.multiplatform.kotlin.stdlibJdk8)
 
                 api(Dependency.d4l.fhirJvm)
-                api(Dependency.d4l.utilJvm)
-                api(Dependency.d4l.resultErrorJvm)
             }
         }
         val jvmTest by getting {

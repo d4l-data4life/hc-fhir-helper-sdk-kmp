@@ -315,7 +315,7 @@ class FHIRHelpersTest {
         substance.contained = patientList
 
         // When
-        val resources = FhirHelpers.getAllContainedResources(medication, shouldNullify)
+        FhirHelpers.getAllContainedResources(medication, shouldNullify)
 
         // Then
         assertThat(medication.contained).isNotNull()
