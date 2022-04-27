@@ -109,5 +109,9 @@ object Dependency {
         const val utilCommon = "care.data4life.hc-util-sdk-kmp:util:${Version.sdkUtil}"
         const val utilJvm = "care.data4life.hc-util-sdk-kmp:util-jvm:${Version.sdkUtil}"
         const val utilAndroid = "care.data4life.hc-util-sdk-kmp:util-android:${Version.sdkUtil}"
+
+        const val errorCommon = "care.data4life.hc-util-sdk-kmp:error:${Version.sdkUtil}"
+        const val errorAndroid = "care.data4life.hc-util-sdk-kmp:error-android:${Version.sdkUtil}"
+        const val errorJvm = "care.data4life.hc-util-sdk-kmp:error-jvm:${Version.sdkUtil}"
     }
 }

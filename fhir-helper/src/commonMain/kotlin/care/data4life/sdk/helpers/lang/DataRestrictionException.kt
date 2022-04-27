@@ -23,16 +23,20 @@ import care.data4life.sdk.lang.D4LException
  * Exception class that will be thrown in case of data restriction violations like file size is too large or
  * file type is unsupported.
  */
-sealed class DataRestrictionException(message: String? = null, cause: Throwable? = null) :
-    D4LException(message, cause) {
+sealed class DataRestrictionException(
+    message: String? = null,
+    cause: Throwable? = null
+) : D4LException(message, cause) {
 
     constructor() : this(null, null)
     constructor(message: String?) : this(message, null)
     constructor(cause: Throwable?) : this(cause?.toString(), cause)
 
-    class MaxDataSizeViolation :
-        DataRestrictionException(message = "The file size has to be smaller or equal to ${DATA_SIZE_MAX_MB}MB!")
+    class MaxDataSizeViolation : DataRestrictionException(
+        message = "The file size has to be smaller or equal to ${DATA_SIZE_MAX_MB}MB!"
+    )
 
-    class UnsupportedFileType :
-        DataRestrictionException(message = "Only this file types are supported: JPEG, PNG, TIFF, PDF and DCM!")
+    class UnsupportedFileType : DataRestrictionException(
+        message = "Only this file types are supported: JPEG, PNG, TIFF, PDF and DCM!"
+    )
 }

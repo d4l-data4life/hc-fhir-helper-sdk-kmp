@@ -42,6 +42,7 @@ kotlin {
                 implementation(Dependency.multiplatform.kotlin.stdlibCommon)
 
                 implementation(Dependency.d4l.utilCommon)
+                implementation(Dependency.d4l.errorCommon)
             }
         }
         val commonTest by getting {
@@ -56,7 +57,6 @@ kotlin {
                 implementation(Dependency.multiplatform.kotlin.stdlibAndroid)
 
                 api(Dependency.d4l.fhirJvm)
-                api(Dependency.d4l.utilAndroid)
             }
         }
         val androidAndroidTestRelease by getting
@@ -89,7 +89,6 @@ kotlin {
                 implementation(Dependency.multiplatform.kotlin.stdlibJdk8)
 
                 api(Dependency.d4l.fhirJvm)
-                api(Dependency.d4l.utilJvm)
             }
         }
         val jvmTest by getting {
