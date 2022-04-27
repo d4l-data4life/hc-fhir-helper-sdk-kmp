@@ -74,17 +74,12 @@ object Version {
     /**
      *  https://github.com/d4l-data4life/hc-util-sdk-kmp
      */
-    const val sdkUtil = "1.11.0"
-
-    /**
-     * https://github.com/d4l-data4life/hc-result-sdk-kmp
-     */
-    const val sdkResult = "0.3.0"
+    const val sdkUtil = "1.12.0"
 
     /**
      * [mockk](http://mockk.io)
      */
-    const val testMockk = "1.10.6"
+    const val testMockk = "1.12.3"
 
     const val testTruth = "0.42"
 
