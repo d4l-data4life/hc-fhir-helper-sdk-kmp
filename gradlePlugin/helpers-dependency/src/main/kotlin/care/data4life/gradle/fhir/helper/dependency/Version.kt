@@ -63,7 +63,7 @@ object Version {
     /**
      * [Robolectric](https://github.com/robolectric/robolectric)
      */
-    const val robolectric = "4.7.3"
+    const val robolectric = "4.8"
 
     // D4L
     /**
