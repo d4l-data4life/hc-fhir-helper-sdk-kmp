@@ -25,7 +25,7 @@ Template could be found here: link:https://github.com/d4l-data4life/hc-readme-te
 ==== Versions
 toc::[]
 
-== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.8.0...main[Unreleased]
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.9.0\...main[Unreleased]
 
 === Added
 
@@ -35,11 +35,19 @@ toc::[]
 
 === Removed
 
-* HC Result SDK (Dependency)
-
 === Fixed
 
 === Security
+
+=== Bumped
+
+=== Migration
+
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.8.0\...1.9.0[1.9.0]
+
+=== Removed
+
+* HC Result SDK (Dependency)
 
 === Bumped
 
@@ -51,12 +59,11 @@ toc::[]
 * Android AppCompat 1.3.1 -> 1.4.1
 * Android Material Components 1.4.0 -> 1.5.0
 * Android Constraint Layout 2.0.1 -> 2.1.3
-* HC Util SDK 1.11.0 -> 1.12.0
+* HC Util SDK 1.11.0 -> 1.13.0
 * HC FHIR SDK Java 1.7.0 -> 1.8.0
+* Android Target SDK 30 -> 31
 
-=== Migration
-
-== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.7.1...v1.8.0[1.8.0]
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.7.1\...v1.8.0[1.8.0]
 
 === Bumped
 
@@ -72,13 +79,13 @@ toc::[]
 * Android Desugar 1.0.4 -> 1.0.9
 * Robolectric 4.5.1 -> 4.6.1
 
-== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.7.0...v1.7.1[1.7.1]
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.7.0\...v1.7.1[1.7.1]
 
 === Bumped
 
 * FHIR-SDK 1.6.2 -> 1.6.3
 
-== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.6.0...v1.7.0[1.7.0]
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.6.0\...v1.7.0[1.7.0]
 
 === Added
 
@@ -95,7 +102,7 @@ toc::[]
 * FHIR-SDK 1.5.0 -> 1.6.2
 
 
-== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.5.0...v1.6.0[1.6.0]
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.5.0\...v1.6.0[1.6.0]
 
 === Changed
 
@@ -121,7 +128,7 @@ toc::[]
 D4L FHIR SDK 1.2.0 introduces breaking changes, see link:https://github.com/d4l-data4life/hc-fhir-sdk-java/releases/tag/v1.2.0[1.2.0]
 
 
-== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.4.1...v1.5.0[1.5.0]
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.4.1\...v1.5.0[1.5.0]
 
 === Added
 * Add code of conduct
@@ -144,14 +151,14 @@ The SDK has now a minSDK of API 23 and your project needs to be updated to be ab
 Your project needs to be updated to AndroidX link:https://developer.android.com/jetpack/androidx/migrate[see migration guide]]
 
 
-== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.4.0...v1.4.1[1.4.1]
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.4.0\...v1.4.1[1.4.1]
 
 === Bumped
 
 * D4L FHIR SDK 1.0.0 -> 1.1.0
 
 
-== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.3.1...v1.4.0[1.4.0]
+== https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.3.1\...v1.4.0[1.4.0]
 
 === Added
 

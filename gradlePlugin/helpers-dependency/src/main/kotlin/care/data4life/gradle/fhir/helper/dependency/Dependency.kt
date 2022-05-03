@@ -17,15 +17,18 @@ package care.data4life.gradle.fhir.helper.dependency
 
 object Dependency {
     val kotlin = Kotlin
+
     object Kotlin {
         const val stdLib = Multiplatform.Kotlin.stdlibJdk
         const val reflect = "org.jetbrains.kotlin:kotlin-reflect:${Version.kotlin}"
     }
 
     val multiplatform = Multiplatform
+
     object Multiplatform {
 
         val kotlin = Kotlin
+
         object Kotlin {
             const val stdlibCommon = "org.jetbrains.kotlin:kotlin-stdlib-common:${Version.kotlin}"
             const val stdlibJdk = "org.jetbrains.kotlin:kotlin-stdlib:${Version.kotlin}"
@@ -104,7 +107,7 @@ object Dependency {
     val d4l = D4L
 
     object D4L {
-        val fhirJvm = "care.data4life.hc-fhir-sdk-java:fhir-java:${Version.fhir}"
+        const val fhirJvm = "care.data4life.hc-fhir-sdk-java:fhir-java:${Version.fhir}"
 
         const val utilCommon = "care.data4life.hc-util-sdk-kmp:util:${Version.sdkUtil}"
         const val utilJvm = "care.data4life.hc-util-sdk-kmp:util-jvm:${Version.sdkUtil}"
