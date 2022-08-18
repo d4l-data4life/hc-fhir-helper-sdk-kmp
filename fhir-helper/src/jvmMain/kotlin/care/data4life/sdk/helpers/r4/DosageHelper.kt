@@ -48,23 +48,24 @@ object DosageHelper {
 
     @JvmStatic
     fun getDosage(dosage: Dosage?): Triple<Float, String, String>? {
-        if (dosage == null)
+        if (dosage == null) {
             return null
-        else if (dosage.timing == null)
+        } else if (dosage.timing == null) {
             return null
-        else if (dosage.timing?.repeat == null)
+        } else if (dosage.timing?.repeat == null) {
             return null
-        else if (dosage.timing?.repeat?.`when` == null)
+        } else if (dosage.timing?.repeat?.`when` == null) {
             return null
-        else if (dosage.timing?.repeat?.`when`?.size != 1)
+        } else if (dosage.timing?.repeat?.`when`?.size != 1) {
             return null
-        else if (StringUtils.isNullOrEmpty(dosage.timing?.repeat?.`when`!![0])) return null
+        } else if (StringUtils.isNullOrEmpty(dosage.timing?.repeat?.`when`!![0])) return null
 
         val `when` = dosage.timing?.repeat?.`when`?.get(0) ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
 
         val doseAndRate = dosage.doseAndRate ?: return null
-        if (doseAndRate.size != 1)
+        if (doseAndRate.size != 1) {
             return null
+        }
 
         val doseQuantity = doseAndRate.first().doseQuantity
 

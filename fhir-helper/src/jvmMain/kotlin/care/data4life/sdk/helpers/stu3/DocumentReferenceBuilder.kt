@@ -35,7 +35,6 @@ object DocumentReferenceBuilder {
         author: Practitioner,
         practiceSpeciality: CodeableConcept? = null
     ): DocumentReference {
-
         return build(
             title,
             indexed,
@@ -57,7 +56,6 @@ object DocumentReferenceBuilder {
         author: Organization,
         practiceSpeciality: CodeableConcept? = null
     ): DocumentReference {
-
         return build(
             title,
             indexed,
@@ -79,7 +77,6 @@ object DocumentReferenceBuilder {
         author: T,
         practiceSpeciality: CodeableConcept? = null
     ): DocumentReference {
-
         if (!(author is Practitioner || author is Organization)) {
             throw IllegalArgumentException("'author' should be of type Practitioner or Organization")
         }

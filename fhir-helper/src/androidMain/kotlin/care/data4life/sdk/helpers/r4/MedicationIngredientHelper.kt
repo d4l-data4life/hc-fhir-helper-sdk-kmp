@@ -56,21 +56,21 @@ object MedicationIngredientHelper {
     ): Triple<String, Float, String>? {
         if (ingredient == null || substance == null) return null
 
-        if (FhirHelpers.isCodingNullOrEmpty(substance.code))
+        if (FhirHelpers.isCodingNullOrEmpty(substance.code)) {
             return null
-        else if (substance.code.coding!![0] == null) return null
+        } else if (substance.code.coding!![0] == null) return null
         val ingredientName = substance.code.coding!![0].display!!
         if (StringUtils.isNullOrEmpty(ingredientName)) return null
 
-        if (ingredient.strength == null)
+        if (ingredient.strength == null) {
             return null
-        else if (ingredient.strength!!.numerator == null)
+        } else if (ingredient.strength!!.numerator == null) {
             return null
-        else if (ingredient.strength!!.numerator!!.value === null)
+        } else if (ingredient.strength!!.numerator!!.value === null) {
             return null
-        else if (ingredient.strength!!.numerator!!.unit == null)
+        } else if (ingredient.strength!!.numerator!!.unit == null) {
             return null
-        else if (ingredient.strength!!.numerator!!.value!!.decimal == null) return null
+        } else if (ingredient.strength!!.numerator!!.value!!.decimal == null) return null
         val quantity = ingredient.strength!!.numerator!!.value!!.decimal.toFloat()
         val unit = ingredient.strength!!.numerator!!.unit!!
 

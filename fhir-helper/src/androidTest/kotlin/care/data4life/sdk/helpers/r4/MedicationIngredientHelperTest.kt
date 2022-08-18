@@ -22,9 +22,9 @@ import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockkStatic
 import io.mockk.unmockkStatic
+import java.math.BigDecimal
 import org.junit.Assert.fail
 import org.junit.Test
-import java.math.BigDecimal
 
 class MedicationIngredientHelperTest {
 

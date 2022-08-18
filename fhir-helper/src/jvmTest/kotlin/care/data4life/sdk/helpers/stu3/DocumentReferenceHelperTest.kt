@@ -123,7 +123,6 @@ class DocumentReferenceHelperTest {
                 CodeableConcept()
             )
         } catch (ex: D4LException) {
-
             // then
             assertThat(ex.message).isEqualTo("Only this file types are supported: JPEG, PNG, TIFF, PDF and DCM!")
         }

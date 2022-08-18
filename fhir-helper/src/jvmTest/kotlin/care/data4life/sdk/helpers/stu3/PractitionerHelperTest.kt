@@ -18,10 +18,10 @@ package care.data4life.sdk.helpers.stu3
 
 import care.data4life.fhir.stu3.model.*
 import com.google.common.truth.Truth.assertThat
+import java.util.*
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test
-import java.util.*
 
 class PractitionerHelperTest {
 

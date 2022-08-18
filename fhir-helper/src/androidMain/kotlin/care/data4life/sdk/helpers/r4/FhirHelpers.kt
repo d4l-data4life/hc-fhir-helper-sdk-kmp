@@ -81,8 +81,9 @@ object FhirHelpers {
         Preconditions.checkArgument(parent != null, "parent is required")
         Preconditions.checkArgument(child != null, "child is required")
         Preconditions.checkArgument(!StringUtils.isNullOrEmpty(child?.id), "child.id is required")
-        if (parent?.contained != null)
+        if (parent?.contained != null) {
             Preconditions.checkArgument(!parent.contained!!.contains(child), "child already contained")
+        }
 
         if (parent?.contained == null) parent?.contained = ArrayList()
         parent?.contained!!.add(child)
@@ -152,9 +153,9 @@ object FhirHelpers {
 
         val result = ArrayList<Identifier>()
         for (id in ids) {
-            if (id.assigner == null)
+            if (id.assigner == null) {
                 continue
-            else if (id.assigner!!.reference == null) continue
+            } else if (id.assigner!!.reference == null) continue
 
             if (id.assigner!!.reference == FhirHelperConfig.partnerId) result.add(id)
         }

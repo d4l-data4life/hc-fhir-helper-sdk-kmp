@@ -39,23 +39,23 @@ object PatientHelper {
     }
 
     fun getFirstName(patient: Patient?): String? {
-        if (patient == null)
+        if (patient == null) {
             return null
-        else if (patient.name == null)
+        } else if (patient.name == null) {
             return null
-        else if (patient.name!!.size != 1)
+        } else if (patient.name!!.size != 1) {
             return null
-        else if (patient.name!![0].given!!.size != 1) return null
+        } else if (patient.name!![0].given!!.size != 1) return null
 
         return patient.name!![0].given!![0]
     }
 
     fun getLastName(patient: Patient?): String? {
-        if (patient == null)
+        if (patient == null) {
             return null
-        else if (patient.name == null)
+        } else if (patient.name == null) {
             return null
-        else if (patient.name!!.size != 1) return null
+        } else if (patient.name!!.size != 1) return null
 
         return patient.name!![0].family
     }

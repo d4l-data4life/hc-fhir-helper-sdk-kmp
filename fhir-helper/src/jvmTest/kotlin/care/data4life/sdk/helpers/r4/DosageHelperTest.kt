@@ -18,9 +18,9 @@ package care.data4life.sdk.helpers.r4
 
 import care.data4life.fhir.r4.model.FhirDecimal
 import com.google.common.truth.Truth.assertThat
+import java.math.BigDecimal
 import org.junit.Assert.fail
 import org.junit.Test
-import java.math.BigDecimal
 
 class DosageHelperTest {
 
@@ -45,7 +45,8 @@ class DosageHelperTest {
     fun builtWith_shouldThrow_whenDoseUnitNotProvided() {
         try {
             DosageHelper.buildWith(
-                DOSE, null,
+                DOSE,
+                null,
                 DOSE_TIMING
             )
             fail("Exception expected")
@@ -55,7 +56,8 @@ class DosageHelperTest {
 
         try {
             DosageHelper.buildWith(
-                DOSE, "",
+                DOSE,
+                "",
                 DOSE_TIMING
             )
             fail("Exception expected")
@@ -69,7 +71,8 @@ class DosageHelperTest {
         try {
             DosageHelper.buildWith(
                 DOSE,
-                DOSE_UNIT, null
+                DOSE_UNIT,
+                null
             )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
@@ -79,7 +82,8 @@ class DosageHelperTest {
         try {
             DosageHelper.buildWith(
                 DOSE,
-                DOSE_UNIT, ""
+                DOSE_UNIT,
+                ""
             )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {

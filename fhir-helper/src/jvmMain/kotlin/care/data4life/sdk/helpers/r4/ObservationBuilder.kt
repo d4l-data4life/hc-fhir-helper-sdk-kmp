@@ -30,7 +30,6 @@ object ObservationBuilder {
         category: CodeableConcept? = null,
         ranges: List<Observation.ObservationReferenceRange>? = null
     ): Observation {
-
         return build(
             type,
             status,
@@ -53,7 +52,6 @@ object ObservationBuilder {
         category: CodeableConcept? = null,
         ranges: List<Observation.ObservationReferenceRange>? = null
     ): Observation {
-
         return build(
             type,
             status,
@@ -77,7 +75,6 @@ object ObservationBuilder {
         category: CodeableConcept? = null,
         ranges: List<Observation.ObservationReferenceRange>? = null
     ): Observation {
-
         return build(
             type,
             status,
@@ -100,7 +97,6 @@ object ObservationBuilder {
         category: CodeableConcept? = null,
         ranges: List<Observation.ObservationReferenceRange>? = null
     ): Observation {
-
         return build(
             type,
             status,
@@ -125,7 +121,6 @@ object ObservationBuilder {
         category: CodeableConcept? = null,
         ranges: List<Observation.ObservationReferenceRange>? = null
     ): Observation {
-
         val observation = Observation(status, type)
 
         if (value != null) observation.valueQuantity = value

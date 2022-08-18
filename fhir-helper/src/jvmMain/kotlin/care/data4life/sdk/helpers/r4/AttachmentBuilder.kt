@@ -45,7 +45,6 @@ object AttachmentBuilder {
         contentType: String,
         data: ByteArray
     ): Attachment {
-
         if (MimeType.recognizeMimeType(data) == MimeType.UNKNOWN) {
             throw DataRestrictionException.UnsupportedFileType()
         } else if (data.size > DataRestriction.DATA_SIZE_MAX_BYTES) {

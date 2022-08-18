@@ -20,11 +20,11 @@ import care.data4life.fhir.r4.model.*
 import care.data4life.sdk.util.StringUtils
 import com.google.common.truth.Truth.assertThat
 import io.mockk.*
+import java.util.*
 import org.junit.After
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test
-import java.util.*
 
 class MedicationRequestHelperTest {
 
@@ -43,6 +43,7 @@ class MedicationRequestHelperTest {
     fun tearDown() {
         unmockkAll()
     }
+
     @Test
     fun buildWith_shouldReturnMedRequest_whenAllArgsProvided() {
         // Given

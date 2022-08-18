@@ -53,7 +53,6 @@ object PractitionerBuilder {
         telephone: String? = null,
         website: String? = null
     ): Practitioner {
-
         val practitioner = buildWith(firstName, lastName)
         val humanName = practitioner.name?.firstOrNull()
         if (humanName != null) {

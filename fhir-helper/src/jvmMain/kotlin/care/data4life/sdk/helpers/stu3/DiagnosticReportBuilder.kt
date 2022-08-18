@@ -29,7 +29,6 @@ object DiagnosticReportBuilder {
         issued: FhirInstant,
         observations: List<Observation>
     ): DiagnosticReport {
-
         val actor = Reference()
         actor.display = laboratoryName
         val performer = DiagnosticReport.DiagnosticReportPerformer(actor)

@@ -23,10 +23,10 @@ import io.mockk.every
 import io.mockk.mockkObject
 import io.mockk.unmockkAll
 import io.mockk.unmockkStatic
+import java.math.BigDecimal
 import org.junit.After
 import org.junit.Assert.fail
 import org.junit.Test
-import java.math.BigDecimal
 
 class MedicationIngredientHelperTest {
 
@@ -93,7 +93,8 @@ class MedicationIngredientHelperTest {
     fun builtWith_shouldThrow_whenIngrQuantityNotProvided() {
         try {
             MedicationIngredientHelper.buildWith(
-                INGREDIENT_NAME, null,
+                INGREDIENT_NAME,
+                null,
                 INGREDIENT_UNIT
             )
             fail("Exception expected")
@@ -107,7 +108,8 @@ class MedicationIngredientHelperTest {
         try {
             MedicationIngredientHelper.buildWith(
                 INGREDIENT_NAME,
-                INGREDIENT_QUANTITY, null
+                INGREDIENT_QUANTITY,
+                null
             )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
@@ -117,7 +119,8 @@ class MedicationIngredientHelperTest {
         try {
             MedicationIngredientHelper.buildWith(
                 INGREDIENT_NAME,
-                INGREDIENT_QUANTITY, ""
+                INGREDIENT_QUANTITY,
+                ""
             )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
