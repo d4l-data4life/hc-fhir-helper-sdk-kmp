@@ -23,11 +23,11 @@ import io.mockk.every
 import io.mockk.mockkObject
 import io.mockk.unmockkAll
 import io.mockk.unmockkStatic
+import java.util.*
 import org.junit.After
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test
-import java.util.*
 
 class MedicationRequestHelperTest {
 
@@ -59,7 +59,9 @@ class MedicationRequestHelperTest {
         // When
         val medRequest =
             MedicationRequestHelper.buildWith(
-                patient, medication!!, Arrays.asList<Dosage>(dosage),
+                patient,
+                medication!!,
+                Arrays.asList<Dosage>(dosage),
                 NOTE,
                 REASON
             )
@@ -82,7 +84,9 @@ class MedicationRequestHelperTest {
     fun builtWith_shouldThrow_whenPatientNotProvided() {
         try {
             MedicationRequestHelper.buildWith(
-                null, medication!!, Arrays.asList<Dosage>(dosage),
+                null,
+                medication!!,
+                Arrays.asList<Dosage>(dosage),
                 NOTE,
                 REASON
             )
@@ -96,7 +100,9 @@ class MedicationRequestHelperTest {
     fun builtWith_shouldThrow_whenMedicationNotProvided() {
         try {
             MedicationRequestHelper.buildWith(
-                patient, null, Arrays.asList<Dosage>(dosage),
+                patient,
+                null,
+                Arrays.asList<Dosage>(dosage),
                 NOTE,
                 REASON
             )
@@ -110,7 +116,9 @@ class MedicationRequestHelperTest {
     fun builtWith_shouldThrow_whenDosageNotProvided() {
         try {
             MedicationRequestHelper.buildWith(
-                patient, medication, null,
+                patient,
+                medication,
+                null,
                 NOTE,
                 REASON
             )
@@ -179,7 +187,10 @@ class MedicationRequestHelperTest {
         // When
         val medRequest =
             MedicationRequestHelper.buildWith(
-                patient, medication!!, Arrays.asList<Dosage>(dosage), null,
+                patient,
+                medication!!,
+                Arrays.asList<Dosage>(dosage),
+                null,
                 REASON
             )
 
@@ -192,8 +203,11 @@ class MedicationRequestHelperTest {
         // When
         val medRequest =
             MedicationRequestHelper.buildWith(
-                patient, medication!!, Arrays.asList<Dosage>(dosage),
-                NOTE, null
+                patient,
+                medication!!,
+                Arrays.asList<Dosage>(dosage),
+                NOTE,
+                null
             )
 
         // Then
@@ -202,7 +216,9 @@ class MedicationRequestHelperTest {
 
     private fun buildMedRequest(): MedicationRequest {
         return MedicationRequestHelper.buildWith(
-            patient, medication!!, Arrays.asList<Dosage>(dosage),
+            patient,
+            medication!!,
+            Arrays.asList<Dosage>(dosage),
             NOTE,
             REASON
         )
@@ -213,7 +229,9 @@ class MedicationRequestHelperTest {
         // Given
         val medRequest =
             MedicationRequestHelper.buildWith(
-                patient, this.medication!!, Arrays.asList<Dosage>(dosage),
+                patient,
+                this.medication!!,
+                Arrays.asList<Dosage>(dosage),
                 NOTE,
                 REASON
             )

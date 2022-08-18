@@ -52,7 +52,6 @@ class AttachmentHelperTest {
             AttachmentBuilder.buildWith(title, creationDate, contentType, invalidData)
             fail("Exception expected")
         } catch (e: D4LException) {
-
             // Then
             assertThat(e.message).isEqualTo("Only this file types are supported: JPEG, PNG, TIFF, PDF and DCM!")
         }

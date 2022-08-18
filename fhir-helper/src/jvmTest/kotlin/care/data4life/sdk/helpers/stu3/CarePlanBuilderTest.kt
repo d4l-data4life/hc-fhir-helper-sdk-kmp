@@ -22,14 +22,14 @@ import care.data4life.sdk.test.util.FileHelper
 import care.data4life.sdk.util.StringUtils
 import com.google.common.truth.Truth.assertThat
 import io.mockk.*
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.test.fail
 import org.junit.After
 import org.junit.Before
 import org.junit.Ignore
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.test.fail
 
 class CarePlanBuilderTest {
 
@@ -113,7 +113,9 @@ class CarePlanBuilderTest {
         mockkStatic(FhirHelpers::class)
 
         every { StringUtils.randomUUID() } returnsMany listOf(
-            PATIENT_ID, PRACTITIONER_ID, MEDICATION_REQ_ID
+            PATIENT_ID,
+            PRACTITIONER_ID,
+            MEDICATION_REQ_ID
         )
 
         every { FhirHelpers.getAllContainedResources(dummyMedRequest, true) } returns listOf<Resource>(

@@ -23,11 +23,11 @@ import io.mockk.every
 import io.mockk.mockkStatic
 import io.mockk.unmockkAll
 import io.mockk.unmockkStatic
+import java.util.*
 import org.junit.After
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test
-import java.util.*
 
 class MedicationRequestHelperTest {
 
@@ -46,6 +46,7 @@ class MedicationRequestHelperTest {
     fun tearDown() {
         unmockkAll()
     }
+
     @Test
     fun buildWith_shouldReturnMedRequest_whenAllArgsProvided() {
         // Given

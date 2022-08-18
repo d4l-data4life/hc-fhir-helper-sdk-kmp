@@ -18,10 +18,10 @@ package care.data4life.sdk.helpers.stu3
 
 import care.data4life.fhir.stu3.model.Patient
 import com.google.common.truth.Truth.assertThat
+import java.util.*
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test
-import java.util.*
 
 class PatientHelperTest {
 
@@ -193,7 +193,6 @@ class PatientHelperTest {
             )
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
-
             // then
             assertThat(e.message).isEqualTo("patient is required")
         }
@@ -209,7 +208,6 @@ class PatientHelperTest {
             PatientHelper.addAdditionalId(patient, null)
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
-
             // then
             assertThat(e.message).isEqualTo("id is required")
         }
@@ -219,7 +217,6 @@ class PatientHelperTest {
             PatientHelper.addAdditionalId(patient, "")
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
-
             // then
             assertThat(e.message).isEqualTo("id is required")
         }
@@ -232,7 +229,6 @@ class PatientHelperTest {
             PatientHelper.getAdditionalIds(null)
             fail("Exception expected")
         } catch (e: IllegalArgumentException) {
-
             // then
             assertThat(e.message).isEqualTo("patient is required")
         }

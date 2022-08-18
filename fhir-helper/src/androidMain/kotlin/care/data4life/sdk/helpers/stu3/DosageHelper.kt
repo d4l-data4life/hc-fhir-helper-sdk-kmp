@@ -45,29 +45,29 @@ object DosageHelper {
 
     @JvmStatic
     fun getDosage(dosage: Dosage?): Triple<Float, String, String>? {
-        if (dosage == null)
+        if (dosage == null) {
             return null
-        else if (dosage.timing == null)
+        } else if (dosage.timing == null) {
             return null
-        else if (dosage.timing?.repeat == null)
+        } else if (dosage.timing?.repeat == null) {
             return null
-        else if (dosage.timing?.repeat?.`when` == null)
+        } else if (dosage.timing?.repeat?.`when` == null) {
             return null
-        else if (dosage.timing?.repeat?.`when`?.size != 1)
+        } else if (dosage.timing?.repeat?.`when`?.size != 1) {
             return null
-        else if (StringUtils.isNullOrEmpty(dosage.timing?.repeat?.`when`!![0])) return null
+        } else if (StringUtils.isNullOrEmpty(dosage.timing?.repeat?.`when`!![0])) return null
 
         val `when` = dosage.timing?.repeat?.`when`?.get(0) ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
 
-        if (dosage.doseQuantity == null)
+        if (dosage.doseQuantity == null) {
             return null
-        else if (dosage.doseQuantity?.value === null)
+        } else if (dosage.doseQuantity?.value === null) {
             return null
-        else if (dosage.doseQuantity?.value?.decimal == null)
+        } else if (dosage.doseQuantity?.value?.decimal == null) {
             return null
-        else if (dosage.doseQuantity?.unit.isNullOrEmpty())
+        } else if (dosage.doseQuantity?.unit.isNullOrEmpty()) {
             return null
-        else if (dosage.doseQuantity?.value?.decimal == null) return null
+        } else if (dosage.doseQuantity?.value?.decimal == null) return null
         val value = dosage.doseQuantity?.value?.decimal?.toFloat()
             ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)
         val unit = dosage.doseQuantity?.unit ?: throw IllegalStateException(EXCEPTION_DOSAGE_INFORMAATION)

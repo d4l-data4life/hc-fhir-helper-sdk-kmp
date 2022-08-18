@@ -61,19 +61,19 @@ object MedicationHelper {
 
     @JvmStatic
     fun getMedicationName(medication: Medication?): String? {
-        if (medication == null)
+        if (medication == null) {
             return null
-        else if (FhirHelpers.isCodingNullOrEmpty(medication.code)) return null
+        } else if (FhirHelpers.isCodingNullOrEmpty(medication.code)) return null
         return if (medication.code!!.coding!![0] == null) null else medication.code!!.coding!![0].display
     }
 
     @JvmStatic
     fun getMedicationForm(medication: Medication?): String? {
-        if (medication == null)
+        if (medication == null) {
             return null
-        else if (FhirHelpers.isCodingNullOrEmpty(medication.form))
+        } else if (FhirHelpers.isCodingNullOrEmpty(medication.form)) {
             return null
-        else if (medication.form!!.coding!![0] == null) return null
+        } else if (medication.form!!.coding!![0] == null) return null
 
         return medication.form!!.coding!![0].display
     }
@@ -82,17 +82,17 @@ object MedicationHelper {
     fun getIngredients(medication: Medication?): List<Triple<String, Float, String>>? {
         val ingredients = ArrayList<Triple<String, Float, String>>()
 
-        if (medication == null)
+        if (medication == null) {
             return null
-        else if (medication.ingredient == null)
+        } else if (medication.ingredient == null) {
             return null
-        else if (medication.ingredient!!.isEmpty()) return null
+        } else if (medication.ingredient!!.isEmpty()) return null
 
         for (ingredient in medication.ingredient!!) {
             val substanceRef = ingredient.itemReference
-            if (substanceRef == null)
+            if (substanceRef == null) {
                 continue
-            else if (substanceRef.reference == null) continue
+            } else if (substanceRef.reference == null) continue
 
             val substance =
                 FhirHelpers.getResourceById(

@@ -72,13 +72,13 @@ object MedicationRequestHelper {
 
     @JvmStatic
     fun getMedication(medicationRequest: MedicationRequest?): Medication? {
-        if (medicationRequest == null)
+        if (medicationRequest == null) {
             return null
-        else if (medicationRequest.contained == null || medicationRequest.contained!!.size != 1)
+        } else if (medicationRequest.contained == null || medicationRequest.contained!!.size != 1) {
             return null
-        else if (medicationRequest.medicationReference == null)
+        } else if (medicationRequest.medicationReference == null) {
             return null
-        else if (medicationRequest.medicationReference!!.reference == null) return null
+        } else if (medicationRequest.medicationReference!!.reference == null) return null
 
         return FhirHelpers.getResourceById(
             medicationRequest.contained!!,
@@ -89,32 +89,33 @@ object MedicationRequestHelper {
 
     @JvmStatic
     fun getDosages(medicationRequest: MedicationRequest?): List<Dosage>? {
-        if (medicationRequest == null)
+        if (medicationRequest == null) {
             return null
-        else if (medicationRequest.dosageInstruction == null || medicationRequest.dosageInstruction!!.isEmpty())
+        } else if (medicationRequest.dosageInstruction == null || medicationRequest.dosageInstruction!!.isEmpty()) {
             return null
+        }
 
         return medicationRequest.dosageInstruction
     }
 
     @JvmStatic
     fun getNote(medicationRequest: MedicationRequest?): String? {
-        if (medicationRequest == null)
+        if (medicationRequest == null) {
             return null
-        else if (medicationRequest.note == null || medicationRequest.note!!.size != 1) return null
+        } else if (medicationRequest.note == null || medicationRequest.note!!.size != 1) return null
 
         return medicationRequest.note!![0].text
     }
 
     @JvmStatic
     fun getReason(medicationRequest: MedicationRequest?): String? {
-        if (medicationRequest == null)
+        if (medicationRequest == null) {
             return null
-        else if (medicationRequest.reasonCode == null || medicationRequest.reasonCode!!.size != 1)
+        } else if (medicationRequest.reasonCode == null || medicationRequest.reasonCode!!.size != 1) {
             return null
-        else if (FhirHelpers.isCodingNullOrEmpty(medicationRequest.reasonCode!![0]))
+        } else if (FhirHelpers.isCodingNullOrEmpty(medicationRequest.reasonCode!![0])) {
             return null
-        else if (medicationRequest.reasonCode!![0].coding!!.size != 1) return null
+        } else if (medicationRequest.reasonCode!![0].coding!!.size != 1) return null
 
         return medicationRequest.reasonCode!![0].coding!![0].display
     }

@@ -19,10 +19,10 @@ package care.data4life.sdk.helpers.stu3
 import care.data4life.fhir.stu3.model.*
 import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
-import org.junit.Before
-import org.junit.Test
 import java.util.*
 import kotlin.test.fail
+import org.junit.Before
+import org.junit.Test
 
 class CarePlanExtensionTest {
 
@@ -169,7 +169,6 @@ class CarePlanExtensionTest {
             c.addAdditionalId(ADDITIONAL_ID)
             fail("Exception expected")
         } catch (e: IllegalStateException) {
-
             // then
             assertThat(e.message).isEqualTo("FhirHelperConfig not initialized.")
         }
@@ -189,7 +188,6 @@ class CarePlanExtensionTest {
             c.addAdditionalId("")
             fail("Exception expected")
         } catch (e: IllegalStateException) {
-
             // then
             assertThat(e.message).isEqualTo("appendingId is required")
         }

@@ -30,21 +30,19 @@ repositories {
     d4l()
 }
 
-ensureKotlinVersion("1.5.31")
-
 dependencies {
     implementation(care.data4life.gradle.fhir.helper.dependency.GradlePlugin.kotlin)
     implementation(care.data4life.gradle.fhir.helper.dependency.GradlePlugin.android)
 
-    // dependency check
+    // dependency-updates.gradle.kts
     implementation("com.github.ben-manes:gradle-versions-plugin:0.42.0")
-    // download scripts
-    implementation("de.undercouch:gradle-download-task:4.1.2")
+    // download-scripts.gradle.kts
+    implementation("de.undercouch:gradle-download-task:5.1.1")
     // publishing.gradle.kts
-    implementation("org.eclipse.jgit:org.eclipse.jgit:6.1.0.202203080745-r")
-    // quality.gradle.kts
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.4.2")
-    implementation("com.pinterest:ktlint:0.44.0")
+    implementation("org.eclipse.jgit:org.eclipse.jgit:6.2.0.202206071550-r")
+    // quality-spotless.gradle.kts
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.9.0")
+    implementation("com.pinterest:ktlint:0.46.1")
     // versioning.gradle.kts
-    implementation("care.data4life.gradle.gitversion:gradle-git-version:0.12.4-d4l")
+    implementation("com.palantir.gradle.gitversion:gradle-git-version:0.15.0")
 }

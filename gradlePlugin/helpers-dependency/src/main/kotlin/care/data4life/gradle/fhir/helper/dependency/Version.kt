@@ -18,14 +18,14 @@ package care.data4life.gradle.fhir.helper.dependency
 object Version {
     object GradlePlugin {
         const val kotlin = Version.kotlin
-        const val android = "7.1.3"
+        const val android = "7.2.2"
     }
 
     // Kotlin
     /**
      * [Kotlin](https://github.com/JetBrains/kotlin)
      */
-    const val kotlin = "1.6.10"
+    const val kotlin = "1.7.10"
 
     // Android
     /**
@@ -37,12 +37,10 @@ object Version {
     /**
      * https://developer.android.com/jetpack/androidx
      */
-    const val androidX = "1.1.0"
-    const val androidXAnnotation = "1.2.0"
-    const val androidXKtx = "1.7.0"
-    const val androidXAppCompat = "1.4.1"
+    const val androidXKtx = "1.8.0"
+    const val androidXAppCompat = "1.5.0"
 
-    const val androidXConstraintLayout = "2.1.3"
+    const val androidXConstraintLayout = "2.1.4"
 
     /**
      * https://developer.android.com/testing
@@ -55,7 +53,7 @@ object Version {
     /**
      * [Material Android](https://github.com/material-components/material-components-android)
      */
-    const val material = "1.5.0"
+    const val material = "1.6.1"
 
     // Junit Test
     const val testJUnit = "4.13.2"
@@ -63,7 +61,7 @@ object Version {
     /**
      * [Robolectric](https://github.com/robolectric/robolectric)
      */
-    const val robolectric = "4.8"
+    const val robolectric = "4.8.1"
 
     // D4L
     /**
@@ -79,14 +77,14 @@ object Version {
     /**
      * [mockk](http://mockk.io)
      */
-    const val testMockk = "1.12.3"
+    const val testMockk = "1.12.5"
 
     const val testTruth = "0.42"
 
     /**
      * [mockito](https://github.com/mockito/mockito)
      */
-    const val testMockito = "4.5.1"
+    const val testMockito = "4.7.0"
 
-    const val testJsonAssert = "1.5.0"
+    const val testJsonAssert = "1.5.1"
 }

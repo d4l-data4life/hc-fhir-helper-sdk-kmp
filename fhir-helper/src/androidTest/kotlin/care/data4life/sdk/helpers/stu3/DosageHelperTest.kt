@@ -18,9 +18,9 @@ package care.data4life.sdk.helpers.stu3
 
 import care.data4life.fhir.stu3.model.FhirDecimal
 import com.google.common.truth.Truth.assertThat
+import java.math.BigDecimal
 import org.junit.Assert.fail
 import org.junit.Test
-import java.math.BigDecimal
 
 class DosageHelperTest {
 

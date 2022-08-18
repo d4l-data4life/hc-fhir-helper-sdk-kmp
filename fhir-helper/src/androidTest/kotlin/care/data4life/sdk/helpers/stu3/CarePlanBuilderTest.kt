@@ -25,14 +25,14 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.unmockkAll
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.test.fail
 import org.junit.After
 import org.junit.Before
 import org.junit.Ignore
 import org.junit.Test
 import org.skyscreamer.jsonassert.JSONAssert
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.test.fail
 
 class CarePlanBuilderTest {
 
@@ -120,7 +120,9 @@ class CarePlanBuilderTest {
         mockkStatic(FhirHelpers::class)
 
         every { StringUtils.randomUUID() } returnsMany listOf(
-            PATIENT_ID, PRACTITIONER_ID, MEDICATION_REQ_ID
+            PATIENT_ID,
+            PRACTITIONER_ID,
+            MEDICATION_REQ_ID
         )
 
         every { FhirHelpers.getAllContainedResources(dummyMedRequest, true) } returns listOf<Resource>(

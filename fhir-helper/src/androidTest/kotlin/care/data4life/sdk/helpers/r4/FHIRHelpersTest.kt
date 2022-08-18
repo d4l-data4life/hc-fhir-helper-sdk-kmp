@@ -20,11 +20,11 @@ import care.data4life.fhir.r4.model.*
 import care.data4life.sdk.util.ArrayUtils
 import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
+import java.math.BigDecimal
+import java.util.*
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test
-import java.math.BigDecimal
-import java.util.*
 
 class FHIRHelpersTest {
 

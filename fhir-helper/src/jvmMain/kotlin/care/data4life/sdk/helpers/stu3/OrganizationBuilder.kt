@@ -30,7 +30,6 @@ object OrganizationBuilder {
         telephone: String? = null,
         website: String? = null
     ): Organization {
-
         val address = FhirHelpers.buildWith(street, postalCode, city)
         val tel = FhirHelpers.buildWith(telephone, CodeSystemContactPointSystem.PHONE)
         val web = FhirHelpers.buildWith(website, CodeSystemContactPointSystem.URL)
