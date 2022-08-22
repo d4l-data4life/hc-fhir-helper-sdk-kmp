@@ -53,6 +53,9 @@ toc::[]
 * Android Material Components 1.5.0 -> 1.6.1
 * Android Constraint Layout 2.1.3 -> 2.1.4
 * Android Target SDK 31 -> 33
+* HC Util 1.13.0 -> 1.14.0
+* HC FHIR SDK Java 1.8.0 -> 1.9.0
+
 
 == https://github.com/d4l-data4life/hc-fhir-helper-sdk-kmp/compare/v1.8.0\...v1.9.0[1.9.0]
 
