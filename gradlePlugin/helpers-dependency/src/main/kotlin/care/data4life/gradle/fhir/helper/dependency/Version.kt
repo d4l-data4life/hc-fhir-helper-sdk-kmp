@@ -67,12 +67,12 @@ object Version {
     /**
      * [hc-fhir-sdk-java](https://github.com/d4l-data4life/hc-fhir-sdk-java)
      */
-    const val fhir = "1.8.0"
+    const val fhir = "1.9.0"
 
     /**
      *  https://github.com/d4l-data4life/hc-util-sdk-kmp
      */
-    const val sdkUtil = "1.13.0"
+    const val sdkUtil = "1.14.0"
 
     /**
      * [mockk](http://mockk.io)
